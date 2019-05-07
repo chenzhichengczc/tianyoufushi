@@ -1,0 +1,4 @@
+server:
+  servlet:
+    context-path: /jckc_backer
+  port: 80
