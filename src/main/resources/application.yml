@@ -2,3 +2,7 @@ server:
   servlet:
     context-path: /jckc_backer
   port: 80
+spring:
+  devtools:
+    restart:
+      enabled: true
