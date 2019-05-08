@@ -3,7 +3,7 @@ Template Name: Fobia Admin
 Author: CODERVENT
 Email: codervent@gmail.com
 File: app-style
-¸ü¶à¾«Æ·Ä£°åÇë·ÃÎÊ£ºhttp://www.bootstrapmb.com
+ï¿½ï¿½ï¿½à¾«Æ·Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê£ï¿½http://www.bootstrapmb.com
 */
 
 /*  
@@ -55,9 +55,94 @@ html{
   height: 100%;
 }
 
+.current{
+    color: #fff;
+    background-color: #1E9FFF;
+    border: none;
+}
+.current > span{
+    color: white;
+}
+
+.pagetab_fz li a{
+    display: inline-block;
+    padding: 9px 12px;
+    height: 38px;
+    font-size: 14px;
+}
+
+.bg a .bt a{
+    margin: 0px;
+    display: inline-block;
+    border-right: 1px solid #c2c6cc;
+    color: #666;
+    padding: 9px 10px 9px 6px;
+    clear: both;
+}
+
+.bg a > i{
+    padding: 0px;
+    vertical-align: -1px;
+    color: #FF6666;
+    margin-right: 5px;
+}
+
+.tableHeader>th{
+    width: 1px;
+    align-items: center;
+    border: 1px #e2e6ec;
+    color: #73879C;
+    padding: 5px 5px 5px 5px;
+    font-size: 12px;
+    font-weight: bold;
+    border-top: 0px;
+}
+
+.tableb{
+    text-align: center;
+}
+
+.check-box-item2{
+    display: inline-block;
+    margin-left: 0px;
+}
+
+.check-box-item{
+    margin-top: 0px !important;
+    width: 15px;
+    height: 15px;
+    background-image: url("../images/ico-check.png") !important;
+    background-repeat: no-repeat;
+    background-position: 0 -30px;
+    display: inline-block;
+    cursor: pointer;
+    margin-top: -3px !important;
+}
+
+.checkbox-item-mouseleave{
+    background-position: 0 -30px;
+}
+
+.pagetab_fz li a:visited{
+    color: #178eb9;
+    text-decoration: none;
+}
+
+
+.pagetab_fz li a:link{
+    text-decoration: none;
+}
+
+a:-webkit-any-link{
+    cursor: pointer;
+}
+
+.list-style-type-none {
+    list-style-type: none;
+}
 
 @-ms-viewport {
-	width: device-width
+	width: device-width;
 }
 
 body {
@@ -5231,7 +5316,7 @@ table.grid td {
 [class*="icheck-material"] {
   min-height: 22px;
   margin-top: 6px;
-  margin-bottom: 6px 
+  margin-bottom: 6px;
   padding-left: 0px; }
   [class*="icheck-material"] > label {
     padding-left: 29px !important;
