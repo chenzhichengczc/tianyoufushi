@@ -1,4 +1,4 @@
-package com.jc.common.utils;
+package com.jckc_backer.common.utils;
 
 public final class TextValidator {
 

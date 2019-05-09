@@ -3,6 +3,7 @@ package com.jckc_backer.modules.information.service.impl;
 import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.jckc_backer.common.exception.JcException;
 import com.jckc_backer.modules.information.entity.InformationDetailEntity;
 import com.jckc_backer.modules.information.entity.InformationEntity;
 import com.jckc_backer.modules.information.mapper.InformationMapper;
@@ -76,7 +77,7 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
     public void insertInfo(InformationEntity informationEntity) {
         Integer insertResult = informationMapper.insert(informationEntity);
         if(insertResult != 1){
-            throw new com.jc.common.exception.JcException("资讯类型插入失败");
+            throw new JcException("资讯类型插入失败");
         }
     }
 
@@ -85,7 +86,7 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
         boolean b = informationMapper.insertBatch(infoList);
         //是否有事务管理
         if(b != true){
-            throw new com.jc.common.exception.JcException("批量资讯类型插入失败");
+            throw new JcException("批量资讯类型插入失败");
         }
     }
 
@@ -93,7 +94,7 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
     public void updateInfoById(InformationEntity informationEntity) {
         Integer integer = informationMapper.updateById(informationEntity);
         if(integer != 1){
-            throw new com.jc.common.exception.JcException("更新资讯类型失败");
+            throw new JcException("更新资讯类型失败");
         }
 
         System.out.println("InformationServiceImpl.updateInfoById");
@@ -104,7 +105,7 @@ public class InformationServiceImpl extends ServiceImpl<InformationMapper, Infor
     public void deleteInfoById(Integer id) {
         Integer integer = informationMapper.deleteById(id);
         if(integer != 1){
-            throw new com.jc.common.exception.JcException("删除资讯类型失败");
+            throw new JcException("删除资讯类型失败");
         }
     }
 
