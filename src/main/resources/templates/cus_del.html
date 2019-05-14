@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/table_data_tables.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:01 GMT -->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>金诚科创信息管理后台 - 客户信息管理</title>
+    <meta name="keywords" content="金诚科创信息管理后台">
+    <meta name="description" content="金诚科创信息管理后台">
+
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <link href="../css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="../css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+
+    <!-- Data Tables -->
+    <link href="../css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
+    <link href="../css/animate.min.css" rel="stylesheet">
+    <link href="../css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <link href="../css/other.css" rel="stylesheet"/>
+    <style type="text/css">
+        html {
+            overflow: hidden;
+        }
+
+        body {
+            margin: 0px;
+        }
+
+        .ck {
+            padding: 3px 10px;
+        }
+    </style>
+
+</head>
+
+<body class="gray-bg">
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>客户
+                        <small>信息管理</small>
+                    </h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="table_data_tables.html#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="table_data_tables.html#">选项1</a>
+                            </li>
+                            <li>
+                                <a href="table_data_tables.html#">选项2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- tools-->
+                <div class="btn-toolbar" style="margin-left: 10px; margin-top: 5px;">
+                    <div class="btn-group">
+                        <button class="btn btn-serch">
+                            <i class="fa fa-search"></i>
+                            搜索
+                        </button>
+                    </div>
+                    <div class="btn-group" style="margin-left: 10px;">
+                        <button class="btn btn-add" id="cus_add"><i class="fa fa-plus"></i> 添加</button>
+                        <button class="btn btn-delete" id="cus_delete"><i class="fa fa-remove"></i> 删除</button>
+                        <button class="btn btn-alter" id="cus_alter"><i class="fa fa-eraser"></i> 修改</button>
+                    </div>
+                </div>
+
+                <!-- TODO -->
+                <div class="modal" id="cus_delete_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLable"
+                     style="display: none;" data-backdrop="static">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <table width="100%" align="center" class="TableList">
+                                    <thead>
+                                    批量删除客户信息
+                                    </thead>
+                                    <tr>
+                                        <td colspan="2">
+                                            <span style="color: red">提示:</span>
+                                            <span>您共选择了<span
+                                                    style="color: red">1</span>个需要删除的客户，删除将清空与之相关的所有记录，包括如下：</span>
+                                        </td>
+                                    </tr>
+
+                                    <tr  class="TableLine1">
+                                        <td colspan="2">
+                                            <div class="ck"><span class="inputcheckbox2 noheight"><span
+                                                    class="checkbox-item checkbox-item-checked" data-type="delete"
+                                                    data-id="delete" data-value="28" data-selected="1"></span><label
+                                                    class="color666">相关的所有联系跟进记录</label></span></div>
+
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="ck"><span class="inputcheckbox2 noheight"><span
+                                                    class="checkbox-item checkbox-item-checked" data-type="delete"
+                                                    data-id="delete" data-value="68" data-selected="1"></span><label
+                                                    class="color666">相关的所有联系任务记录</label></span></div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="ck"><span class="inputcheckbox2 noheight"><span
+                                                    class="checkbox-item checkbox-item-checked" data-type="delete"
+                                                    data-id="delete" data-value="14" data-selected="1"></span><label
+                                                    class="color666">相关的所有成交记录</label></span></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="ck"><span class="inputcheckbox2 noheight"><span
+                                                    class="checkbox-item checkbox-item-checked" data-type="delete"
+                                                    data-id="delete" data-value="85" data-selected="1"></span><label
+                                                    class="color666">相关的所有回款记录</label></span></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="ck"><span class="inputcheckbox2 noheight"><span
+                                                    class="checkbox-item checkbox-item-checked" data-type="delete"
+                                                    data-id="delete" data-value="127" data-selected="1"></span><label
+                                                    class="color666">相关的所有退款记录</label></span></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="ck"><span class="inputcheckbox2 noheight"><span
+                                                    class="checkbox-item checkbox-item-checked" data-type="delete"
+                                                    data-id="delete" data-value="43" data-selected="1"></span><label
+                                                    class="color666">相关的所有投诉记录</label></span></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="ck"><span class="inputcheckbox2 noheight"><span
+                                                    class="checkbox-item checkbox-item-checked" data-type="delete"
+                                                    data-id="delete" data-value="38" data-selected="1"></span><label
+                                                    class="color666">相关的所有销售记录记录</label></span></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                            <div class="ck"><span class="inputcheckbox2 noheight"><span
+                                                    class="checkbox-item checkbox-item-checked" data-type="delete"
+                                                    data-id="delete" data-value="121" data-selected="1"></span><label
+                                                    class="color666">相关的所有费用支出记录</label></span></div>
+                                        </td>
+                                    </tr>
+
+                                            <div class="ck">
+                                                 其他记录(如：企业客户联系人信息、相关日志、相关附件、相关记事等)
+                                            </div>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr class="TableLine1">
+                                        <td colspan="2">
+                                            放入回收站&nbsp;&nbsp;(90天内可恢复）
+                                            <input type="hidden" id="rptIsRecyle" name="rptIsRecyle" value="1"/>
+                                        </td>
+                                    </tr>
+
+                                    <tr align="center" class="TableControl2">
+                                        <td colspan="2">
+                                            <input type="submit" name="rptCommit" value="删除"
+                                                   onclick="return checkForm();" id="rptCommit"
+                                                   class="btn2 btn2-commit"/><span id="rptCommitHui"></span>
+                                            &nbsp;<input class="btn2 btn2-default" title="关闭"
+                                                         onclick="parent.Dialog.close();" type="button" value="取消"/>
+                                        </td>
+                                    </tr>
+
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery.min.js?v=2.1.4"></script>
+<script src="../js/bootstrap.min.js?v=3.3.6"></script>
+<script src="../js/plugins/jeditable/jquery.jeditable.js"></script>
+<script src="../js/plugins/dataTables/jquery.dataTables.js"></script>
+<script src="../js/plugins/dataTables/dataTables.bootstrap.js"></script>
+<script src="../js/content.min.js?v=1.0.0"></script>
+<script src="../js/model.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".dataTables-example").dataTable();
+        var oTable = $("#editable").dataTable();
+        oTable.$("td").editable("", {
+            "callback": function (sValue, y) {
+                var aPos = oTable.fnGetPosition(this);
+                oTable.fnUpdate(sValue, aPos[0], aPos[1])
+            },
+            "submitdata": function (value, settings) {
+                return {
+                    "row_id": this.parentNode.getAttribute("id"),
+                    "column": oTable.fnGetPosition(this)[2]
+                }
+            },
+            "width": "90%",
+            "height": "100px"
+        })
+    });
+</script>
+<script>
+    $("#cus_delete").click(function () {
+        $("#cus_delete_modal").css("display", "block")
+    })
+
+    $("#cancel").click(function () {
+        $("#cus_delete_modal").css("display", "none")
+    })
+</script>
+<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript">
+    function checkForm() {
+
+        var isrecyle = GetValue("isrecyle");
+        if (isrecyle == "") isrecyle = 0;
+        $("#rptIsRecyle").val(isrecyle);
+
+        if (!confirm('删除将不可恢复，您确定吗？')) {
+            return false;
+        }
+        //2018-04-03 qianlong 要删除的功能模块
+        var deleteModule = GetValue("delete");
+        $("#rptDeleteForModule").val(deleteModule);
+
+        CommitButton(null);
+    }
+</script>
+<script type="text/javascript">
+    StartAutoSize('CusDelete');
+</script>
+
+</body>
+
+<!-- Mirrored from www.zi-han.net/theme/hplus/table_data_tables.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:02 GMT -->
+
+</html>
