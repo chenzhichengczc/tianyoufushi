@@ -4,6 +4,7 @@ package com.jckc_backer.modules.information.mapper;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.jckc_backer.modules.information.entity.InformationDetailEntity;
 import com.jckc_backer.modules.information.entity.InformationEntity;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -17,6 +18,7 @@ import java.util.List;
  * @modified By：
  * @version:
  */
+
 public interface InformationMapper extends BaseMapper<InformationEntity> {
 
    boolean insertBatch(List<InformationEntity> list);
