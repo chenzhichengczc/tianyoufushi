@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@MapperScan("com.jc.modules.*.mapper")
+@MapperScan("com.jckc_backer.modules.*.mapper")
 @SpringBootConfiguration
 @EnableTransactionManagement
 @EnableScheduling

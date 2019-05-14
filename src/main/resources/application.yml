@@ -59,8 +59,8 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl  #打印sql日志
     log-prefix:
-  mapper-locations: classpath:mappers/*/*.xml
-  type-aliases-package: com.jc.modules/*/entity
+  #mapper-locations: classpath:mappers/*/*.xml
+  type-aliases-package: com.jckc_backer.modules/*/entity
 
 
 #分页插件

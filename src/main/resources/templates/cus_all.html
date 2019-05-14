@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+
+	<!-- Mirrored from www.zi-han.net/theme/hplus/table_data_tables.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:01 GMT -->
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>金诚科创信息管理后台 - 客户信息管理</title>
+		<meta name="keywords" content="金诚科创信息管理后台">
+		<meta name="description" content="金诚科创信息管理后台">
+
+		<link rel="shortcut icon" href="../img/favicon.ico">
+		<link href="../css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+		<link href="../css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+
+		<!-- Data Tables -->
+		<link href="../css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
+		<link href="../css/animate.min.css" rel="stylesheet">
+		<link href="../css/style.min862f.css?v=4.1.0" rel="stylesheet">
+		<link href="../css/other.css" rel="stylesheet" />
+	</head>
+
+	<body class="gray-bg">
+		<div class="wrapper wrapper-content animated fadeInRight">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="ibox float-e-margins">
+						<div class="ibox-title">
+							<h5>客户 <small>信息管理</small></h5>
+							<div class="ibox-tools">
+								<a class="collapse-link">
+									<i class="fa fa-chevron-up"></i>
+								</a>
+								<a class="dropdown-toggle" data-toggle="dropdown" href="table_data_tables.html#">
+									<i class="fa fa-wrench"></i>
+								</a>
+								<ul class="dropdown-menu dropdown-user">
+									<li>
+										<a href="table_data_tables.html#">选项1</a>
+									</li>
+									<li>
+										<a href="table_data_tables.html#">选项2</a>
+									</li>
+								</ul>
+								<a class="close-link">
+									<i class="fa fa-times"></i>
+								</a>
+							</div>
+						</div>
+
+						<!-- tools-->
+						<div class="btn-toolbar" style="margin-left: 10px; margin-top: 5px;">
+							<div class="btn-group">
+								<button class="btn btn-serch">
+									<i class="fa fa-search"></i>
+									搜索
+								</button>
+							</div>
+							<div class="btn-group" style="margin-left: 10px;">
+								<button class="btn btn-add" id="cus_add"><i class="fa fa-plus"></i>  添加</button>
+								<button class="btn btn-delete" id="cus_delete"><i class="fa fa-remove"></i>  删除</button>
+								<button class="btn btn-alter" id="cus_alter"><i class="fa fa-eraser"></i>  修改</button>
+							</div>
+						</div>
+
+						<!-- TODO -->
+						<div class="modal" id="cus_add_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLable" style="display: none; height: 900px;" data-backdrop="static">
+							<div class="modal-dialog" role="document" style="width: 80%;">
+								<div class="modal-content">
+									<div class="modal-header">
+										<table width="100%" align="center" class="tb">
+											<thead>
+												客户详细信息<span class="close" ></span>
+											</thead>
+											<tbody>
+												<tr class="tl">
+													<td>
+														<b>基本信息：</b>
+													</td>
+												</tr>
+												<tr>
+													<td align="right">获取用户时间：</td>
+													<td>
+														<input type="date"/>
+														<span style="color: red;">*</span>
+													</td>
+
+													<td align="absbottom">
+														所有者 :
+														<a href="#">charles</a>
+													</td>
+												</tr>
+												<tr class="tl">
+													<td>
+														<b>公司信息：</b>
+													</td>
+												</tr>
+												<tr>
+													<td align="right">客户名称：</td>
+													<td>
+														<input type="text" placeholder="客户名称"/>
+														<span style="color: red;">*</span>
+													</td>
+												</tr>
+												<tr>
+													<td align="right">所在城市：</td>
+													<td>
+														<select>
+															<option></option>
+															<option>B &nbsp; 北京</option>
+															<option>S &nbsp; 上海</option>
+															<option>G &nbsp; 广州</option>
+															<option>S &nbsp; 深圳</option>
+														</select>
+														<span style="color: red;">*</span>
+													</td>
+												</tr>
+												<tr>
+													<td align="right">行业：</td>
+													<td>
+														<select>
+															<option></option>
+															<option>科学</option>
+															<option>医疗</option>
+														</select>
+														<span style="color: red;">*</span>
+													</td>
+												</tr>
+												<tr>
+													<td align="right">合作方向：
+														<td>
+															<input type="text"/>
+														</td>
+														<span style="color: red;">*</span>
+													</td>
+												</tr>
+												<tr>
+													<td align="right">公司座机：
+														<td>
+															<input type="text" placeholder="公司座机"/>
+														</td>
+													</td>
+													<td align="absbottom">客户状态：
+														<select>
+															<option>潜在客户</option>
+														</select>
+													</td>
+												</tr>
+
+												<tr>
+													<td align="right">客户类别：
+														<td>
+															<select>
+																<option>合作商</option>
+															</select>
+														</td>
+													</td>
+													<td align="absbottom">客户等级：
+														<select>
+															<option><span class="fa fa-star"/></span></option>
+															<option></option>
+															<option>★</option>
+															<option>★★</option>
+															<option>★★★</option>
+															<option>★★★★</option>
+															<option>★★★★★</option>
+														</select>
+													</td>
+												</tr>
+
+												<tr>
+													<td align="right">客户来源：
+														<td>
+															<select>
+																<option>注册会员</option>
+															</select>
+														</td>
+													</td>
+													<td align="absbottom">&nbsp;&nbsp;&nbsp;&nbsp;成熟度：
+														<select>
+															<option><span class="fa fa-star"/></span></option>
+															<option></option>
+															<option>A+ 明确成交意向</option>
+														</select>
+													</td>
+												</tr>
+
+												<tr>
+													<td align="right">公司地址：
+														<td>
+															<input placeholder="公司地址" type="text" width="300px"/>
+														</td>
+													</td>
+												</tr>
+
+												<tr>
+													<td align="right">备注：
+														<td>
+															<textarea placeholder="备注信息"></textarea>
+														</td>
+													</td>
+												</tr>
+
+												<tr class="tl">
+													<td >
+														<b>联系人：</b>
+													</td>
+												</tr>
+
+												<tr>
+													<td align="right">姓名：
+														<td>
+															<input type="text" placeholder="姓名"/>
+														</td>
+													</td>
+													<span style="color: red;">*</span>
+
+													<td align="absbottom">性别：
+														<input type="radio"/>男
+														<input type="radio"/>女
+													</td>
+													<span style="color: red;">*</span>
+												</tr>
+
+												<tr>
+													<td align="right">生日：
+														<td>
+															<input type="date"/>
+														</td>
+													</td>
+
+													<td align="absbottom">职务：
+														<input type="text" placeholder="职务"/>
+													</td>
+												</tr>
+
+												<tr>
+													<td align="right">称呼：
+														<td>
+															<input type="text" placeholder="称呼"/>
+														</td>
+													</td>
+
+													<td align="absbottom">手机：
+														<input type="tel" placeholder="主联系手机"/>
+														<input type="tel" placeholder="副联系手机"/>
+													</td>
+												</tr>
+
+												<tr>
+													<td align="right">联系人座机：
+														<td>
+															<input type="tel" placeholder="联系人座机"/>
+														</td>
+													</td>
+
+													<td align="absbottom">邮箱：
+														<input type="email" placeholder="邮箱"/>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<div></div>
+										<table align="center">
+											<tr align="center">
+												<td height="20%" colspan="4">
+													<input id="save" type="submit" value="提交" onclick="">
+													<input id="cancel" type="button" title="取消" value="取消">
+												</td>
+											</tr>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="ibox-content">
+							<table class="table table-striped table-bordered table-hover dataTables-example">
+								<thead>
+									<tr>
+										<th class="bs-checkbox" style="width: 36px;" data-field="state" tabindex="0">
+											<input name="" type="checkbox" />
+										</th>
+										<th>客户名称</th>
+										<th>类型</th>
+										<th>所在城市</th>
+										<th>具体地址</th>
+										<th>成熟度</th>
+										<th>手机号码</th>
+										<th>开发需求</th>
+										<th>状态</th>
+										<th>最后跟进时间</th>
+									</tr>
+								</thead>
+								<tbody style="text-align: center;">
+									<tr class="gradeX">
+										<td class="bs-checkbox" style="width: 36px;" data-field="state" tabindex="0">
+											<input name="" type="checkbox" />
+										</td>
+										<td>1</td>
+										<td>2</td>
+										<td>3</td>
+										<td>1</td>
+										<td>2</td>
+										<td>3</td>
+										<td>1</td>
+										<td>2</td>
+										<td>3</td>
+									</tr>
+								</tbody>
+							</table>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../js/jquery.min.js?v=2.1.4"></script>
+		<script src="../js/bootstrap.min.js?v=3.3.6"></script>
+		<script src="../js/plugins/jeditable/jquery.jeditable.js"></script>
+		<script src="../js/plugins/dataTables/jquery.dataTables.js"></script>
+		<script src="../js/plugins/dataTables/dataTables.bootstrap.js"></script>
+		<script src="../js/content.min.js?v=1.0.0"></script>
+		<script src="../js/model.js"></script>
+		<script>
+			$(document).ready(function() {
+				$(".dataTables-example").dataTable();
+				var oTable = $("#editable").dataTable();
+				oTable.$("td").editable("", {
+					"callback": function(sValue, y) {
+						var aPos = oTable.fnGetPosition(this);
+						oTable.fnUpdate(sValue, aPos[0], aPos[1])
+					},
+					"submitdata": function(value, settings) {
+						return {
+							"row_id": this.parentNode.getAttribute("id"),
+							"column": oTable.fnGetPosition(this)[2]
+						}
+					},
+					"width": "90%",
+					"height": "100%"
+				})
+			});
+		</script>
+		<script>
+			$("#cus_add").click(function(){
+				$("#cus_add_modal").css("display","block")
+			})
+
+			$("#cancel,.close").click(function() {
+				$("#cus_add_modal").css("display","none")
+			})
+
+		</script>
+		<script type="text/javascript" src="http://tajs.qq.com/stats?sId=9051096" charset="UTF-8"></script>
+
+	</body>
+
+	<!-- Mirrored from www.zi-han.net/theme/hplus/table_data_tables.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2016 14:20:02 GMT -->
+
+</html>
