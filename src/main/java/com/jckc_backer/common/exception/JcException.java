@@ -9,8 +9,8 @@ package com.jckc_backer.common.exception;
  * @modified By：
  * @version:
  */
-public class JcException extends RuntimeException{
-
+public class JcException extends
+    RuntimeException{
     private static final long serialVersionUID = 1L;
 
     private String msg;
