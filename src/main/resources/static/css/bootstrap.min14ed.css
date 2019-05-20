@@ -231,7 +231,7 @@ th {
 }
 
 
-/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css */
+/*! Source: https://github.com/h5bp/html5-boilerplate/blob/master/src/../css/main.css */
 
 @media print {
 	*,
@@ -7108,7 +7108,7 @@ button.close {
 }
 
 .modal-backdrop {
-	position: fixed;
+	position: static;
 	top: 0;
 	right: 0;
 	bottom: 0;
