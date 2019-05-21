@@ -33,8 +33,8 @@ public class ChanceServiceImpl extends ServiceImpl<ChanceMapper,ChanceEntity> im
     }
 
     @Override
-    public List<ChanceEntity> findByPage(Page<ChanceEntity> page, Wrapper<ChanceEntity> wrapper) {
-        List<ChanceEntity> chanceList=chanceMapper.selectPage(page,wrapper);
+    public List<ChanceEntity> findByPage() {
+        List<ChanceEntity> chanceList=chanceMapper.selectPage();
         return chanceList;
     }
 

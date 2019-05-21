@@ -27,4 +27,6 @@ public class BasicEntity implements Serializable {
     @ApiModelProperty(value = "修改人",name = "updateBy")
     @TableField(value = "update_by")
     private  String updateBy;
+
+
 }

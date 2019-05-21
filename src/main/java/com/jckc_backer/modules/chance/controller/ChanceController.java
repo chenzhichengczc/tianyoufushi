@@ -1,7 +1,6 @@
 package com.jckc_backer.modules.chance.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.plugins.Page;
 import com.jckc_backer.common.utils.ResponseUtil;
 import com.jckc_backer.modules.chance.entity.ChanceEntity;
 import com.jckc_backer.modules.chance.service.ChanceService;
@@ -20,11 +19,12 @@ public class ChanceController{
     @RequestMapping(value="/insert",method= RequestMethod.POST)
     public ResponseUtil insertChanceEntity(ChanceEntity chanceEntity){
         System.out.println("进来了。。。。。。。");
+        System.out.println("chanceEntity = " + chanceEntity);
         chanceService.InsertInto(chanceEntity);
         return ResponseUtil.success();
     }
 
-    @RequestMapping(value="/update",method=RequestMethod.PUT)
+    @RequestMapping(value="/update",method=RequestMethod.POST)
     public ResponseUtil updateChanceEntity(ChanceEntity chanceEntity){
         EntityWrapper<ChanceEntity> entityEntityWrapper = new EntityWrapper<>();
         chanceService.updateChanceEntity(chanceEntity,entityEntityWrapper);
@@ -39,15 +39,13 @@ public class ChanceController{
 
     /**
      *
-     * @param pageNo 第几页
-     * @param pageSize 一页多少条记录
      * @return
      */
     @RequestMapping(value = "/list",method = RequestMethod.GET)
-    public ResponseUtil chanceEntityList(int pageNo, int pageSize){
-        Page<ChanceEntity> page = new Page<>(pageNo, pageSize);
-        EntityWrapper<ChanceEntity> chanceEntityWrapper = new EntityWrapper<>();
-        List<ChanceEntity> pageList = chanceService.findByPage(page, chanceEntityWrapper);
+    public ResponseUtil chanceEntityList(){
+/*        Page<ChanceEntity> page = new Page<>(pageNo, pageSize);
+        EntityWrapper<ChanceEntity> chanceEntityWrapper = new EntityWrapper<>();*/
+        List<ChanceEntity> pageList = chanceService.findByPage();
         return ResponseUtil.success(pageList);
     }
 
