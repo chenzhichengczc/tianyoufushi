@@ -75,7 +75,7 @@ public class InformationController {
         InformationEntity informationEntity = informationService.selectById(id);
         return ResponseUtil.success(informationEntity);
     }
-    
+
     @RequestMapping(value = "/insert",method = RequestMethod.POST)
     @ApiOperation(value = "新增资讯核心类型",notes = "新增")
     public ResponseUtil insertInfo(InformationEntity informationEntity){
@@ -100,6 +100,7 @@ public class InformationController {
     @RequestMapping(value = "/delete/{id}",method = RequestMethod.DELETE)
     @ApiOperation(value = "删除资讯核心类型",notes = "删除")
     public ResponseUtil deleteInfoById(@PathVariable Integer id){
+        System.out.println("id = " + id);
         informationService.deleteInfoById(id);
         return ResponseUtil.success();
     }
