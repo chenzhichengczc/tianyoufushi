@@ -12,7 +12,7 @@
 		<meta name="keywords" content="金诚科创信息管理后台">
 		<meta name="description" content="金诚科创信息管理后台">
 
-		<link rel="shortcut icon" href="../img/favicon.ico">
+		<link rel="shortcut icon" href="../favicon.ico">
 		<link href="../css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
 		<link href="../css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
 
@@ -69,7 +69,24 @@
 							<div class="btn-group" style="margin-left: 10px;">
 								<button class="btn btn-add" data-toggle="modal" data-target="#cus_chance_add"><i class="fa fa-plus"></i>  添加</button>
 								<button class="btn btn-delete" data-toggle="modal" data-target="#cus_chance_delete"><i class="fa fa-remove"></i>  删除</button>
-								<button class="btn btn-alter" data-toggle="modal" data-target="#cus_chance_alter"><i class="fa fa-eraser"></i>  修改</button>
+								<button class="btn btn-alter" data-toggle="modal" data-target="#cus_chance_alter" id="update"><i class="fa fa-eraser"></i>  修改</button>
+							</div>
+						</div>
+						
+						<!--页数-->
+						<div class="row">
+							<div class="col-sm-6">
+								<div class="dataTables_length" style="margin-left: 30px;margin-top: 5px">
+									<label>
+										每页
+										<select class="form-control input-sm" style="display: inline-block">
+											<option>10</option>
+											<option>20</option>
+											<option>30</option>
+										</select>
+										条
+									</label>
+								</div>
 							</div>
 						</div>
 
@@ -142,7 +159,7 @@
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
-
+											
 											<tr>
 												<td align="center">机会阶段：
 													<select style="width: 170px;">
@@ -205,20 +222,20 @@
 							</div>
 							<!-- /.modal -->
 						</div>
-
+						
 						<!--
                         	作者：178642170@qq.com
                         	时间：2019-05-15
                         	描述：custom 商机删除模态
                         -->
-						<div class="modal" id="cus_chance_delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							<div class="modal-dialog" id="cus_chance_dialog">
+						<div class="modal" id="cus_chance_delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+							<div class="modal-dialog" id="cus_chance_dialog1">
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 											×
 										</button>
-										<h4 class="modal-title" id="myModalLabel">
+										<h4 class="modal-title" id="myModalLabel1">
 											客户商机删除确定
 										</h4>
 									</div>
@@ -242,14 +259,14 @@
                         	时间：2019-05-14
                         	描述：custom 机会增加
                         -->
-						<div class="modal" id="cus_chance_add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width: auto;">
-							<div class="modal-dialog" id="cus_chance_dialog">
+						<div class="modal" id="cus_chance_add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" style="width: auto;">
+							<div class="modal-dialog" id="cus_chance_dialog2">
 								<div class="modal-content" style="overflow: scroll; height: 500px; ">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 											×
 										</button>
-										<h4 class="modal-title" id="myModalLabel">
+										<h4 class="modal-title" id="myModalLabel2">
 											销售机会增加页面
 										</h4>
 									</div>
@@ -262,78 +279,78 @@
 											</tr>
 											<tr>
 												<td align="center">机会名称：
-													<input type="text" placeholder="机会名称"/>
+													<input type="text" placeholder="机会名称" id="chanceName" name="chanceName"/>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">客户名称：
-													<input type="text" placeholder="名称或拼音模糊查找"/>
+													<input type="text" placeholder="名称或拼音模糊查找" id="clientName" name="clientName"/>
 													<a href="#"> + 选择</a>
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
 											<tr>
 												<td align="center">机会类型：
-													<select style="width: 170px;">
+													<select style="width: 170px;" id="type" name="type">
 														<option></option>
-														<option>A 合作</option>
-														<option>B 外包</option>
-														<option>C 投包</option>
-														<option>D 渠道</option>
+														<option value="A 合作">A 合作</option>
+														<option value="B 外包">B 外包</option>
+														<option value="C 投包">C 投包</option>
+														<option value="D 渠道">D 渠道</option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">机会来源：
-													<select style="width: 170px;">
+													<select style="width: 170px;" id="source" name="source">
 														<option></option>
-														<option>A 客户主动联系</option>
-														<option>B 网上搜索渠道</option>
-														<option>C 市场业务</option>
-														<option>D 广告宣传</option>
-														<option>E 招标</option>
-														<option>F 外包网站</option>
+														<option value="A 客户主动联系">A 客户主动联系</option>
+														<option value="B 网上搜索渠道">B 网上搜索渠道</option>
+														<option value="C 市场业务">C 市场业务</option>
+														<option value="D 广告宣传">D 广告宣传</option>
+														<option value="E 招标">E 招标</option>
+														<option value="F 外包网站">F 外包网站</option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
 											<tr>
 												<td align="center">预计成交日期：
-													<input type="date" style="width: 146px;"/>
+													<input type="date" style="width: 146px;" id="dateTime" name="dateTime"/>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">预计成交金额：
-													<input type="text" style="width: 144px;"/>
+													<input type="text" style="width: 144px;" id="money" name="money"/>
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
-
+											
 											<tr>
 												<td align="center">机会阶段：
-													<select style="width: 170px;">
+													<select style="width: 170px;" id="stage" name="stage">
 														<option></option>
-														<option>A 初步沟通</option>
-														<option>B 立项评估</option>
-														<option>C 需求分析</option>
-														<option>D 解决方案</option>
-														<option>E 已报价</option>
-														<option>F 商务谈判</option>
-														<option>G 合同 / 订单签订</option>
+														<option value="A 初步沟通">A 初步沟通</option>
+														<option value="B 立项评估">B 立项评估</option>
+														<option value="C 需求分析">C 需求分析</option>
+														<option value="D 解决方案">D 解决方案</option>
+														<option value="E 已报价">E 已报价</option>
+														<option value="F 商务谈判">F 商务谈判</option>
+														<option value="G 合同 / 订单签订">G 合同 / 订单签订</option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">成交可能性：
-													<select style="width: 156px;">
+													<select style="width: 156px;" id="possibility" name="possibility">
 														<option></option>
-														<option> 0% </option>
-														<option> 10% </option>
-														<option> 20% </option>
-														<option> 30% </option>
-														<option> 40% </option>
-														<option> 50% </option>
-														<option> 60% </option>
-														<option> 70% </option>
-														<option> 80% </option>
-														<option> 90% </option>
-														<option> 100% </option>
+														<option value="0%"> 0% </option>
+														<option value="10%"> 10% </option>
+														<option value="20%"> 20% </option>
+														<option value="30%"> 30% </option>
+														<option value="40%"> 40% </option>
+														<option value="50%"> 50% </option>
+														<option value="60%"> 60% </option>
+														<option value="70%"> 70% </option>
+														<option value="80%"> 80% </option>
+														<option value="90%"> 90% </option>
+														<option value="100%"> 100% </option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
@@ -345,13 +362,13 @@
 											</tr>
 											<tr>
 												<td align="center" colspan="2">机会描述：
-													<textarea cols="50" rows="3" placeholder="请输入机会描述"></textarea>
+													<textarea cols="50" rows="3" placeholder="请输入机会描述" id="cribe" name="cribe"></textarea>
 												</td>
 											</tr>
 											<tr></tr>
 											<tr>
 												<td align="center" colspan="2">额外备注：
-													<textarea cols="50" rows="3" placeholder="请输入备注"></textarea>
+													<textarea cols="50" rows="3" placeholder="请输入备注" id="remarks" name="remarks"></textarea>
 												</td>
 											</tr>
 										</table>
@@ -359,7 +376,7 @@
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 										</button>
-										<button type="button" class="btn btn-primary">
+										<button type="button" class="btn btn-primary" id="chance_btn">
 											提交保存
 										</button>
 									</div>
@@ -374,7 +391,7 @@
 								<thead>
 									<tr>
 										<th class="bs-checkbox" style="width: 36px;" data-field="state" tabindex="0">
-											<input name="" type="checkbox" />
+											选项
 										</th>
 										<th>机会名称</th>
 										<th>客户名称</th>
@@ -388,24 +405,24 @@
 										<th>录入时间</th>
 									</tr>
 								</thead>
-								<tbody style="text-align: center;">
-									<tr class="gradeX">
-										<td class="bs-checkbox" style="width: 36px;" data-field="state" tabindex="0">
-											<input name="" type="checkbox" />
-										</td>
-										<td>1</td>
-										<td>2</td>
-										<td>3</td>
-										<td>1</td>
-										<td>2</td>
-										<td>3</td>
-										<td>1</td>
-										<td>2</td>
-										<td>3</td>
-										<td>3</td>
-									</tr>
+								<tbody style="text-align: center;" id="chance_td">
+
 								</tbody>
 							</table>
+						</div>
+
+						<!--页尾-->
+						<div class="row">
+							<div class="col-sm-6" style="padding-top: 8px"> 显示 1 到 1 项，共 1 项</div>
+							<div class="col-sm-6">
+								<div id="yw">
+									<ul id="ywul">
+										<li><a href="#">上一页</a></li>
+										<li><a href="#">1</a></li>
+										<li><a href="#">下一页</a></li>
+									</ul>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -416,10 +433,9 @@
 		<script src="../js/jquery-ui.min.js"></script>
 		<script src="../js/bootstrap.min.js?v=3.3.6"></script>
 		<script src="../js/plugins/jeditable/jquery.jeditable.js"></script>
-		<script src="../js/plugins/dataTables/jquery.dataTables.js"></script>
 		<script src="../js/plugins/dataTables/dataTables.bootstrap.js"></script>
 		<script src="../js/content.min.js?v=1.0.0"></script>
-		<script src="../js/model.js"></script>
+		<script src="../js/chance/chance_add.js"></script>
 		<script>
 			$(document).ready(function() {
 				$(".dataTables-example").dataTable();

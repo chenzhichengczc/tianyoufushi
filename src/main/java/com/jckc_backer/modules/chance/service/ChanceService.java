@@ -24,7 +24,7 @@ public interface ChanceService extends IService<ChanceEntity> {
      * 分页查询
      * @param ：page,queryWrapper
      */
-    List<ChanceEntity> findByPage(Page<ChanceEntity> page, Wrapper<ChanceEntity> wrapper);
+    List<ChanceEntity> findByPage();
 
     /**
      * 使用pagehelper分页

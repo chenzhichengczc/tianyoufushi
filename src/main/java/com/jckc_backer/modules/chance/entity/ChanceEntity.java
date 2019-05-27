@@ -9,8 +9,6 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import java.util.Date;
-
 @TableName("custom_information")
 @Data
 @ApiModel("销售机会信息表")
@@ -28,33 +26,29 @@ public class ChanceEntity extends BasicEntity {
     private String clientName;
 
 
-  /*  @ApiModelProperty(value="机会类型",name="type")
+   @ApiModelProperty(value="机会类型",name="type")
     private String type;
 
     @ApiModelProperty(value="机会描述",name="cribe")
-    private String cribe;*/
+    private String cribe;
 
     @ApiModelProperty(value="机会来源",name="source")
     private String source;
 
- @ApiModelProperty(value="预计成交金额",name="money")
- private String money;
+    @ApiModelProperty(value="预计成交金额",name="money")
+    private String money;
 
- @ApiModelProperty(value="机会阶段",name="stage")
- private String stage;
+    @ApiModelProperty(value="机会阶段",name="stage")
+    private String stage;
 
- @ApiModelProperty(value="成交可能性",name="possibility")
- private String possibility;
+    @ApiModelProperty(value="成交可能性",name="possibility")
+    private String possibility;
 
-   /* @ApiModelProperty(value="成交日期",name="dateTime")
+    @ApiModelProperty(value="成交日期",name="dateTime")
     @TableField(value = "date_time")
-    private Date dateTime;
-
-
-
-
+    private String dateTime;
 
     @ApiModelProperty(value="备注",name="remarks")
     private String remarks;
-*/
+
 }
