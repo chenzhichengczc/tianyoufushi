@@ -23,6 +23,7 @@
 		<link href="../css/style.min862f.css?v=4.1.0" rel="stylesheet">
 		<link href="../css/other.css" rel="stylesheet" />
 		<link href="../css/city/cityselect.css" rel="stylesheet" />
+		<link href="../css/pagination.css"/>
 	</head>
 
 	<body class="gray-bg">
@@ -68,7 +69,7 @@
 							<div class="btn-group" style="margin-left: 10px;">
 								<button class="btn btn-add" data-toggle="modal" data-target="#cus_all_add"><i class="fa fa-plus"></i>  添加</button>
 								<button class="btn btn-delete" data-toggle="modal" data-target="#cus_all_delete"><i class="fa fa-remove"></i>  删除</button>
-								<button class="btn btn-alter" data-toggle="modal" data-target="#cus_all_alter"><i class="fa fa-eraser"></i>  修改</button>
+								<button class="btn btn-alter" data-toggle="modal" id="update"><i class="fa fa-eraser"></i>  修改</button>
 							</div>
 						</div>
 
@@ -107,6 +108,8 @@
 									</div>
 									<div class="modal-body">
 										<table width="100%" align="center" class="cus_all_tb">
+											<form id="client_form" method="post">
+												<input hidden="hidden" type="text" value="" id="uid" name="uid"/>
 											<tr class="cus_all_tl">
 												<td>
 													<b>基本信息：</b>
@@ -114,7 +117,7 @@
 											</tr>
 											<tr>
 												<td align="center">获取用户时间：
-													<input type="date" />
+													<input type="date" id="client_date" name="date"/>
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
@@ -125,121 +128,83 @@
 											</tr>
 											<tr>
 												<td align="center">客户名称：
-													<input type="text" placeholder="客户名称" />
+													<input type="text" placeholder="客户名称" id="client_name" name="clientName"/>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">所在城市：
-													<input type="text" class="cityinput" id="citySelect" placeholder="请输入目的地" style="width: 165px;" />
+													<input type="text" class="cityinput" id="client_local" name="local" placeholder="请输入目的地" style="width: 165px;" />
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
 											<tr>
 												<td align="center" style="border-left-width: 52px;">行业：
-													<select>
-														<option></option>
-														<option>A 农、林、牧、渔业</option>
-														<option>B 采矿业</option>
-														<option>C 制造业</option>
-														<option>D 电力生产和供应</option>
-														<option>E 建筑业</option>
-														<option>F 交通运输、仓储和邮政</option>
-														<option>G 计算机服务和软件业</option>
-														<option>H 批发和零售</option>
-														<option>I 住宿和餐饮业</option>
-														<option>J 金融业</option>
-														<option>K 房地产业</option>
-														<option>L 租赁和商务服务</option>
-														<option>M 科学研究</option>
-														<option>N 水利、环境管理</option>
-														<option>O 居民服务和其他服务</option>
-														<option>P 教育</option>
-														<option>Q 社会保障和社会福利</option>
-														<option>R 文化、体育和娱乐业</option>
-														<option>S 公共管理和社会组织</option>
-														<option>T 国际组织</option>
-													</select>
+													<input type="text" id="client_trade" name="trade" readonly="readonly"/>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">合作方向：
-													<input type="text" style="width: 165px;"/>
+													<input type="text" style="width: 165px;" name="direction" id="client_direction"/>
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
 											<tr>
 												<td align="center">公司座机：
-													<input type="tel" placeholder="公司座机" style="width: 165px;"/>
+													<input type="tel" placeholder="公司座机" style="width: 165px;" id="client_phone" name="phone"/>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">客户状态：
-													<select style="width: 165px;">
-														<option></option>
-														<option>潜在客户</option>
-														<option>意向客户</option>
-														<option>成交客户</option>
-														<option>失败客户</option>
-														<option>已流失客户</option>
-													</select>
+													<input type="text" id="client_state" name="state" readonly="readonly"/>
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
 											<tr>
 												<td align="center">客户类别：
-													<select style="width: 165px;">
+													<select style="width: 165px;" id="client_type" name="type">
 														<option></option>
-														<option>普通客户</option>
-														<option>老客户</option>
-														<option>代理商</option>
-														<option>合作商</option>
-														<option>合作伙伴</option>
-														<option>其他</option>
+														<option value="普通客户">普通客户</option>
+														<option value="老客户">老客户</option>
+														<option value="代理商">代理商</option>
+														<option value="合作商">合作商</option>
+														<option value="合作伙伴">合作伙伴</option>
+														<option value="其他">其他</option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">客户等级：
-													<select style="width: 165px;">
+													<select style="width: 165px;" id="client_grade" name="grade">
 														<option></option>
-														<option>★</option>
-														<option>★★</option>
-														<option>★★★</option>
-														<option>★★★★</option>
-														<option>★★★★★</option>
+														<option value="★">★</option>
+														<option value="★★">★★</option>
+														<option value="★★★">★★★</option>
+														<option value="★★★★">★★★★</option>
+														<option value="★★★★★">★★★★★</option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
 											<tr>
 												<td align="center">客户来源：
-													<select style="width: 165px;">
-														<option></option>
-														<option>手工录入</option>
-														<option>外包渠道</option>
-														<option>推广渠道</option>
-														<option>客户介绍</option>
-														<option>广告渠道</option>
-														<option>职员引荐</option>
-														<option>其他</option>
-													</select>
+													<input type="text" id="client_source" name="source" readonly="readonly"/>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">客户意向：
-													<select style="width: 165px;">
+													<select style="width: 165px;" id="client_intention" name="intention">
 														<option></option>
-														<option>A+ 明确成交意向</option>
-														<option>A- 有初步成交意向</option>
-														<option>B+ 关键人有成交意向</option>
-														<option>B- 关键人成交意向不确定</option>
-														<option>C+ 初步联系 / 有意向</option>
-														<option>C- 初步联系 / 意向不确定</option>
-														<option>D 新建客户</option>
-														<option>E 明显拒绝</option>
-														<option>F 无效客户</option>
+														<option value="A+">A+ 明确成交意向</option>
+														<option value="A-">A- 有初步成交意向</option>
+														<option value="B+">B+ 关键人有成交意向</option>
+														<option value="B-">B- 关键人成交意向不确定</option>
+														<option value="C+">C+ 初步联系 / 有意向</option>
+														<option value="C-">C- 初步联系 / 意向不确定</option>
+														<option value="D">D 新建客户</option>
+														<option value="E">E 明显拒绝</option>
+														<option value="F">F 无效客户</option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
 											<tr>
 												<td align="center" colspan="2">公司地址：
-													<input type="text" style="width: 322px;" />
+													<input type="text" style="width: 322px;" id="client_address" name="address"/>
 													<a href="#">[从地图中搜索]</a>
 												</td>
 											</tr>
@@ -251,16 +216,16 @@
 											</tr>
 											<tr>
 												<td align="center" colspan="2">额外备注：
-													<textarea cols="50" rows="3" placeholder="请输入备注"></textarea>
+													<textarea cols="50" rows="3" placeholder="请输入备注" id="client_remarks" name="remarks"></textarea>
 												</td>
 											</tr>
-
+											</form>
 										</table>
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 										</button>
-										<button type="button" class="btn btn-primary">
+										<button type="button" class="btn btn-primary" id="update_client">
 											确定修改
 										</button>
 									</div>
@@ -274,13 +239,13 @@
                         	描述：custom 删除模态
                         -->
 						<div class="modal" id="cus_all_delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-							<div class="modal-dialog" id="cus_all_dialog">
+							<div class="modal-dialog" id="cus_all_dialog1">
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 											×
 										</button>
-										<h4 class="modal-title" id="myModalLabel">
+										<h4 class="modal-title" id="myModalLabel1">
 											客户信息删除确定
 										</h4>
 									</div>
@@ -290,7 +255,7 @@
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 										</button>
-										<button type="button" class="btn btn-primary">
+										<button type="button" class="btn btn-primary" id="delete_client">
 											确定删除
 										</button>
 									</div>
@@ -304,18 +269,19 @@
                         	描述：custom 添加模态
                         -->
 						<div class="modal" id="cus_all_add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="width: auto;">
-							<div class="modal-dialog" id="cus_all_dialog">
+							<div class="modal-dialog" id="cus_all_dialog2">
 								<div class="modal-content" style="overflow: scroll; height: 500px;">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 											×
 										</button>
-										<h4 class="modal-title" id="myModalLabel">
+										<h4 class="modal-title" id="myModalLabel2">
 											客户信息增加页面
 										</h4>
 									</div>
 									<div class="modal-body">
 										<table width="100%" align="center" class="cus_all_tb">
+											<form id="client_add" method="post">
 											<tr class="cus_all_tl">
 												<td>
 													<b>基本信息：</b>
@@ -323,7 +289,7 @@
 											</tr>
 											<tr>
 												<td align="center">获取用户时间：
-													<input type="date" />
+													<input type="date" id="date" name="date"/>
 													<span style="color: red;">*</span>
 												</td>
 
@@ -339,121 +305,121 @@
 											</tr>
 											<tr>
 												<td align="center">客户名称：
-													<input type="text" placeholder="客户名称" />
+													<input type="text" placeholder="客户名称" id="clientName" name="clientName"/>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">所在城市：
-													<input type="text" class="cityinput" id="citySelect" placeholder="请输入目的地" style="width: 165px;" />
+													<input type="text" class="cityinput" id="local" name="local" placeholder="请输入目的地" style="width: 165px;" />
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
 											<tr>
 												<td align="center" style="border-left-width: 52px;">行业：
-													<select>
+													<select id="trade" name="trade">
 														<option></option>
-														<option>A 农、林、牧、渔业</option>
-														<option>B 采矿业</option>
-														<option>C 制造业</option>
-														<option>D 电力生产和供应</option>
-														<option>E 建筑业</option>
-														<option>F 交通运输、仓储和邮政</option>
-														<option>G 计算机服务和软件业</option>
-														<option>H 批发和零售</option>
-														<option>I 住宿和餐饮业</option>
-														<option>J 金融业</option>
-														<option>K 房地产业</option>
-														<option>L 租赁和商务服务</option>
-														<option>M 科学研究</option>
-														<option>N 水利、环境管理</option>
-														<option>O 居民服务和其他服务</option>
-														<option>P 教育</option>
-														<option>Q 社会保障和社会福利</option>
-														<option>R 文化、体育和娱乐业</option>
-														<option>S 公共管理和社会组织</option>
-														<option>T 国际组织</option>
+														<option value="A">A 农、林、牧、渔业</option>
+														<option value="B">B 采矿业</option>
+														<option value="C">C 制造业</option>
+														<option value="D">D 电力生产和供应</option>
+														<option value="E">E 建筑业</option>
+														<option value="F">F 交通运输、仓储和邮政</option>
+														<option value="G">G 计算机服务和软件业</option>
+														<option value="H">H 批发和零售</option>
+														<option value="I">I 住宿和餐饮业</option>
+														<option value="J">J 金融业</option>
+														<option value="K">K 房地产业</option>
+														<option value="L">L 租赁和商务服务</option>
+														<option value="M">M 科学研究</option>
+														<option value="N">N 水利、环境管理</option>
+														<option value="O">O 居民服务和其他服务</option>
+														<option value="P">P 教育</option>
+														<option value="Qva">Qva 社会保障和社会福利</option>
+														<option value="R">R 文化、体育和娱乐业</option>
+														<option value="S">S 公共管理和社会组织</option>
+														<option value="T">T 国际组织</option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">合作方向：
-													<input type="text" style="width: 165px;"/>
+													<input type="text" style="width: 165px;" id="direction" name="direction"/>
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
 											<tr>
 												<td align="center">公司座机：
-													<input type="tel" placeholder="公司座机" style="width: 165px;"/>
+													<input type="tel" placeholder="公司座机" style="width: 165px;" id="phone" name="phone"/>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">客户状态：
-													<select style="width: 165px;">
+													<select style="width: 165px;" id="state" name="state">
 														<option></option>
-														<option>潜在客户</option>
-														<option>意向客户</option>
-														<option>成交客户</option>
-														<option>失败客户</option>
-														<option>已流失客户</option>
+														<option value="潜在客户">潜在客户</option>
+														<option value="意向客户">意向客户</option>
+														<option value="成交客户">成交客户</option>
+														<option value="失败客户">失败客户</option>
+														<option value="已流失客户">已流失客户</option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
 											<tr>
 												<td align="center">客户类别：
-													<select style="width: 165px;">
+													<select style="width: 165px;" id="type" name="type">
 														<option></option>
-														<option>普通客户</option>
-														<option>老客户</option>
-														<option>代理商</option>
-														<option>合作商</option>
-														<option>合作伙伴</option>
-														<option>其他</option>
+														<option value="普通客户">普通客户</option>
+														<option value="老客户">老客户</option>
+														<option value="代理商">代理商</option>
+														<option value="合作商">合作商</option>
+														<option value="合作伙伴">合作伙伴</option>
+														<option value="其他">其他</option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">客户等级：
-													<select style="width: 165px;">
+													<select style="width: 165px;" id="grade" name="grade">
 														<option></option>
-														<option>★</option>
-														<option>★★</option>
-														<option>★★★</option>
-														<option>★★★★</option>
-														<option>★★★★★</option>
+														<option value="★">★</option>
+														<option value="★★">★★</option>
+														<option value="★★★">★★★</option>
+														<option value="★★★★">★★★★</option>
+														<option value="★★★★★">★★★★★</option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
 											<tr>
 												<td align="center">客户来源：
-													<select style="width: 165px;">
+													<select style="width: 165px;" id="source" name="source">
 														<option></option>
-														<option>手工录入</option>
-														<option>外包渠道</option>
-														<option>推广渠道</option>
-														<option>客户介绍</option>
-														<option>广告渠道</option>
-														<option>职员引荐</option>
-														<option>其他</option>
+														<option value="手工录入">手工录入</option>
+														<option value="外包渠道">外包渠道</option>
+														<option value="推广渠道">推广渠道</option>
+														<option value="客户介绍">客户介绍</option>
+														<option value="广告渠道">广告渠道</option>
+														<option value="职员引荐">职员引荐</option>
+														<option value="其他">其他</option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">客户意向：
-													<select style="width: 165px;">
+													<select style="width: 165px;" id="intention" name="intention">
 														<option></option>
-														<option>A+ 明确成交意向</option>
-														<option>A- 有初步成交意向</option>
-														<option>B+ 关键人有成交意向</option>
-														<option>B- 关键人成交意向不确定</option>
-														<option>C+ 初步联系 / 有意向</option>
-														<option>C- 初步联系 / 意向不确定</option>
-														<option>D 新建客户</option>
-														<option>E 明显拒绝</option>
-														<option>F 无效客户</option>
+														<option value="A+">A+ 明确成交意向</option>
+														<option value="A-">A- 有初步成交意向</option>
+														<option value="B+">B+ 关键人有成交意向</option>
+														<option value="B-">B- 关键人成交意向不确定</option>
+														<option value="C+">C+ 初步联系 / 有意向</option>
+														<option value="C-">C- 初步联系 / 意向不确定</option>
+														<option value="D">D 新建客户</option>
+														<option value="E">E 明显拒绝</option>
+														<option value="F">F 无效客户</option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
 											<tr>
 												<td align="center" colspan="2">公司地址：
-													<input type="text" style="width: 322px;" />
+													<input type="text" style="width: 322px;" id="address" name="address"/>
 													<a href="#">[从地图中搜索]</a>
 													<span style="color: red;">*</span>
 												</td>
@@ -465,48 +431,48 @@
 											</tr>
 											<tr>
 												<td align="center">联系人名：
-													<input type="text" placeholder="姓名" />
+													<input type="text" placeholder="姓名" id="name" name="name"/>
 													<span style="color: red;">*</span>
 												</td>
 
 												<td align="absbottom">客户性别：
-													<input type="radio" name="sex" />男&nbsp;
-													<input type="radio" name="sex" />女&nbsp;
-													<input type="radio" name="sex" />保密&nbsp;
+													<input type="radio" name="sex" id="man"/>男&nbsp;
+													<input type="radio" name="sex" id="nv"/>女&nbsp;
+													<input type="radio" name="sex" id="secret"/>保密&nbsp;
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
 											<tr>
 												<td align="center">联系人生日：
-													<input type="date" style="width: 150px;" />
+													<input type="date" style="width: 150px;" id="birthday" name="birthday"/>
 													<span style="color: red;">*</span>
 												</td>
 
 												<td align="absbottom">客户职务：
-													<input type="text" placeholder="职务" />
+													<input type="text" placeholder="职务" id="job" name="job"/>
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
 											<tr>
 												<td align="center">客户称呼：
-													<input type="text" placeholder="称呼" />
+													<input type="text" placeholder="称呼" id="call" name="call"/>
 													<span style="color: red;">*</span>
 												</td>
 
 												<td align="absbottom">客户手机：
-													<input type="tel" placeholder="主手机" style="width: 81px;" />
+													<input type="tel" placeholder="主手机" style="width: 81px;" id="main_phone" name="main_phone"/>
 													<span style="color: red;">*</span>
-													<input type="tel" placeholder="副手机" style="width: 81px;" />
+													<input type="tel" placeholder="副手机" style="width: 81px;" id="second_phone" name="second_phone"/>
 												</td>
 											</tr>
 											<tr>
 												<td align="center">客户座机：
-													<input type="tel" placeholder="客户座机" />
+													<input type="tel" placeholder="客户座机" id="telephone" name="telephone"/>
 													<span style="color: red;">*</span>
 												</td>
 
 												<td align="absbottom">客户邮箱：
-													<input type="email" placeholder="客户邮箱" />
+													<input type="email" placeholder="客户邮箱" id="email" name="email"/>
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
@@ -517,15 +483,16 @@
 											</tr>
 											<tr>
 												<td align="center" colspan="2">额外备注：
-													<textarea cols="50" rows="3" placeholder="请输入备注"></textarea>
+													<textarea cols="50" rows="3" placeholder="请输入备注" id="remarks" name="remarks"></textarea>
 												</td>
-											</tr>	
+											</tr>
+											</form>
 										</table>
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 										</button>
-										<button type="button" class="btn btn-primary">
+										<button type="button" class="btn btn-primary" id="client_btn">
 											提交更改
 										</button>
 									</div>
@@ -545,7 +512,6 @@
 								<thead>
 									<tr>
 										<th class="bs-checkbox" style="width: 36px;" data-field="state" tabindex="0">
-											<input name="" type="checkbox" />
 										</th>
 										<th>客户名称</th>
 										<th>类型</th>
@@ -558,25 +524,27 @@
 										<th>最后跟进时间</th>
 									</tr>
 								</thead>
-								<tbody style="text-align: center;">
-									<tr class="gradeX">
-										<td class="bs-checkbox" style="width: 36px;" data-field="state" tabindex="0">
-											<input name="" type="checkbox" />
-										</td>
-										<td>1</td>
-										<td>2</td>
-										<td>3</td>
-										<td>1</td>
-										<td>2</td>
-										<td>3</td>
-										<td>1</td>
-										<td>2</td>
-										<td>3</td>
-									</tr>
+								<tbody style="text-align: center;" id="client_td">
+
 								</tbody>
 							</table>
-
 						</div>
+
+
+						<div class="M-box">
+							<div class="Pagination" id="pagination"></div>
+						</div>
+						<!--&lt;!&ndash;页尾&ndash;&gt;
+						<div class="row">
+							<div class="col-sm-6" style="padding-top: 8px"> 显示 1 到 1 项，共 1 项</div>
+							<div class="col-sm-6">
+								<div id="yw">
+										<span><a href="#">上一页</a></span>
+										<span><a href="#">1</a></span>
+										<span><a href="#">下一页</a></span>
+								</div>
+							</div>
+						</div>-->
 					</div>
 				</div>
 			</div>
@@ -587,6 +555,8 @@
 		<script src="../js/plugins/dataTables/dataTables.bootstrap.js"></script>
 		<script src="../js/content.min.js?v=1.0.0"></script>
 		<script src="../js/cityselect.js"></script>
+		<script src="../js/chance/client_add.js"></script>
+		<script src="../js/jquery.pagination.js"></script>
 		<script>
 			$(document).ready(function() {
 				var test = new Vcity.CitySelector({

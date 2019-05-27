@@ -23,8 +23,8 @@ public class ChanceServiceImpl extends ServiceImpl<ChanceMapper,ChanceEntity> im
     }
 
     @Override
-    public void updateChanceEntity(ChanceEntity chanceEntity, EntityWrapper<ChanceEntity> wrapper) {
-        chanceMapper.update(chanceEntity,wrapper);
+    public void updateByChacneid(ChanceEntity chanceEntity) {
+        chanceMapper.updateById(chanceEntity);
     }
 
     @Override
@@ -39,15 +39,14 @@ public class ChanceServiceImpl extends ServiceImpl<ChanceMapper,ChanceEntity> im
     }
 
     @Override
-    public List<ChanceEntity> getList(Integer chanceid) {
-        return chanceMapper.getList(chanceid);
+    public List<ChanceEntity> getList(EntityWrapper<ChanceEntity> wrapper) {
+        return chanceMapper.selectList(wrapper);
     }
 
     @Override
-    public List<ChanceEntity> selectPage() {
-        List<ChanceEntity> ChanceEntities = chanceMapper.selectPage();
-        return ChanceEntities;
+    public List<ChanceEntity> findByPage(Page<ChanceEntity> page, Wrapper<ChanceEntity> wrapper) {
+        List<ChanceEntity> chanceEntity=chanceMapper.selectPage(page,wrapper);
+        return chanceEntity;
     }
-
 
 }

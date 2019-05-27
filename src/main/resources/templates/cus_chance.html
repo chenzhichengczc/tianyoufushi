@@ -22,6 +22,7 @@
 		<link href="../css/animate.min.css" rel="stylesheet">
 		<link href="../css/style.min862f.css?v=4.1.0" rel="stylesheet">
 		<link href="../css/other.css" rel="stylesheet" />
+		<link href="../css/pagination.css"/>
 	</head>
 
 	<body class="gray-bg">
@@ -69,7 +70,7 @@
 							<div class="btn-group" style="margin-left: 10px;">
 								<button class="btn btn-add" data-toggle="modal" data-target="#cus_chance_add"><i class="fa fa-plus"></i>  添加</button>
 								<button class="btn btn-delete" data-toggle="modal" data-target="#cus_chance_delete"><i class="fa fa-remove"></i>  删除</button>
-								<button class="btn btn-alter" data-toggle="modal" data-target="#cus_chance_alter" id="update"><i class="fa fa-eraser"></i>  修改</button>
+								<button class="btn btn-alter" data-toggle="modal" id="update"><i class="fa fa-eraser"></i>  修改</button>
 							</div>
 						</div>
 						
@@ -109,6 +110,8 @@
 									</div>
 									<div class="modal-body">
 										<table width="100%" align="center" class="cus_chance_tb">
+											<form id="chance_update" method="post">
+											<input hidden="hidden" type="text" value="" id="chanceid" name="chanceid"/>
 											<tr class="cus_chance_tl">
 												<td>
 													<b>基本信息：</b>
@@ -116,78 +119,64 @@
 											</tr>
 											<tr>
 												<td align="center">机会名称：
-													<input type="text" placeholder="机会名称"/>
+													<input type="text" placeholder="机会名称" name="chanceName" id="chance_name" readonly="readonly"/>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">客户名称：
-													<input type="text" placeholder="名称或拼音模糊查找"/>
+													<input type="text" readonly="readonly" name="clientName" id="client_name"/>
 													<a href="#"> + 选择</a>
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
 											<tr>
 												<td align="center">机会类型：
-													<select style="width: 170px;">
-														<option></option>
-														<option>A 合作</option>
-														<option>B 外包</option>
-														<option>C 投包</option>
-														<option>D 渠道</option>
-													</select>
+													<input type="text" name="type" id="chance_type" readonly="readonly"/>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">机会来源：
-													<select style="width: 170px;">
-														<option></option>
-														<option>A 客户主动联系</option>
-														<option>B 网上搜索渠道</option>
-														<option>C 市场业务</option>
-														<option>D 广告宣传</option>
-														<option>E 招标</option>
-														<option>F 外包网站</option>
-													</select>
+													<input type="text" name="source" id="chance_source" readonly="readonly"/>
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
 											<tr>
 												<td align="center">预计成交日期：
-													<input type="date" style="width: 146px;"/>
+													<input type="date" style="width: 146px;" name="dateTime" id="date_time"/>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">预计成交金额：
-													<input type="text" style="width: 144px;"/>
+													<input type="text" style="width: 144px;" name="money" id="chance_money"/>
 													<span style="color: red;">*</span>
 												</td>
 											</tr>
 											
 											<tr>
 												<td align="center">机会阶段：
-													<select style="width: 170px;">
+													<select style="width: 170px;" name="stage" id="chane_stage">
 														<option></option>
-														<option>A 初步沟通</option>
-														<option>B 立项评估</option>
-														<option>C 需求分析</option>
-														<option>D 解决方案</option>
-														<option>E 已报价</option>
-														<option>F 商务谈判</option>
-														<option>G 合同 / 订单签订</option>
+														<option value="A">A 初步沟通</option>
+														<option value="B">B 立项评估</option>
+														<option value="C">C 需求分析</option>
+														<option value="D">D 解决方案</option>
+														<option value="E">E 已报价</option>
+														<option value="F">F 商务谈判</option>
+														<option value="G">G 合同 / 订单签订</option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">成交可能性：
-													<select style="width: 156px;">
+													<select style="width: 156px;" id="chance_possibility" name="possibility">
 														<option></option>
-														<option> 0% </option>
-														<option> 10% </option>
-														<option> 20% </option>
-														<option> 30% </option>
-														<option> 40% </option>
-														<option> 50% </option>
-														<option> 60% </option>
-														<option> 70% </option>
-														<option> 80% </option>
-														<option> 90% </option>
-														<option> 100% </option>
+														<option value="0"> 0% </option>
+														<option value="10"> 10% </option>
+														<option value="20"> 20% </option>
+														<option value="30"> 30% </option>
+														<option value="40"> 40% </option>
+														<option value="50"> 50% </option>
+														<option value="60"> 60% </option>
+														<option value="70"> 70% </option>
+														<option value="80"> 80% </option>
+														<option value="90"> 90% </option>
+														<option value="100"> 100% </option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
@@ -199,21 +188,22 @@
 											</tr>
 											<tr>
 												<td align="center" colspan="2">机会描述：
-													<textarea cols="50" rows="3" placeholder="请输入机会描述"></textarea>
+													<textarea cols="50" rows="3" name="cribe" id="chance_cribe"></textarea>
 												</td>
 											</tr>
 											<tr></tr>
 											<tr>
 												<td align="center" colspan="2">额外备注：
-													<textarea cols="50" rows="3" placeholder="请输入备注"></textarea>
+													<textarea cols="50" rows="3" name="remarks" id="chance_remarks"></textarea>
 												</td>
 											</tr>
+											</form>
 										</table>
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 										</button>
-										<button type="button" class="btn btn-primary">
+										<button type="button" class="btn btn-primary" id="update_sub">
 											提交保存
 										</button>
 									</div>
@@ -245,7 +235,7 @@
 									<div class="modal-footer">
 										<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 										</button>
-										<button type="button" class="btn btn-primary">
+										<button type="button" class="btn btn-primary" id="delete_btn">
 											确定删除
 										</button>
 									</div>
@@ -272,6 +262,7 @@
 									</div>
 									<div class="modal-body">
 										<table width="100%" align="center" class="cus_chance_tb">
+											<form id="chance_add" method="post">
 											<tr class="cus_chance_tl">
 												<td>
 													<b>基本信息：</b>
@@ -292,22 +283,22 @@
 												<td align="center">机会类型：
 													<select style="width: 170px;" id="type" name="type">
 														<option></option>
-														<option value="A 合作">A 合作</option>
-														<option value="B 外包">B 外包</option>
-														<option value="C 投包">C 投包</option>
-														<option value="D 渠道">D 渠道</option>
+														<option value="A">A 合作</option>
+														<option value="B">B 外包</option>
+														<option value="C">C 投包</option>
+														<option value="D">D 渠道</option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">机会来源：
 													<select style="width: 170px;" id="source" name="source">
 														<option></option>
-														<option value="A 客户主动联系">A 客户主动联系</option>
-														<option value="B 网上搜索渠道">B 网上搜索渠道</option>
-														<option value="C 市场业务">C 市场业务</option>
-														<option value="D 广告宣传">D 广告宣传</option>
-														<option value="E 招标">E 招标</option>
-														<option value="F 外包网站">F 外包网站</option>
+														<option value="A">A 客户主动联系</option>
+														<option value="B">B 网上搜索渠道</option>
+														<option value="C">C 市场业务</option>
+														<option value="D">D 广告宣传</option>
+														<option value="E">E 招标</option>
+														<option value="F">F 外包网站</option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
@@ -327,30 +318,30 @@
 												<td align="center">机会阶段：
 													<select style="width: 170px;" id="stage" name="stage">
 														<option></option>
-														<option value="A 初步沟通">A 初步沟通</option>
-														<option value="B 立项评估">B 立项评估</option>
-														<option value="C 需求分析">C 需求分析</option>
-														<option value="D 解决方案">D 解决方案</option>
-														<option value="E 已报价">E 已报价</option>
-														<option value="F 商务谈判">F 商务谈判</option>
-														<option value="G 合同 / 订单签订">G 合同 / 订单签订</option>
+														<option value="A">A 初步沟通</option>
+														<option value="B">B 立项评估</option>
+														<option value="C">C 需求分析</option>
+														<option value="D">D 解决方案</option>
+														<option value="E">E 已报价</option>
+														<option value="F">F 商务谈判</option>
+														<option value="G">G 合同 / 订单签订</option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
 												<td align="absbottom">成交可能性：
 													<select style="width: 156px;" id="possibility" name="possibility">
 														<option></option>
-														<option value="0%"> 0% </option>
-														<option value="10%"> 10% </option>
-														<option value="20%"> 20% </option>
-														<option value="30%"> 30% </option>
-														<option value="40%"> 40% </option>
-														<option value="50%"> 50% </option>
-														<option value="60%"> 60% </option>
-														<option value="70%"> 70% </option>
-														<option value="80%"> 80% </option>
-														<option value="90%"> 90% </option>
-														<option value="100%"> 100% </option>
+														<option value="0"> 0% </option>
+														<option value="10"> 10% </option>
+														<option value="20"> 20% </option>
+														<option value="30"> 30% </option>
+														<option value="40"> 40% </option>
+														<option value="50"> 50% </option>
+														<option value="60"> 60% </option>
+														<option value="70"> 70% </option>
+														<option value="80"> 80% </option>
+														<option value="90"> 90% </option>
+														<option value="100"> 100% </option>
 													</select>
 													<span style="color: red;">*</span>
 												</td>
@@ -371,6 +362,7 @@
 													<textarea cols="50" rows="3" placeholder="请输入备注" id="remarks" name="remarks"></textarea>
 												</td>
 											</tr>
+											</form>
 										</table>
 									</div>
 									<div class="modal-footer">
@@ -390,9 +382,7 @@
 							<table class="table table-striped table-bordered table-hover dataTables-example">
 								<thead>
 									<tr>
-										<th class="bs-checkbox" style="width: 36px;" data-field="state" tabindex="0">
-											选项
-										</th>
+										<th></th>
 										<th>机会名称</th>
 										<th>客户名称</th>
 										<th>机会阶段</th>
@@ -411,18 +401,8 @@
 							</table>
 						</div>
 
-						<!--页尾-->
-						<div class="row">
-							<div class="col-sm-6" style="padding-top: 8px"> 显示 1 到 1 项，共 1 项</div>
-							<div class="col-sm-6">
-								<div id="yw">
-									<ul id="ywul">
-										<li><a href="#">上一页</a></li>
-										<li><a href="#">1</a></li>
-										<li><a href="#">下一页</a></li>
-									</ul>
-								</div>
-							</div>
+						<div class="M-box">
+							<div class="Pagination" id="pagination"></div>
 						</div>
 					</div>
 				</div>
@@ -435,6 +415,7 @@
 		<script src="../js/plugins/dataTables/dataTables.bootstrap.js"></script>
 		<script src="../js/content.min.js?v=1.0.0"></script>
 		<script src="../js/chance/chance_add.js"></script>
+		<script src="../js/jquery.pagination.js"></script>
 		<script>
 			$(document).ready(function() {
 				$(".dataTables-example").dataTable();
