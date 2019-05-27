@@ -5,8 +5,7 @@ import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;
 import com.jckc_backer.modules.chance.entity.ChanceEntity;
-import com.jckc_backer.modules.information.entity.InformationDetailEntity;
-import com.jckc_backer.modules.information.entity.InformationEntity;
+import com.jckc_backer.modules.chance.entity.ClientEntity;
 
 import java.util.List;
 
@@ -15,8 +14,8 @@ public interface ChanceService extends IService<ChanceEntity> {
 
     void InsertInto(ChanceEntity chanceEntity);
 
+    void updateByChacneid(ChanceEntity chanceEntity);
 
-    void updateChanceEntity(ChanceEntity chanceEntity, EntityWrapper<ChanceEntity> entityEntityWrapper);
 
     void deleteByChanceId(Integer chanceid);
 
@@ -26,11 +25,11 @@ public interface ChanceService extends IService<ChanceEntity> {
      */
     List<ChanceEntity> findByPage();
 
+    List<ChanceEntity> findByPage(Page<ChanceEntity> page, Wrapper<ChanceEntity> wrapper);
+
     /**
      * 使用pagehelper分页
      */
-    List<ChanceEntity> getList(Integer chanceid);
+    List<ChanceEntity> getList(EntityWrapper<ChanceEntity> wrapper);
 
-
-    List<ChanceEntity> selectPage();
 }
