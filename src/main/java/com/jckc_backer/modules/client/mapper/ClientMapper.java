@@ -1,5 +1,6 @@
 package com.jckc_backer.modules.client.mapper;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.jckc_backer.modules.client.entity.vo.ClientVO;
 
 import java.util.List;
@@ -23,6 +24,8 @@ public interface ClientMapper {
     public void insertClient(ClientVO clientVO);
 
     public void updateClient(ClientVO clientVO);
+
+    public void deleteById(Integer linkId);
 
     public List<ClientVO> selectPage();
 }

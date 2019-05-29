@@ -6,6 +6,7 @@ import com.jckc_backer.modules.client.entity.po.ClientPO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -35,24 +36,31 @@ public class ClientVO extends ClientPO implements Serializable {
     @ApiModelProperty(value = "客户类型",name = "type")
     private String type;
 
+    @ApiModelProperty(value = "成熟度",name = "muturity")
+    private String muturity;
+
     @ApiModelProperty(value = "客户状态",name = "status")
     private String status;
 
     @ApiModelProperty(value = "客户等级",name = "grade")
     private String grade;
 
+    @ApiModelProperty(value = "合作方向",name = "direction")
+    private String direction;
+
     @ApiModelProperty(value = "客户来源",name = "source")
     private String source;
 
-    @ApiModelProperty(value = "成熟度",name = "muturity")
-    private String muturity;
-
     @ApiModelProperty(value = "意向产id",name = "pro_Id")
-    private String proId;
+    private Integer proId;
+
+    @ApiModelProperty(value = "客户意向",name = "intention")
+    private String intention;
 
     @ApiModelProperty(value = "客户介绍",name = "introduction")
     private String introduction;
 
+   // @DateTimeFormat(pattern = "yyyy-MM-dd")
     @ApiModelProperty(value = "获取客户时间",name = "access_time")
     private Date accessTime;
 
@@ -77,5 +85,6 @@ public class ClientVO extends ClientPO implements Serializable {
     @ApiModelProperty(value = "公司所在城市",name = "companyCity")
     private String companyCity;
 
-
+    @ApiModelProperty(value = "备注",name = "remarks")
+    private String remarks;
 }
