@@ -1,5 +1,6 @@
 package com.jckc_backer.modules.client.entity.po;
 
+import com.jckc_backer.common.entityEnum.client.LinkGender;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -30,7 +31,7 @@ public class ClientPO implements Serializable {
     private String linkCode;
 
     @ApiModelProperty(value = "性别",name = "link_gender")
-    private String linkGender;
+    private LinkGender linkGender;
 
     @ApiModelProperty(value = "生日",name = "link_birth")
     private String linkBirth;
@@ -41,7 +42,7 @@ public class ClientPO implements Serializable {
     @ApiModelProperty(value = "称呼",name = "link_call")
     private String linkCall;
 
-    @ApiModelProperty(value = "电话",name = "link_Phone")
+    @ApiModelProperty(value = "电话",name = "link_phone")
     private String linkPhone;
 
     @ApiModelProperty(value = "联系人座机",name = "link_tel")
