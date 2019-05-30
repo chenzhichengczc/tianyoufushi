@@ -24,13 +24,13 @@ $(function() {
 
                     html = html.replace("#{cusId}", "cus" + i);
                     html = html.replace("#{companyName}", data.data.list[i].companyName);
-                    html = html.replace("#{type}", data.data.list[i].type);
+                    html = html.replace("#{type}",$("#type").children().eq(data.data.list[i].type).html());
                     html = html.replace("#{companyCity}", data.data.list[i].companyCity);
                     html = html.replace("#{address}", data.data.list[i].address);
-                    html = html.replace("#{source}", data.data.list[i].source);
+                    html = html.replace("#{source}",$("#source").children().eq(data.data.list[i].source).html());
                     html = html.replace("#{tel}", data.data.list[i].tel);
-                    html = html.replace("#{intention}", data.data.list[i].intention);
-                    html = html.replace("#{status}", data.data.list[i].status);
+                    html = html.replace("#{intention}",$("#intention").children().eq(data.data.list[i].intention).html());
+                    html = html.replace("#{status}",$("#status").children().eq(data.data.list[i].status).html());
                     html = html.replace("#{linkName}", data.data.list[i].linkName);
 
                     $("#client_td").append(html);
@@ -70,15 +70,15 @@ $(function() {
                                             + '</tr>';
 
                                         html = html.replace("#{cusId}", "cus" + i);
-                                        html = html.replace("#{companyName}", data.data.list[i].companyName);
-                                        html = html.replace("#{type}", data.data.list[i].type);
-                                        html = html.replace("#{companyCity}", data.data.list[i].companyCity);
-                                        html = html.replace("#{address}", data.data.list[i].address);
-                                        html = html.replace("#{source}", data.data.list[i].source);
-                                        html = html.replace("#{tel}", data.data.list[i].tel);
-                                        html = html.replace("#{intention}", data.data.list[i].intention);
-                                        html = html.replace("#{status}", data.data.list[i].status);
-                                        html = html.replace("#{linkName}", data.data.list[i].linkName);
+                                    html = html.replace("#{companyName}", data.data.list[i].companyName);
+                                    html = html.replace("#{type}",$("#type").children().eq(data.data.list[i].type).html());
+                                    html = html.replace("#{companyCity}", data.data.list[i].companyCity);
+                                    html = html.replace("#{address}", data.data.list[i].address);
+                                    html = html.replace("#{source}",$("#source").children().eq(data.data.list[i].source).html());
+                                    html = html.replace("#{tel}", data.data.list[i].tel);
+                                    html = html.replace("#{intention}",$("#intention").children().eq(data.data.list[i].intention).html());
+                                    html = html.replace("#{status}",$("#status").children().eq(data.data.list[i].status).html());
+                                    html = html.replace("#{linkName}", data.data.list[i].linkName);
 
                                     $("#client_td").append(html);
                                     localStorage.setItem("cus"+i,JSON.stringify(data.data.list[i]))
