@@ -1,11 +1,10 @@
 package com.jckc_backer.modules.client.entity.vo;
 
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.enums.IdType;
 import com.jckc_backer.modules.client.entity.po.ClientPO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -48,11 +47,12 @@ public class ClientVO extends ClientPO implements Serializable {
     private String muturity;
 
     @ApiModelProperty(value = "意向产id",name = "pro_Id")
-    private String proId;
+    private Integer proId;
 
     @ApiModelProperty(value = "客户介绍",name = "introduction")
     private String introduction;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @ApiModelProperty(value = "获取客户时间",name = "access_time")
     private Date accessTime;
 

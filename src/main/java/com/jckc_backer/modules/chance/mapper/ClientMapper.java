@@ -1,3 +1,4 @@
+/*
 package com.jckc_backer.modules.chance.mapper;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
@@ -13,3 +14,4 @@ public interface ClientMapper extends BaseMapper<ClientEntity> {
     // pageHelper分页 获取
     List<ClientEntity> getList();
 }
+*/

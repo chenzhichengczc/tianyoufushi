@@ -1,3 +1,4 @@
+/*
 package com.jckc_backer.modules.chance.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
@@ -53,3 +54,4 @@ public class ClientServiceImpl extends ServiceImpl<ClientMapper, ClientEntity> i
 
 
 }
+*/

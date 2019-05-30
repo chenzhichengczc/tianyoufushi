@@ -1,3 +1,4 @@
+/*
 package com.jckc_backer.modules.chance.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
@@ -39,10 +40,12 @@ public class ClientController {
         return ResponseUtil.success();
     }
 
-    /**
+    */
+/**
      *
      * @return
-     */
+     *//*
+
     @RequestMapping(value = "/clientEntityList",method = RequestMethod.GET)
     public ResponseUtil clientEntityList(int pageNo, int pageSize){
         PageHelper.startPage(pageNo, pageSize);
@@ -52,3 +55,4 @@ public class ClientController {
         return ResponseUtil.success(pageInfo);
     }
 }
+*/

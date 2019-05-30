@@ -146,5 +146,10 @@
         ) t)
     </update>
 
+    <delete id="delete" parameterType="Integer">
+        DELETE FROM jckc_client_company WHERE id=#{id}
+    </delete>
+
 
 </mapper>
+

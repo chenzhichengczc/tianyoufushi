@@ -20,4 +20,6 @@ public interface ClientService {
     public void updateClient(ClientVO clientVO);
 
     public List<ClientVO> selectPage();
+
+    public void delete(Integer id);
 }

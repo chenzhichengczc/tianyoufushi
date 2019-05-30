@@ -13,8 +13,9 @@ spring:
   # 环境 dev|test|prod 开发/测试/上线
   profiles:
     #    active: test
-    active: dev
+    active: prod
 
+                                  
   # 热部署
   devtools:
     restart:

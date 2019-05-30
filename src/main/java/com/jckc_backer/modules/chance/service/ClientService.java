@@ -1,3 +1,4 @@
+/*
 package com.jckc_backer.modules.chance.service;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
@@ -21,16 +22,21 @@ public interface ClientService extends IService<ClientEntity> {
 
     void deleteByUId(Integer uid);
 
-    /**
+    */
+/**
      * 分页查询
      * @param ：page,queryWrapper
-     */
+     *//*
+
     List<ClientEntity> findByPage();
 
     List<ClientEntity> findByPage(Page<ClientEntity> page, Wrapper<ClientEntity> wrapper);
-    /**
+    */
+/**
      * 使用pagehelper分页
-     */
+     *//*
+
     List<ClientEntity> getList(EntityWrapper<ClientEntity> wrapper);
 
 }
+*/

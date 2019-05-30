@@ -7,6 +7,7 @@ import com.jckc_backer.modules.client.entity.vo.ClientVO;
 import com.jckc_backer.modules.client.service.ClientService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -52,5 +53,11 @@ public class ClientController {
         List<ClientVO> list = clientService.selectPage();
         PageInfo<ClientVO> pageInfo = new PageInfo<>(list);
         return ResponseUtil.success(pageInfo);
+    }
+
+    @RequestMapping(value = "/delete/{id}",method = RequestMethod.DELETE)
+    public ResponseUtil delete(@PathVariable Integer id){
+        clientService.delete(id);
+        return ResponseUtil.success();
     }
 }
