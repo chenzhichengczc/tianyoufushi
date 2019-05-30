@@ -1,6 +1,7 @@
 package com.jckc_backer.modules.client.service.impl;
 
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.jckc_backer.common.utils.UUIDUtils;
 import com.jckc_backer.modules.client.entity.vo.ClientVO;
 import com.jckc_backer.modules.client.mapper.ClientMapper;
@@ -36,6 +37,11 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public void updateClient(ClientVO clientVO) {
         clientMapper.updateClient(clientVO);
+    }
+
+    @Override
+    public void deleteById(Integer linkId) {
+        clientMapper.deleteById(linkId);
     }
 
     @Override
