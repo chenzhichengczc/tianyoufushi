@@ -29,7 +29,7 @@ $(function() {
                     html = html.replace("#{address}", data.data.list[i].address);
                     html = html.replace("#{source}",$("#source").children().eq(data.data.list[i].source).html());
                     html = html.replace("#{tel}", data.data.list[i].tel);
-                    html = html.replace("#{intention}",$("#intention").children().eq(data.data.list[i].intention).html());
+                    html = html.replace("#{intention}",data.data.list[i].intention);
                     html = html.replace("#{status}",$("#status").children().eq(data.data.list[i].status).html());
                     html = html.replace("#{linkName}", data.data.list[i].linkName);
 
@@ -76,7 +76,7 @@ $(function() {
                                     html = html.replace("#{address}", data.data.list[i].address);
                                     html = html.replace("#{source}",$("#source").children().eq(data.data.list[i].source).html());
                                     html = html.replace("#{tel}", data.data.list[i].tel);
-                                    html = html.replace("#{intention}",$("#intention").children().eq(data.data.list[i].intention).html());
+                                    html = html.replace("#{intention}",data.data.list[i].intention);
                                     html = html.replace("#{status}",$("#status").children().eq(data.data.list[i].status).html());
                                     html = html.replace("#{linkName}", data.data.list[i].linkName);
 
@@ -165,132 +165,131 @@ $("#update").click(function () {
         $("#access_time").val(data.accessTime);
         $("#company_name").val(data.companyName);
         $("#company_city").val(data.companyCity);
-        $("#client_direction").val(data.direction);
+        $("#client_intention").val(data.intention);
         $("#client_tel").val(data.tel);
-
         switch(data.industry){
-            case "A":
-                $("#client_industry").val("A 农、林、牧、渔业");break;
-            case "B":
-                $("#client_industry").val("B 采矿业");break;
-            case "C":
-                $("#client_industry").val("C 制造业");break;
-            case "D":
-                $("#client_industry").val("D 电力生产和供应");break;
-            case "E":
-                $("#client_industry").val("E 建筑业");break;
-            case "F":
-                $("#client_industry").val("F 交通运输、仓储和邮政");break;
-            case "G":
-                $("#client_industry").val("G 计算机服务和软件业");break;
-            case "H":
-                $("#client_industry").val("H 批发和零售");break;
-            case "I":
-                $("#client_industry").val("I 住宿和餐饮业");break;
-            case "J":
-                $("#client_industry").val("J 金融业");break;
-            case "K":
-                $("#client_industry").val("K 房地产业");break;
-            case "L":
-                $("#client_industry").val("L 租赁和商务服务");break;
-            case "M":
-                $("#client_industry").val("M 科学研究");break;
-            case "N":
-                $("#client_industry").val("N 水利、环境管理");break;
-            case "O":
-                $("#client_industry").val("O 居民服务和其他服务");break;
-            case "P":
-                $("#client_industry").val("P 教育");break;
-            case "Qva":
-                $("#client_industry").val("Qva 社会保障和社会福利");break;
-            case "R":
-                $("#client_industry").val("R 文化、体育和娱乐业");break;
-            case "S":
-                $("#client_industry").val("S 公共管理和社会组织");break;
-            case "T":
-                $("#client_industry").val("T 国际组织");break;
+            case 1:
+                $("#client_industry option").eq(1).attr("selected","农、林、牧、渔业");break;
+            case 2:
+                $("#client_industry option").eq(2).attr("selected","采矿业");break;
+            case 3:
+                $("#client_industry option").eq(3).attr("selected","制造业");break;
+            case 4:
+                $("#client_industry option").eq(4).attr("selected","电力生产和供应");break;
+            case 5:
+                $("#client_industry option").eq(5).attr("selected","建筑业");break;
+            case "6":
+                $("#client_industry option").eq(6).attr("selected","交通运输、仓储和邮政");break;
+            case 7:
+                $("#client_industry option").eq(7).attr("selected","计算机服务和软件业");break;
+            case 8:
+                $("#client_industry option").eq(8).attr("selected","批发和零售");break;
+            case 9:
+                $("#client_industry option").eq(9).attr("selected","住宿和餐饮业");break;
+            case 10:
+                $("#client_industry option").eq(10).attr("selected","金融业");break;
+            case 11:
+                $("#client_industry option").eq(11).attr("selected","房地产业");break;
+            case 12:
+                $("#client_industry option").eq(12).attr("selected","租赁和商务服务");break;
+            case 13:
+                $("#client_industry option").eq(13).attr("selected","科学研究");break;
+            case 14:
+                $("#client_industry option").eq(14).attr("selected","水利、环境管理");break;
+            case 15:
+                $("#client_industry option").eq(15).attr("selected","居民服务和其他服务");break;
+            case 16:
+                $("#client_industry option").eq(16).attr("selected","教育");break;
+            case "17":
+                $("#client_industry option").eq(17).attr("selected","社会保障和社会福利");break;
+            case 18:
+                $("#client_industry option").eq(18).attr("selected","R 文化、体育和娱乐业");break;
+            case 19:
+                $("#client_industry option").eq(19).attr("selected","公共管理和社会组织");break;
+            case 20:
+                $("#client_industry option").eq(20).attr("selected","国际组织");break;
             default:"数据有误";
         }
 
         switch(data.status){
-            case "潜在客户":
-                $("#client_status").val("潜在客户");break;
-            case "意向客户":
-                $("#client_status").val("意向客户");break;
-            case "成交客户":
-                $("#client_status").val("成交客户");break;
-            case "失败客户":
-                $("#client_status").val("失败客户");break;
+            case 1:
+                $("#client_status option").eq(1).attr("selected","潜在客户");break;
+            case 2:
+                $("#client_status option").eq(2).attr("selected","意向客户");break;
+            case 3:
+                $("#client_status option").eq(3).attr("selected","成交客户");break;
+            case 4:
+                $("#client_status option").eq(4).attr("selected","失败客户");break;
             default:"数据有误";
         }
 
         switch(data.type){
-            case "普通客户":
-                $("#client_type option").eq(1).val("普通客户");break;
-            case "老客户":
-                $("#client_type option").eq(2).val("老客户");break;
-            case "代理商":
-                $("#client_type option").eq(3).val("代理商");break;
-            case "合作商":
-                $("#client_type option").eq(4).val("合作商");break;
-            case "合作伙伴":
-                $("#client_type option").eq(5).val("合作伙伴");break;
-            case "其他":
-                $("#client_type option").eq(6).val("其他");break;
+            case 1:
+                $("#client_type option").eq(1).attr("selected","普通客户");break;
+            case 2:
+                $("#client_type option").eq(2).attr("selected","老客户");break;
+            case 3:
+                $("#client_type option").eq(3).attr("selected","代理商");break;
+            case 4:
+                $("#client_type option").eq(4).attr("selected","合作商");break;
+            case 5:
+                $("#client_type option").eq(5).attr("selected","合作伙伴");break;
+            case 6:
+                $("#client_type option").eq(6).attr("selected","其他");break;
             default:"数据有误";
         }
 
         switch(data.grade){
-            case "A":
-                $("#client_grade option").eq(1).val("★");break;
-            case "B":
-                $("#client_grade option").eq(2).val("★★");break;
-            case "C":
-                $("#client_grade option").eq(3).val("★★★");break;
-            case "D":
-                $("#client_grade option").eq(4).val("★★★★");break;
-            case "E":
-                $("#client_grade option").eq(5).val("★★★★★");break;
+            case 1:
+                $("#client_grade option").eq(1).attr("selected","★");break;
+            case 2:
+                $("#client_grade option").eq(2).attr("selected","★★");break;
+            case 3:
+                $("#client_grade option").eq(3).attr("selected","★★★");break;
+            case 4:
+                $("#client_grade option").eq(4).attr("selected","★★★★");break;
+            case 5:
+                $("#client_grade option").eq(5).attr("selected","★★★★★");break;
             default:"数据有误";
         }
 
         switch(data.source){
-            case "手工录入":
-                $("#client_source").val("手工录入");break;
-            case "外包渠道":
-                $("#client_source").val("外包渠道");break;
-            case "推广渠道":
-                $("#client_source").val("推广渠道");break;
-            case "客户介绍":
-                $("#client_source").val("客户介绍");break;
-            case "广告渠道":
-                $("#client_source").val("广告渠道");break;
-            case "职员引荐":
-                $("#client_source").val("职员引荐");break;
-            case "其他":
-                $("#client_source").val("其他");break;
+            case 1:
+                $("#client_source option").eq(1).attr("selected","手工录入");break;
+            case 2:
+                $("#client_source option").eq(2).attr("selected","外包渠道");break;
+            case 3:
+                $("#client_source option").eq(3).attr("selected","推广渠道");break;
+            case 4:
+                $("#client_source option").eq(4).attr("selected","客户介绍");break;
+            case 5:
+                $("#client_source option").eq(5).attr("selected","广告渠道");break;
+            case 6:
+                $("#client_source option").eq(6).attr("selected","职员引荐");break;
+            case 7:
+                $("#client_source option").eq(7).attr("selected","其他");break;
             default:"数据有误";
         }
 
-        switch(data.intention){
-            case "A+":
-                $("#client_intention option").eq(1).val("A+ 明确成交意向");break;
-            case "A-":
-                $("#client_intention option").eq(2).val("A- 有初步成交意向");break;
-            case "B+":
-                $("#client_intention option").eq(3).val("B+ 关键人有成交意向");break;
-            case "B-":
-                $("#client_intention option").eq(4).val("B- 关键人成交意向不确定");break;
-            case "C+":
-                $("#client_intention option").eq(5).val("C+ 初步联系 / 有意向");break;
-            case "C-":
-                $("#client_intention option").eq(6).val("C- 初步联系 / 意向不确定");break;
-            case "D":
-                $("#client_intention option").eq(7).val("D 新建客户");break;
-            case "E":
-                $("#client_intention option").eq(8).val("E 明显拒绝");break;
-            case "F":
-                $("#client_intention option").eq(9).val("F 无效客户");break;
+        switch(data.direction){
+            case 1:
+                $("#client_direction option").eq(1).attr("selected","明确成交意向");break;
+            case 2:
+                $("#client_direction option").eq(2).attr("selected","有初步成交意向");break;
+            case 3:
+                $("#client_direction option").eq(3).attr("selected","关键人有成交意向");break;
+            case 4:
+                $("#client_direction option").eq(4).attr("selected","关键人成交意向不确定");break;
+            case 5:
+                $("#client_direction option").eq(5).attr("selected","初步联系 / 有意向");break;
+            case 6:
+                $("#client_direction option").eq(6).attr("selected","初步联系 / 意向不确定");break;
+            case 7:
+                $("#client_direction option").eq(7).attr("selected","新建客户");break;
+            case 8:
+                $("#client_direction option").eq(8).attr("selected","明显拒绝");break;
+            case 9:
+                $("#client_direction option").eq(9).attr("selected","无效客户");break;
             default:"数据有误";
         }
         $("#client_address").val(data.address);

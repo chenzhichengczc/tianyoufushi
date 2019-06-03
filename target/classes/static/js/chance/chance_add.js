@@ -25,12 +25,12 @@ $(function () {
                     html = html.replace("#{cusId}", "cus"+i);
                     html = html.replace("#{chance_name}", data.data.list[i].chanceName);
                     html = html.replace("#{client_name}", data.data.list[i].clientName);
-                    html = html.replace("#{stage}", data.data.list[i].stage);
-                    html = html.replace("#{possibility}", data.data.list[i].possibility);
+                    html = html.replace("#{stage}",$('#stage').children().eq(data.data.list[i].stage).html());
+                    html = html.replace("#{possibility}", $("#possibility").children().eq(data.data.list[i].possibility).html());
                     html = html.replace("#{address}", data.data.list[i].address);
                     html = html.replace("#{money}", data.data.list[i].money);
                     html = html.replace("#{date_time}", data.data.list[i].dateTime);
-                    html = html.replace("#{status}", data.data.list[i].status);
+                    html = html.replace("#{status}", $("#status").children().eq(data.data.list[i].status).html());
                     html = html.replace("#{auth}", data.data.list[i].auth);
                     html = html.replace("#{time}", data.data.list[i].time);
                     $("#chance_td").append(html);
@@ -73,7 +73,7 @@ $(function () {
                                     html = html.replace("#{chance_name}", data.data.list[i].chanceName);
                                     html = html.replace("#{client_name}", data.data.list[i].clientName);
                                     html = html.replace("#{stage}",$('#stage').children().eq(data.data.list[i].stage).html());
-                                    html = html.replace("#{possibility}", data.data.list[i].possibility);
+                                    html = html.replace("#{possibility}", $("#possibility").children().eq(data.data.list[i].possibility).html());
                                     html = html.replace("#{address}", data.data.list[i].address);
                                     html = html.replace("#{money}", data.data.list[i].money);
                                     html = html.replace("#{date_time}", data.data.list[i].dateTime);
@@ -167,75 +167,74 @@ $("#update").click(function () {
         $("#chance_name").val(data.chanceName);
         $("#client_name").val(data.clientName);
         switch(data.type){
-            case "A":
-                $("#chance_type").val("A 合作");break;
-            case "B":
-                $("#chance_type").val("B 外包");break;
-            case "C":
-                $("#chance_type").val("C 投包");break;
-            case "D":
-                $("#chance_type").val("D 渠道");break;
+            case 1:
+                $("#chance_type option").eq(1).attr("selected","合作");break;
+            case 2:
+                $("#chance_type option").eq(2).attr("selected","外包");break;
+            case 3:
+                $("#chance_type option").eq(3).attr("selected","投包");break;
+            case 4:
+                $("#chance_type option").eq(4).attr("selected","渠道");break;
             default:"数据有误";
         }
         switch(data.source){
-            case "A":
-                $("#chance_source").val("A 客户主动联系");break;
-            case "B":
-                $("#chance_source").val("B 网上搜索渠道");break;
-            case "C":
-                $("#chance_source").val("C 市场业务");break;
-            case "D":
-                $("#chance_source").val("D 广告宣传");break;
-            case "E":
-                $("#chance_source").val("E 招标");break;
-            case "F":
-                $("#chance_source").val("F 外包网站");break;
+            case 1:
+                $("#chance_source option").eq(1).attr("selected","客户主动联系");break;
+            case 2:
+                $("#chance_source option").eq(2).attr("selected","网上搜索渠道");break;
+            case 3:
+                $("#chance_source option").eq(3).attr("selected","市场业务");break;
+            case 4:
+                $("#chance_source option").eq(4).attr("selected","广告宣传");break;
+            case 5:
+                $("#chance_source option").eq(5).attr("selected","招标");break;
+            case 6:
+                $("#chance_source option").eq(6).attr("selected","外包网站");break;
             default:"数据有误";
         }
         $("#date_time").val(data.dateTime);
         $("#chance_money").val(data.money);
         switch(data.stage){
-            case "1":
-                $("#chane_stage option").eq(1).val("A 初步沟通");break;
-            case "2":
-                $("#chane_stage option").eq(2).val("B 立项评估");break;
-            case "3":
-                $("#chane_stage option").eq(3).val("C 需求分析");break;
-            case "4":
-                $("#chane_stage option").eq(4).val("D 解决方案");break;
-            case "5":
-                $("#chane_stage option").eq(5).val("E 已报价");break;
-            case "6":
-                $("#chane_stage option").eq(6).val("F 商务谈判");break;
-            case "7":
-                $("#chane_stage option").eq(7).val("F 合同 / 订单签订");break;
+            case 1:
+                $("#chane_stage option").eq(1).attr("selected","初步沟通");break;
+            case 2:
+                $("#chane_stage option").eq(2).attr("selected","立项评估");break;
+            case 3:
+                $("#chane_stage option").eq(3).attr("selected","需求分析");break;
+            case 4:
+                $("#chane_stage option").eq(4).attr("selected","解决方案");break;
+            case 5:
+                $("#chane_stage option").eq(5).attr("selected","已报价");break;
+            case 6:
+                $("#chane_stage option").eq(6).attr("selected","商务谈判");break;
+            case 7:
+                $("#chane_stage option").eq(7).attr("selected","合同 / 订单签订");break;
             default:"数据有误";
         }
-        $("#chance_possibility").val(data.possibility);
 
         switch(data.possibility){
-            case 0:
-                $("#chance_possibility option").eq(1).val("0%");break;
-            case 10:
-                $("#chance_possibility option").eq(2).val("10%");break;
-            case 20:
-                $("#chance_possibility option").eq(3).val("20%");break;
-            case 30:
-                $("#chance_possibility option").eq(4).val("30%");break;
-            case 40:
-                $("#chance_possibility option").eq(5).val("40%");break;
-            case 50:
-                $("#chance_possibility option").eq(6).val("50%");break;
-            case 60:
-                $("#chance_possibility option").eq(7).val("60%");break;
-            case 70:
-                $("#chance_possibility option").eq(8).val("70%");break;
-            case 80:
-                $("#chance_possibility option").eq(9).val("80%");break;
-            case 90:
-                $("#chance_possibility option").eq(10).val("90%");break;
-            case 100:
-                $("#chance_possibility option").eq(11).val("100%");break;
+            case "1":
+                $("#chance_possibility option").eq(1).attr("selected","0%");break;
+            case "2":
+                $("#chance_possibility option").eq(2).attr("selected","10%");break;
+            case "3":
+                $("#chance_possibility option").eq(3).attr("selected","20%");break;
+            case "4":
+                $("#chance_possibility option").eq(4).attr("selected","30%");break;
+            case "5":
+                $("#chance_possibility option").eq(5).attr("selected","40%");break;
+            case "6":
+                $("#chance_possibility option").eq(6).attr("selected","50%");break;
+            case "7":
+                $("#chance_possibility option").eq(7).attr("selected","60%");break;
+            case "8":
+                $("#chance_possibility option").eq(8).attr("selected","70%");break;
+            case "9":
+                $("#chance_possibility option").eq(9).attr("selected","80%");break;
+            case "10":
+                $("#chance_possibility option").eq(10).attr("selected","90%");break;
+            case "11":
+                $("#chance_possibility option").eq(11).attr("selected","100%");break;
             default:"数据有误";
         }
         $("#chance_address").val(data.address);

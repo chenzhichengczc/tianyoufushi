@@ -1,6 +1,5 @@
 package com.jckc_backer.modules.client.controller;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.jckc_backer.common.utils.ResponseUtil;
@@ -32,12 +31,6 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
-   /* @RequestMapping(value = "/insert",method = RequestMethod.POST)
-    public ResponseUtil insert(ClientEntity clientEntity, ClientInformationEntity clientInformationEntity, ClientCompanyEntity clientCompanyEntity){
-        clientService.insert(clientEntity,clientInformationEntity,clientCompanyEntity);
-        return ResponseUtil.success();
-    }
-*/
    @RequestMapping(value = "/insert",method = RequestMethod.POST)
    public ResponseUtil insert(ClientVO clientVO){
        clientService.insertClient(clientVO);

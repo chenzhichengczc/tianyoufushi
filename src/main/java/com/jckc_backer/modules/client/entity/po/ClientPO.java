@@ -5,6 +5,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author ：fenghuang
@@ -30,10 +31,10 @@ public class ClientPO implements Serializable {
     private String linkCode;
 
     @ApiModelProperty(value = "性别",name = "link_gender")
-    private String linkGender;
+    private Integer linkGender;
 
     @ApiModelProperty(value = "生日",name = "link_birth")
-    private String linkBirth;
+    private Date linkBirth;
 
     @ApiModelProperty(value = "职务",name = "link_pose")
     private String linkPose;

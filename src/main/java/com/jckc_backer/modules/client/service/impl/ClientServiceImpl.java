@@ -9,6 +9,8 @@ import com.jckc_backer.modules.client.service.ClientService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,7 +32,9 @@ public class ClientServiceImpl implements ClientService {
         if(clientVO.getCompanyCode() == null || "".equals(clientVO.getCompanyCode())){
             clientVO.setCompanyCode(uuid);
         }
-        System.out.println("clientVO = " + clientVO);
+      /*  Date time=clientVO.getAccessTime();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        df.format(time);*/
         clientMapper.insertClient(clientVO);
     }
 

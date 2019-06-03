@@ -27,10 +27,10 @@ public class ChanceEntity extends BasicEntity {
     private String clientName;
 
     @ApiModelProperty(value = "类型",name="type")
-    private String type;
+    private Integer type;
 
     @ApiModelProperty(value = "机会来源",name="source")
-    private String source;
+    private Integer source;
 
     @ApiModelProperty(value = "成交日期",name="date_time")
     @TableField("date_time")
@@ -40,7 +40,7 @@ public class ChanceEntity extends BasicEntity {
     private String money;
 
     @ApiModelProperty(value = "阶段",name="stage")
-    private String stage;
+    private Integer stage;
 
     @ApiModelProperty(value = "可能性",name="possibility")
     private String possibility;
@@ -52,7 +52,7 @@ public class ChanceEntity extends BasicEntity {
     private String address;
 
     @ApiModelProperty(value = "状态",name="status")
-    private String status;
+    private Integer status;
 
     @ApiModelProperty(value = "录入时间",name="time")
     private String time;

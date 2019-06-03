@@ -1,7 +1,6 @@
 package com.jckc_backer.modules.client.entity.vo;
 
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.enums.IdType;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.jckc_backer.modules.client.entity.po.ClientPO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -28,28 +27,28 @@ public class ClientVO extends ClientPO implements Serializable {
     private Integer id;
 
     @ApiModelProperty(value = "客户所属类型",name = "clientType")
-    private String clientType;
+    private Integer clientType;
 
     @ApiModelProperty(value = "客户名字",name = "clientName")
     private String clientName;
 
     @ApiModelProperty(value = "客户类型",name = "type")
-    private String type;
+    private Integer type;
 
     @ApiModelProperty(value = "成熟度",name = "muturity")
     private String muturity;
 
     @ApiModelProperty(value = "客户状态",name = "status")
-    private String status;
+    private Integer status;
 
     @ApiModelProperty(value = "客户等级",name = "grade")
-    private String grade;
+    private Integer grade;
 
-    @ApiModelProperty(value = "合作方向",name = "direction")
-    private String direction;
+    @ApiModelProperty(value = "合作意向",name = "direction")
+    private Integer direction;
 
     @ApiModelProperty(value = "客户来源",name = "source")
-    private String source;
+    private Integer source;
 
     @ApiModelProperty(value = "意向产id",name = "pro_Id")
     private Integer proId;
@@ -60,7 +59,7 @@ public class ClientVO extends ClientPO implements Serializable {
     @ApiModelProperty(value = "客户介绍",name = "introduction")
     private String introduction;
 
-   // @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @ApiModelProperty(value = "获取客户时间",name = "access_time")
     private Date accessTime;
 
@@ -74,7 +73,7 @@ public class ClientVO extends ClientPO implements Serializable {
     private String companyName;
 
     @ApiModelProperty(value = "公司所属行业",name = "industry")
-    private String industry;
+    private Integer industry;
 
     @ApiModelProperty(value = "公司座机",name = "tel")
     private String tel;
