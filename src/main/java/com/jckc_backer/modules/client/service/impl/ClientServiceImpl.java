@@ -54,6 +54,11 @@ public class ClientServiceImpl implements ClientService {
         return clientList;
     }
 
+    @Override
+    public void delete(Integer id) {
+        clientMapper.delete(id);
+    }
+
    /* @Override
     public void insert(ClientEntity clientEntity, ClientInformationEntity clientInformationEntity, ClientCompanyEntity clientCompanyEntity) {
         if(clientEntity.getClientType() != null && (clientEntity.getClientType()).equals("0")){
