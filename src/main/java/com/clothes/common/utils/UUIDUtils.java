@@ -1,9 +1,9 @@
-package com.jckc_backer.common.utils;
+package com.clothes.common.utils;
 
 import java.util.UUID;
 
 /**
- * 
+ *
  * @����: Charles
  * @ʱ��: 2017��6��7������7:05:14
  * @TODO�� ��������ַ����Ĺ����� uuid

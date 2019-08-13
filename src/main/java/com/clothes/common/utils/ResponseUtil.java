@@ -1,4 +1,4 @@
-package com.jckc_backer.common.utils;
+package com.clothes.common.utils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,7 +38,7 @@ public class ResponseUtil extends HashMap<String, Object>{
         res.put("msg", msg);
         return res;
     }
-    
+
     public static ResponseUtil success(Object data){
         ResponseUtil res = new ResponseUtil();
         res.put("code", 0);
@@ -46,7 +46,7 @@ public class ResponseUtil extends HashMap<String, Object>{
         res.put("data",data);
         return res;
     }
-    
+
     public static ResponseUtil success(String msg,Object data){
         ResponseUtil res = new ResponseUtil();
         res.put("code", 0);

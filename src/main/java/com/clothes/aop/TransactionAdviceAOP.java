@@ -1,4 +1,4 @@
-package com.jckc_backer.aop;
+package com.clothes.aop;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.aop.Advisor;
@@ -29,7 +29,7 @@ public class TransactionAdviceAOP {
     /**
      * 定义切点
      */
-    private static final String AOP_POINT_CUT = "execution(* com.jckc_backer.modules.*.service..*.*(..))";
+    private static final String AOP_POINT_CUT = "execution(* com.clothes.modules.*.service..*.*(..))";
 
     @Autowired
     private PlatformTransactionManager platformTransactionManager;

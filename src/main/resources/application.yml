@@ -41,7 +41,7 @@ spring:
     database: 0
     host: 120.78.157.175
     port: 6379
-    password: jcredis   # 密码（默认为空）
+    password: edis   # 密码（默认为空）
     timeout: 6000ms  # 连接超时时长（毫秒）
     jedis:
       pool:
@@ -62,7 +62,7 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.log4j2.Log4j2Impl  #打印sql日志
     log-prefix:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.jckc_backer.modules/*/entity
+  type-aliases-package: com.clothes.modules/*/entity
 
 
 #分页插件

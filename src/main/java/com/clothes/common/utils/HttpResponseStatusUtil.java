@@ -1,4 +1,4 @@
-package com.jckc_backer.common.utils;
+package com.clothes.common.utils;
 
 /**
  * @author ：fenghuang

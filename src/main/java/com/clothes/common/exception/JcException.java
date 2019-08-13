@@ -1,4 +1,4 @@
-package com.jckc_backer.common.exception;
+package com.clothes.common.exception;
 
 
 

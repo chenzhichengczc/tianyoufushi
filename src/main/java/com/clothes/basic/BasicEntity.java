@@ -1,4 +1,4 @@
-package com.jckc_backer.basic;
+package com.clothes.basic;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import io.swagger.annotations.ApiModel;

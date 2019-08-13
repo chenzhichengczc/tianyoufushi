@@ -1,4 +1,4 @@
-package com.jckc_backer.basic;
+package com.clothes.basic;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

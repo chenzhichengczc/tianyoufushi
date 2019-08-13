@@ -1,4 +1,4 @@
-package com.jckc_backer.common.entityEnum.client;
+package com.clothes.common.entityEnum.client;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package com.jckc_backer.aop;
+package com.clothes.aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -26,7 +26,7 @@ public class WebLogAop {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     //切点
-    @Pointcut("execution(* com.jc.modules.*.service..*.*(..))")
+    @Pointcut("execution(* com.clothes.modules.*.service..*.*(..))")
     public void webLogAop(){}
 
     @Before("webLogAop()")
