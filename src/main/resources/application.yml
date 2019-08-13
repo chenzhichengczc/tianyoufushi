@@ -1,11 +1,9 @@
 server:
-  servlet:
-    context-path: /jckc_backer
   tomcat:
     uri-encoding: UTF-8
     max-threads: 1000
     min-spare-threads: 30
-  port: 80
+  port: 8080
   connection-timeout: 5000ms
 
 
@@ -13,17 +11,20 @@ spring:
   # 环境 dev|test|prod 开发/测试/上线
   profiles:
     #    active: test
-    active: prod
+    active: test
 
-                                  
+
   # 热部署
   devtools:
     restart:
       enabled: true
   freemarker:
     cache: false
+
+#    spring.thymeleaf.prefix=classpath:/templates/
+#    spring.thymeleaf.suffix=.vm
   thymeleaf:
-    cache: false
+    cache: true
   # jackson时间格式化
   jackson:
     time-zone: GMT+8
@@ -73,3 +74,9 @@ pagehelper:
 
 logging:
   config: classpath:log4j2-spring.xml
+  # 设置单个文件最大内存
+multipart.maxFileSize: 50Mb
+  # 设置所有文件最大内存
+multipart.maxRequestSize: 50Mb
+
+

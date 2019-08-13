@@ -10,6 +10,6 @@ spring:
  #   password: jckc
 
     druid:
-      url: jdbc:mysql://gt-mysql.ci6bqn9htuop.ap-southeast-1.rds.amazonaws.com:3306/jckc_backer?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+      url: jdbc:mysql://123.207.230.97:3306/wx_api_clothes?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
       username: root
-      password: xiaomubiao
+      password: jckc
