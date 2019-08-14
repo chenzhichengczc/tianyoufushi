@@ -1,8 +1,7 @@
 package com.clothes.common.utils;
 
 import java.util.HashMap;
-import java.util.Map;
-
+import com.clothes.common.utils.HttpResponseStatusUtil;
 
 /**
  * @author ：fenghuang

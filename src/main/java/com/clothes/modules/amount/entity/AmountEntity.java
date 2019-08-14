@@ -1,4 +1,4 @@
-package com.clothes.modules.notice.entity;
+package com.clothes.modules.amount.entity;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
