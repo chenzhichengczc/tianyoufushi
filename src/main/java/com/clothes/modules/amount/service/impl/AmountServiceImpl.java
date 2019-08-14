@@ -1,5 +1,4 @@
 package com.clothes.modules.amount.service.impl;
-
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.clothes.modules.amount.entity.AmountEntity;

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.clothes.modules.coupons.mapper.CouponsMapper">
+
+    <select id="selectByType"
+            resultType="com.clothes.modules.coupons.entity.CouponsEntity">
+		SELECT
+			id,dateEndDays,dateAdd,dateEndType,dateStartType,dateUpdate,
+			moneyHreshold,moneyMax,moneyMin,name,needScore,needSignedContinuous,
+			numberGit,numberGitNumber,numberLeft,numberPersonMax,numberTotle,numberUsed,
+			status,statusStr,type,dataEnd
+		FROM
+			coupons
+		WHERE
+			type=#{type}
+	</select>
+</mapper>

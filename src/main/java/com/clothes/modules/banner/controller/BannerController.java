@@ -43,12 +43,16 @@ public class BannerController {
                 case "hot":
                     bannerService.getBannerEntityList(t);
                     break;
+                case "duihuan":
+                    bannerService.getBannerEntityList(t);
+                    break;
+                case "goods":
+                    bannerService.getBannerEntityList(t);
+                    break;
                 default:
                     break;
             }
         }
         return ResponseUtil.success( bannerService.getBannerEntityList(t));
-
-
     }
 }
