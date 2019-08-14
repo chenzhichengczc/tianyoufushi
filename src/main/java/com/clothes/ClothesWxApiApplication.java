@@ -1,17 +1,14 @@
 package com.clothes;
 
-
-import com.alibaba.fastjson.JSON;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootConfiguration;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import java.util.List;
 
 
 /**
@@ -33,8 +30,9 @@ public class ClothesWxApiApplication extends SpringBootServletInitializer {
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(ClothesWxApiApplication.class);
     }
-
-
+    public static void main(String[] args) {
+        SpringApplication.run(ClothesWxApiApplication.class, args);
+    }
 
 
 }

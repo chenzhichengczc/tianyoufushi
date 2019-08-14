@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.clothes.modules.notice.entity.NoticeEntity;
 import com.clothes.modules.notice.mapper.NoticeMapper;
 import com.clothes.modules.notice.service.NoticeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

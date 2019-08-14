@@ -1,4 +1,4 @@
-package com.clothes.modules.notice.entity;
+package com.clothes.modules.amount.entity;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
@@ -18,7 +18,7 @@ import java.io.Serializable;
  * @version:
  */
 @Data
-@TableName("notice")
+@TableName("user_amount")
 public class AmountEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;

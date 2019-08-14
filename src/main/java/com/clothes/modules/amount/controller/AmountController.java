@@ -2,11 +2,8 @@ package com.clothes.modules.amount.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.clothes.common.utils.ResponseUtil;
+import com.clothes.modules.amount.entity.AmountEntity;
 import com.clothes.modules.amount.service.AmountService;
-import com.clothes.modules.notice.entity.AmountEntity;
-import com.clothes.modules.notice.entity.NoticeEntity;
-import com.clothes.modules.notice.service.NoticeService;
-import com.mysql.jdbc.util.ResultSetUtil;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

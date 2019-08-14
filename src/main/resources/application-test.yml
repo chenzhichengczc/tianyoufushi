@@ -12,4 +12,4 @@ spring:
     druid:
       url: jdbc:mysql://123.207.230.97:3306/wx_api_clothes?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
       username: root
-      password: c
+      password: jckc

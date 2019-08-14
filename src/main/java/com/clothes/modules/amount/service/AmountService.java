@@ -1,8 +1,7 @@
 package com.clothes.modules.amount.service;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.clothes.modules.notice.entity.AmountEntity;
-import com.clothes.modules.notice.entity.NoticeEntity;
+import com.clothes.modules.amount.entity.AmountEntity;
 
 import java.util.List;
 
