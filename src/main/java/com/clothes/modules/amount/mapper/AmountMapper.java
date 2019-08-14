@@ -13,4 +13,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 
 public interface AmountMapper extends BaseMapper<AmountEntity> {
+
 }

@@ -10,6 +10,6 @@ spring:
  #   password: c
 
     druid:
-      url: jdbc:mysql://111.231.74.125:3306/shoop?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+      url: jdbc:mysql://111.231.74.125:3306/shop?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
       username: root
       password: 123456
