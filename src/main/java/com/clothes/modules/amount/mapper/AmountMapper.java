@@ -12,6 +12,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @modified By：
  * @version:
  */
-@Mapper
+
 public interface AmountMapper extends BaseMapper<AmountEntity> {
 }

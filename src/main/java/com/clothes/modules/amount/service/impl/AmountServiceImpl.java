@@ -22,7 +22,7 @@ import java.util.List;
 public class AmountServiceImpl extends ServiceImpl<AmountMapper, AmountEntity> implements AmountService {
 
     @Resource
-    private AmountMapper noticeMapper;
+    private AmountMapper amountMapper;
 
     /**
      * 獲取公告impl
@@ -30,7 +30,7 @@ public class AmountServiceImpl extends ServiceImpl<AmountMapper, AmountEntity> i
      */
 
     public List<AmountEntity> amountList(EntityWrapper<AmountEntity> entityEntityWrapper) {
-        List<AmountEntity> noticeEntities = noticeMapper.selectList(entityEntityWrapper);
+        List<AmountEntity> noticeEntities = amountMapper.selectList(entityEntityWrapper);
         return noticeEntities;
     }
 }

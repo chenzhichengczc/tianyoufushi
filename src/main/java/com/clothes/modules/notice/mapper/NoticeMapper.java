@@ -11,6 +11,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @modified By：
  * @version:
  */
-@Mapper
+
 public interface NoticeMapper extends BaseMapper<NoticeEntity> {
 }

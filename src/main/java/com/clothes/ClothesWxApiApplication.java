@@ -34,7 +34,9 @@ public class ClothesWxApiApplication extends SpringBootServletInitializer {
         return application.sources(ClothesWxApiApplication.class);
     }
 
-
+    public static void main(String[] args) {
+        SpringApplication.run(ClothesWxApiApplication.class, args);
+    }
 
 
 }
