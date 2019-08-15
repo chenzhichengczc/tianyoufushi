@@ -15,18 +15,18 @@ import java.util.Date;
 @ApiModel("分页图片展览")
 @Data
 @TableName("shop")
-public class ShopEntity extends BasicEntity {
+public class ShopEntity {
 
     @ApiModelProperty(value = "自增ID",name = "id")
     @TableId(type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty(value = "",name="pictureAddress")
-    @TableField("barCode")
+    @ApiModelProperty(value = "",name="barCode")
+    @TableField("bar_code")
     private String barCode;
 
-    @ApiModelProperty(value = "套餐",name="setMeal")
-    @TableField("categoryId")
+    @ApiModelProperty(value = "套餐",name="categoryId")
+    @TableField("category_id")
     private Integer categoryId;
 
     @ApiModelProperty(value = "成交金额",name="characteristic")
@@ -36,21 +36,27 @@ public class ShopEntity extends BasicEntity {
     private Integer commission;
 
     @ApiModelProperty(value = "成交金额",name="commissionType")
+    @TableField("commission_type")
     private Integer commissionType;
 
     @ApiModelProperty(value = "姓名",name="dateAdd")
+
     private Date dateAdd;
 
     @ApiModelProperty(value = "姓名",name="dateStart")
+
     private Date dateStart;
 
     @ApiModelProperty(value = "姓名",name="dateUpdate")
+
     private Date dateUpdate;
 
     @ApiModelProperty(value = "成交金额",name="gotScore")
+
     private Integer gotScore;
 
     @ApiModelProperty(value = "姓名",name="gotScoreType")
+
     private Integer gotScoreType;
 
     @ApiModelProperty(value = "成交金额",name="kanjia")
