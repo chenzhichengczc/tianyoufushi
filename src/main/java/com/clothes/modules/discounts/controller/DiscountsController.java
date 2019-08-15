@@ -40,4 +40,12 @@ public class DiscountsController {
         List<DiscountsEntity> discountsEntities = discountsService.discountsList(entityEntityWrapper);
         return ResponseUtil.success(discountsEntities);
     }
+
+    @RequestMapping(value = "discounts/fetch", method = RequestMethod.GET)
+    public ResponseUtil fetchDiscounts(String token, Integer pwd){
+
+
+        return ResponseUtil.success();
+    }
+
 }

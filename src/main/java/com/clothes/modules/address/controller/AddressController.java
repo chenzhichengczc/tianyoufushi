@@ -55,8 +55,8 @@ public class AddressController {
     }
     @RequestMapping(value = "/user/shipping-address/detail", method = RequestMethod.GET)
     public ResponseUtil getAddress(String token, Integer id){
-        addressService.getAddress(id);
-        return ResponseUtil.success();
+        List<AddressEntity> address = addressService.getAddress(id);
+        return ResponseUtil.success(address);
     }
 
     @RequestMapping(value = "/user/shipping-address/add", method = RequestMethod.POST)
