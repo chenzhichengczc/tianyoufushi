@@ -15,7 +15,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/shop")
+@RequestMapping("/wx")
 public class ShoopController {
 
     @Resource
@@ -25,7 +25,7 @@ public class ShoopController {
      *
      * @return
      */
-    @RequestMapping(value = "/goods/list",method = RequestMethod.GET)
+    @RequestMapping(value = "/shop/goods/list",method = RequestMethod.GET)
     public ResponseUtil shoopEntityList(int recommendStatus, int pageSize){
         PageHelper.startPage(recommendStatus, pageSize);
         EntityWrapper<ShopEntity> wrapper = new EntityWrapper<ShopEntity>();
