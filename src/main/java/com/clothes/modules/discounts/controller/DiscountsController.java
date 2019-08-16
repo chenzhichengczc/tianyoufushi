@@ -33,7 +33,7 @@ public class DiscountsController {
      * @return
      */
     @RequestMapping(value = "/discounts/my", method = RequestMethod.GET)
-    public ResponseUtil getDiscountsList(){
+    public ResponseUtil getDiscountsList(String openId){
 
         EntityWrapper<DiscountsEntity> entityEntityWrapper = new EntityWrapper<>();
 
@@ -41,8 +41,15 @@ public class DiscountsController {
         return ResponseUtil.success(discountsEntities);
     }
 
+    @RequestMapping(value = "discounts/fetchById", method = RequestMethod.GET)
+    public ResponseUtil fetchDiscounts(String openId, Integer pwd){
+
+
+        return ResponseUtil.success();
+    }
+
     @RequestMapping(value = "discounts/fetch", method = RequestMethod.GET)
-    public ResponseUtil fetchDiscounts(String token, Integer pwd){
+    public ResponseUtil fetch(String openId, Integer id){
 
 
         return ResponseUtil.success();

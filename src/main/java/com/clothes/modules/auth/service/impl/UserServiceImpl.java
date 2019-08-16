@@ -3,16 +3,19 @@ package com.clothes.modules.auth.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.clothes.common.utils.GetOpenIdUtils;
 import com.clothes.modules.address.entity.AddressEntity;
 import com.clothes.modules.auth.entity.UserEntity;
 import com.clothes.modules.auth.mapper.UserMapper;
 import com.clothes.modules.auth.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sun.misc.BASE64Encoder;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 
@@ -31,9 +34,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
     @Resource
     private UserMapper userMapper;
 
+    @Autowired
+    private GetOpenIdUtils getOpenIdUtils;
 
     @Override
-    public Integer checkOpenId(EntityWrapper wrapper, String openId) {
+    public Integer checkOpenId(EntityWrapper wrapper, HttpServletRequest httpServletRequest) {
+        String openId = getOpenIdUtils.getOpenIdByToken(httpServletRequest);
         //根据openId判断数据库是否存在
         Integer openIdAccount = userMapper.getCount(openId);
         System.out.println("openIdAccount = " + openIdAccount);

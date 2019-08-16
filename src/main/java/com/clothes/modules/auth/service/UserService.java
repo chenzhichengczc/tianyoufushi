@@ -4,6 +4,7 @@ package com.clothes.modules.auth.service;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.clothes.modules.auth.entity.UserEntity;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 
@@ -16,7 +17,7 @@ import java.util.List;
  */
 public interface UserService {
 
-    public Integer checkOpenId(EntityWrapper wrapper, String openId);
+    public Integer checkOpenId(EntityWrapper wrapper, HttpServletRequest httpServletRequest);
 
     public void insertUser(UserEntity userEntity);
 

@@ -29,7 +29,7 @@ public class JcExceptionHandler {
     @ExceptionHandler(JcException.class)
     public ResponseUtil handleJcException(JcException e){
         logger.error(e.getMsg(),e);
-        return ResponseUtil.error(e.getCode(), "服务器端出现异常");
+        return ResponseUtil.error(e.getCode(), e.getMsg());
     }
 
     //处理其他异常类

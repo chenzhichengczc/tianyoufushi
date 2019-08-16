@@ -2,6 +2,9 @@ package com.clothes.modules.shop.mapper;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.clothes.modules.shop.entity.ShopEntity;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @author ：fenghuang
@@ -12,5 +15,8 @@ import com.clothes.modules.shop.entity.ShopEntity;
  */
 
 public interface ShopMapper extends BaseMapper<ShopEntity> {
+
+    public List<ShopEntity> getUserStorage(@Param(value = "openId") String openId);
+
 
 }

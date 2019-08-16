@@ -40,15 +40,15 @@ public class AddressEntity implements Serializable {
 	/**
 	 * 省份
 	 */
-	private String provinceId;
+	private String provinceStr;
 	/**
 	 * 城市
 	 */
-	private String cityId;
+	private String cityStr;
 	/**
 	 * 区域
 	 */
-	private String districtId;
+	private String districtStr;
 	/**
 	 * 地址
 	 */
@@ -59,4 +59,8 @@ public class AddressEntity implements Serializable {
 	 */
 	private String code;
 
+	/**
+	 * 微信openId
+	 */
+	private String openId;
 }

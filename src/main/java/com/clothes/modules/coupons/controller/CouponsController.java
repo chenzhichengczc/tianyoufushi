@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 
+ *
  *
  * @author chenshun
  * @email sunlightcs@gmail.com
@@ -22,7 +22,7 @@ public class CouponsController {
      * 列表
      */
     @RequestMapping(value = "/discounts/coupons", method = RequestMethod.GET)
-    public ResponseUtil getListForType(String type){
+    public ResponseUtil getListForType(String openId, String type){
 
      return ResponseUtil.success(couponsService.getBannerEntityList(type));
 

@@ -61,10 +61,13 @@ public class TransactionAdviceAOP {
 
         Map<String, TransactionAttribute> map = new HashMap<>();
         map.put("find*", ruleSelect);
+        map.put("get*", ruleSelect);
         map.put("select*", ruleSelect);
         map.put("insert*", ruleChange);
+        map.put("add*", ruleChange);
         map.put("batch*", ruleChange);
         map.put("update*", ruleChange);
+        map.put("change*", ruleChange);
         map.put("delete*", ruleChange);
 
         source.setNameMap(map);

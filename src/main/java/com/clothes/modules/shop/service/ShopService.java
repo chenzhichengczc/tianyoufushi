@@ -16,4 +16,6 @@ import java.util.List;
 public interface ShopService extends IService<ShopEntity>{
 
     List<ShopEntity> getList(EntityWrapper<ShopEntity> wrapper);
+
+    public List<ShopEntity> getUserStorage(String openId);
 }

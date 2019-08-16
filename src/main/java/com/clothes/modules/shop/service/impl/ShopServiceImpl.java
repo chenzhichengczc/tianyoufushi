@@ -22,4 +22,10 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, ShopEntity> impleme
         return entityList;
     }
 
+    @Override
+    public List<ShopEntity> getUserStorage(String openId) {
+        List<ShopEntity> userStorage = shopMapper.getUserStorage(openId);
+        return userStorage;
+    }
+
 }

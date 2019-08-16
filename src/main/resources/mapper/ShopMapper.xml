@@ -3,4 +3,50 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.clothes.modules.shop.mapper.ShopMapper">
 
+    <resultMap type="com.clothes.modules.shop.entity.ShopEntity" id="shopMap">
+        <result property="id" column="id"/>
+        <result property="barCode" column="bar_code"/>
+        <result property="categoryId" column="category_id"/>
+        <result property="characteristic" column="characteristic"/>
+        <result property="commission" column="commission"/>
+        <result property="commissionType" column="commission_type"/>
+        <result property="dateAdd" column="date_add"/>
+        <result property="dateStart" column="date_start"/>
+        <result property="dateUpdate" column="date_update"/>
+        <result property="gotScore" column="got_score"/>
+        <result property="gotScoreType" column="got_score_type"/>
+        <result property="kanjia" column="kanjia"/>
+        <result property="kanjiaPrice" column="kanjia_price"/>
+        <result property="limitation" column="limitation"/>
+        <result property="logisticsId" column="logistics_id"/>
+        <result property="miaosha" column="miaosha"/>
+        <result property="minPrice" column="min_price"/>
+        <result property="minScore" column="min_score"/>
+        <result property="name" column="name"/>
+        <result property="numberFav" column="number_fav"/>
+        <result property="numberGoodReputation" column="number_good_reputation"/>
+        <result property="numberOrders" column="number_orders"/>
+        <result property="numberSells" column="number_sells"/>
+        <result property="originalPrice" column="original_price"/>
+        <result property="paixu" column="paixu"/>
+        <result property="pic" column="pic"/>
+        <result property="pingtuan" column="pingtuan"/>
+        <result property="pingtuanPrice" column="pingtuan_price"/>
+        <result property="recommendStatus" column="recommend_status"/>
+        <result property="recommendStatusStr" column="recommend_status_str"/>
+        <result property="shopId" column="shop_id"/>
+        <result property="status" column="status"/>
+        <result property="statusStr" column="status_str"/>
+        <result property="stores" column="stores"/>
+        <result property="userId" column="user_id"/>
+        <result property="videoId" column="video_id"/>
+        <result property="views" column="views"/>
+        <result property="weight" column="weight"/>
+    </resultMap>
+
+    <select id="getUserStorage" resultMap="shopMap">
+        SELECT b.goods_id,a.pic,a.name,b.date_add FROM shop a RIGHT JOIN shop_user b ON
+        a.id = b.goods_id WHERE b.user_id = #{openId}
+    </select>
+
 </mapper>

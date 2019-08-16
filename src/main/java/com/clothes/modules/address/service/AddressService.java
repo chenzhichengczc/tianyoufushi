@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public interface AddressService extends IService<AddressEntity> {
 
-    public List<AddressEntity> addressList(EntityWrapper<AddressEntity> entityEntityWrapper);
+    public List<AddressEntity> addressList(EntityWrapper<AddressEntity> entityEntityWrapper, String openId);
 
     public void updateAddressById(EntityWrapper<AddressEntity> entityEntityWrapper, Integer id, Integer isDefault);
 

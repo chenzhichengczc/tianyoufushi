@@ -1,6 +1,7 @@
 package com.clothes.modules.address.controller;
 
 
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,16 +32,19 @@ public class AddressController {
      * 列表
      */
     @RequestMapping(value = "/user/shipping-address/list", method = RequestMethod.GET)
-    public ResponseUtil list(String token){
+    public ResponseUtil list(String openId){
 
         EntityWrapper<AddressEntity> entityEntityWrapper = new EntityWrapper<>();
 
-        List<AddressEntity> addressEntities = addressService.addressList(entityEntityWrapper);
-        return ResponseUtil.success(addressEntities);
+        List<AddressEntity> addressEntities = addressService.addressList(entityEntityWrapper, openId);
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("hello", addressEntities);
+        map.put("hi", addressEntities.get(0));
+        return ResponseUtil.success(map);
     }
 
     @RequestMapping(value = "/user/shipping-address/updateAddressDefault", method = RequestMethod.POST)
-    public ResponseUtil updateAddressById(String token, Integer id, Integer isDefault){
+    public ResponseUtil updateAddressById(String openId, Integer id, Integer isDefault){
         System.out.println("isDefault12 = " + isDefault);
         EntityWrapper<AddressEntity> entityEntityWrapper = new EntityWrapper<>();
         addressService.updateAddressById(entityEntityWrapper, id , isDefault);
@@ -48,25 +52,25 @@ public class AddressController {
     }
 
     @RequestMapping(value = "/user/shipping-address/delete", method = RequestMethod.POST)
-    public ResponseUtil deleteAddress(String token, Integer id){
+    public ResponseUtil deleteAddress(String openId, Integer id){
         addressService.deleteAddress(id );
         return ResponseUtil.success();
 
     }
     @RequestMapping(value = "/user/shipping-address/detail", method = RequestMethod.GET)
-    public ResponseUtil getAddress(String token, Integer id){
+    public ResponseUtil getAddress(String openId, Integer id){
         List<AddressEntity> address = addressService.getAddress(id);
         return ResponseUtil.success(address);
     }
 
     @RequestMapping(value = "/user/shipping-address/add", method = RequestMethod.POST)
-    public ResponseUtil addAddress(String token, AddressEntity addressEntity){
+    public ResponseUtil addAddress(AddressEntity addressEntity){
         addressService.addAddress(addressEntity);
         return ResponseUtil.success();
     }
 
     @RequestMapping(value = "/user/shipping-address/update", method = RequestMethod.POST)
-    public ResponseUtil updateAddress(String token, AddressEntity addressEntity){
+    public ResponseUtil updateAddress(AddressEntity addressEntity){
         addressService.updateAddress(addressEntity);
         return ResponseUtil.success();
     }

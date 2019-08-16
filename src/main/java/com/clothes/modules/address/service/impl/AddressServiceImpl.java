@@ -23,8 +23,8 @@ public class AddressServiceImpl extends ServiceImpl<com.clothes.modules.address.
 
 
 
-    public List<AddressEntity> addressList(EntityWrapper<AddressEntity> entityEntityWrapper){
-
+    public List<AddressEntity> addressList(EntityWrapper<AddressEntity> entityEntityWrapper, String openId){
+            entityEntityWrapper.eq("open_id",openId);
            return  addressMapper.selectList(entityEntityWrapper);
 
 

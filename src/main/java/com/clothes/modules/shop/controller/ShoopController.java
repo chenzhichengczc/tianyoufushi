@@ -26,11 +26,17 @@ public class ShoopController {
      * @return
      */
     @RequestMapping(value = "/shop/goods/list",method = RequestMethod.GET)
-    public ResponseUtil shoopEntityList(int recommendStatus, int pageSize){
+    public ResponseUtil shopEntityList(int recommendStatus, int pageSize){
         PageHelper.startPage(recommendStatus, pageSize);
         EntityWrapper<ShopEntity> wrapper = new EntityWrapper<ShopEntity>();
         List<ShopEntity> pageList =shopService.getList(wrapper);
         PageInfo<ShopEntity> pageInfo=new PageInfo<>(pageList);
         return ResponseUtil.success(pageInfo);
+    }
+
+    @RequestMapping(value = "/shop/goods/fav/list",method = RequestMethod.GET)
+    public ResponseUtil shopUserStorageList(String openId){
+        List<ShopEntity> userStorage = shopService.getUserStorage(openId);
+        return ResponseUtil.success(userStorage);
     }
 }
