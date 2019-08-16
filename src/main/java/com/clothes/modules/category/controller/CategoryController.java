@@ -11,19 +11,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 
+ *
  *
  * @author chenshun
  * @email sunlightcs@gmail.com
  * @date 2019-08-14 15:48:07
  */
 @RestController
-@RequestMapping("/shop")
+@RequestMapping("/wx/api")
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
-    @RequestMapping(value = "/goods/category/all", method = RequestMethod.GET)
+    @RequestMapping(value = "/shop/goods/category/all", method = RequestMethod.GET)
     public ResponseUtil getCategoryList(){
 
         EntityWrapper<CategoryEntity> entityEntityWrapper = new EntityWrapper<>();

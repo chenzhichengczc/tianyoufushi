@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Api(tags = "logo图")
-@RequestMapping("/wx")
+@RequestMapping("/wx/api")
 public class BannerController {
 
     @Autowired

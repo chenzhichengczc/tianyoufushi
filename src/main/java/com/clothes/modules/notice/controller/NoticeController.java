@@ -23,7 +23,7 @@ import java.util.List;
 
 @RestController
 @Api(tags = "公告")
-@RequestMapping("/wx")
+@RequestMapping("/wx/api")
 public class NoticeController {
 
     @Autowired

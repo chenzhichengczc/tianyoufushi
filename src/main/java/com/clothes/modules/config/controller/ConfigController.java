@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.*;
  * @date 2019-08-15 16:34:48
  */
 @RestController
-@RequestMapping("/wx")
+@RequestMapping("/wx/api")
 public class ConfigController {
     @Autowired
     private ConfigService configService;

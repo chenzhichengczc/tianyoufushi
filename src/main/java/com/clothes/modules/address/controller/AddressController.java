@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.*;
  * @date 2019-08-14 15:28:00
  */
 @RestController
-@RequestMapping("/wx")
+@RequestMapping("/wx/api")
 public class AddressController {
     @Autowired
     private AddressService addressService;

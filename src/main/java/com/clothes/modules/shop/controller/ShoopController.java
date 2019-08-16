@@ -15,7 +15,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/wx")
+@RequestMapping("/wx/api")
 public class ShoopController {
 
     @Resource

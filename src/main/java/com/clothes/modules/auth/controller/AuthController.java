@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -117,7 +118,7 @@ public class AuthController {
      * @return
      */
     @RequestMapping(value = "/api/user/decodeUserInfo", method = RequestMethod.POST)
-    public ResponseUtil decodeUserInfo(UserEntity userEntity) {
+    public ResponseUtil decodeUserInfo(UserEntity userEntity, HttpServletRequest httpServletRequest) {
         /*
         Map map = new HashMap();
 
@@ -176,7 +177,7 @@ public class AuthController {
 
 
         EntityWrapper<Integer> wrapper = new EntityWrapper<>();
-        Integer openId = userService.checkOpenId(wrapper);
+        Integer openId = userService.checkOpenId(wrapper, httpServletRequest);
         if(openId != null && openId != 0){
             return ResponseUtil.success();
         }

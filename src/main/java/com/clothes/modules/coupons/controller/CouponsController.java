@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
  * @date 2019-08-14 14:30:47
  */
 @RestController
-@RequestMapping("/wx")
+@RequestMapping("/wx/api")
 public class CouponsController {
     @Autowired
     private CouponsService couponsService;

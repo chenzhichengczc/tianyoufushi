@@ -27,7 +27,7 @@ import com.clothes.modules.score.service.ScoreService;
  * @date 2019-08-15 16:42:53
  */
 @RestController
-@RequestMapping("/wx")
+@RequestMapping("/wx/api")
 public class ScoreController {
     @Autowired
     private ScoreService scoreService;
