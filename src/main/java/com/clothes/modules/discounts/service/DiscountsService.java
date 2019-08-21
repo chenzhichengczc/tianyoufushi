@@ -14,5 +14,9 @@ import java.util.List;
  */
 public interface DiscountsService {
 
-    public List<DiscountsEntity> discountsList(EntityWrapper<DiscountsEntity> entityEntityWrapper);
+    public List<DiscountsEntity> discountsList(EntityWrapper<DiscountsEntity> entityEntityWrapper,String openId,Integer status);
+
+    public Integer fetchDiscounts(String openId, Integer id);
+
+    public Integer fetch(String openId, String pwd);
 }

@@ -9,7 +9,7 @@
 			id,date_add,date_end_days,date_end_type,date_start_type,date_update,
 			money_hreshold,money_max,money_min,name,need_score,need_signed_continuous,
 			number_git,number_git_number,number_left,number_person_max,number_totle,number_used,
-			status,status_str,type,data_end
+			status,status_str,type,date_end
 		FROM
 			coupons
 		WHERE

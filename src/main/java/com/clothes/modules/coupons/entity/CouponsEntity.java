@@ -2,6 +2,7 @@ package com.clothes.modules.coupons.entity;
 
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -22,92 +23,52 @@ public class CouponsEntity implements Serializable {
 	/**
 	 * 主键
 	 */
-	@TableId
+	@TableId(type = IdType.AUTO)
 	private Integer id;
-	/**
-	 *
-	 */
+
+	private String pwd;
+
 	private Date dateAdd;
-	/**
-	 *
-	 */
+
 	private Integer dateEndDays;
-	/**
-	 *
-	 */
+
 	private Integer dateEndType;
-	/**
-	 *
-	 */
+
 	private Integer dateStartType;
-	/**
-	 *
-	 */
+
 	private Date dateUpdate;
-	/**
-	 *
-	 */
+
 	private Float moneyHreshold;
-	/**
-	 *
-	 */
+
 	private Float moneyMax;
-	/**
-	 *
-	 */
+
 	private Float moneyMin;
-	/**
-	 *
-	 */
+
 	private String name;
-	/**
-	 *
-	 */
+
 	private Integer needScore;
-	/**
-	 *
-	 */
+
 	private Integer needSignedContinuous;
-	/**
-	 *
-	 */
+
 	private Integer numberGit;
-	/**
-	 *
-	 */
+
 	private Integer numberGitNumber;
-	/**
-	 *
-	 */
+
 	private Integer numberLeft;
-	/**
-	 *
-	 */
+
 	private Integer numberPersonMax;
-	/**
-	 *
-	 */
+
 	private Integer numberTotle;
-	/**
-	 *
-	 */
+
 	private Integer numberUsed;
-	/**
-	 *
-	 */
+
 	private Integer status;
-	/**
-	 *
-	 */
+
 	private String statusStr;
-	/**
-	 *
-	 */
+
 	private String type;
-	/**
-	 *
-	 */
-	private Integer dataEnd;
+
+	private Date dateEnd;
 }
 
 

@@ -16,5 +16,4 @@ import java.util.List;
 @Mapper
 public interface BannerMapper extends BaseMapper<BannerEntity> {
 
-    List<BannerEntity> selectByType(String type);
 }

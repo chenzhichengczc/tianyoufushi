@@ -16,6 +16,6 @@ import java.util.List;
  */
 public interface ScoreService extends IService<ScoreEntity> {
 
-    public List<ScoreEntity> scoreList(EntityWrapper<ScoreEntity> entityEntityWrapper);
+    public List<ScoreEntity> scoreList(EntityWrapper<ScoreEntity> entityEntityWrapper, String openId);
 }
 

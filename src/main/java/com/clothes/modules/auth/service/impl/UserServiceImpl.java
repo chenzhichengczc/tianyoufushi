@@ -38,8 +38,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
     private GetOpenIdUtils getOpenIdUtils;
 
     @Override
-    public Integer checkOpenId(EntityWrapper wrapper, HttpServletRequest httpServletRequest) {
-        String openId = getOpenIdUtils.getOpenIdByToken(httpServletRequest);
+    public Integer checkOpenId(EntityWrapper wrapper, String openId) {
+
         //根据openId判断数据库是否存在
         Integer openIdAccount = userMapper.getCount(openId);
         System.out.println("openIdAccount = " + openIdAccount);

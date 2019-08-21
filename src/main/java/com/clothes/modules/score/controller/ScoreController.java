@@ -35,13 +35,15 @@ public class ScoreController {
     /**
      * 列表
      */
-    @RequestMapping(value = "/score/list", method = RequestMethod.GET)
-    public ResponseUtil list(){
+    @RequestMapping(value = "/score/today-signed", method = RequestMethod.GET)
+    public ResponseUtil list(String openId){
         EntityWrapper<ScoreEntity> entityEntityWrapper = new EntityWrapper<>();
 
-        List<ScoreEntity> scoreEntities = scoreService.scoreList(entityEntityWrapper);
+        List<ScoreEntity> scoreEntities = scoreService.scoreList(entityEntityWrapper ,openId);
         return ResponseUtil.success(scoreEntities);
     }
+
+
 
 
 

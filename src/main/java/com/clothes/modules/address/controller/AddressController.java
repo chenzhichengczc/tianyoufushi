@@ -9,6 +9,7 @@ import java.util.Map;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.clothes.common.utils.ResponseUtil;
 
+import com.clothes.common.utils.WebGetTokenUtils;
 import com.clothes.modules.address.entity.AddressEntity;
 import com.clothes.modules.address.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,27 +34,21 @@ public class AddressController {
      */
     @RequestMapping(value = "/user/shipping-address/list", method = RequestMethod.GET)
     public ResponseUtil list(String openId){
-
         EntityWrapper<AddressEntity> entityEntityWrapper = new EntityWrapper<>();
-
         List<AddressEntity> addressEntities = addressService.addressList(entityEntityWrapper, openId);
-        Map<String, Object> map = new LinkedHashMap<>();
-        map.put("hello", addressEntities);
-        map.put("hi", addressEntities.get(0));
-        return ResponseUtil.success(map);
+        return ResponseUtil.success(addressEntities);
     }
 
     @RequestMapping(value = "/user/shipping-address/updateAddressDefault", method = RequestMethod.POST)
-    public ResponseUtil updateAddressById(String openId, Integer id, Integer isDefault){
-        System.out.println("isDefault12 = " + isDefault);
+    public ResponseUtil updateAddressById(Integer id, Integer isDefault){
         EntityWrapper<AddressEntity> entityEntityWrapper = new EntityWrapper<>();
         addressService.updateAddressById(entityEntityWrapper, id , isDefault);
         return ResponseUtil.success();
     }
 
     @RequestMapping(value = "/user/shipping-address/delete", method = RequestMethod.POST)
-    public ResponseUtil deleteAddress(String openId, Integer id){
-        addressService.deleteAddress(id );
+    public ResponseUtil deleteAddress(Integer id){
+        addressService.deleteAddress(id);
         return ResponseUtil.success();
 
     }

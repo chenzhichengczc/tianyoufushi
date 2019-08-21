@@ -6,4 +6,8 @@
     <update id="updateAddress" >
         UPDATE address SET is_default = #{isDefault} WHERE id = #{id}
     </update>
+
+    <update id="updateAllColumnDefault">
+        UPDATE address SET is_default = 0 WHERE open_id = #{openId}
+    </update>
 </mapper>

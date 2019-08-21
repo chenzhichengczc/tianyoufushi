@@ -35,6 +35,10 @@ public class BannerEntity  implements Serializable {
     @TableField("dateAdd")
     private Date dateAdd;
 
+    @ApiModelProperty(value = "日期",name="dateAdd")
+    @TableField("dateUpdate")
+    private Date dateUpdate;
+
     @ApiModelProperty(value = "路径",name="linkUrl")
     @TableField("linkUrl")
     private String linkUrl;
@@ -71,5 +75,8 @@ public class BannerEntity  implements Serializable {
     @TableField("userId")
     private Integer userId;
 
+    @ApiModelProperty(value = "关键值",name="key")
+    @TableField("key")
+    private String key;
 
 }

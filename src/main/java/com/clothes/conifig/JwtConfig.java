@@ -87,7 +87,7 @@ public class JwtConfig {
                     .build();
             //3 . 验证token
             verifier.verify(redisToken);
-            //4 . Redis缓存JWT续期
+            //            //4 . Redis缓存JWT续期
             redisUtil.set("JWT-SESSION-" + getJwtIdByToken(token), redisToken, expire_time);
 
             return true;

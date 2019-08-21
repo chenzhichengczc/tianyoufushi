@@ -23,9 +23,9 @@ public class ScoreServiceImpl extends ServiceImpl<ScoreMapper, ScoreEntity> impl
 
 
 
-    public List<ScoreEntity> scoreList(EntityWrapper<ScoreEntity> entityEntityWrapper){
-
-           return  scoreMapper.selectList(entityEntityWrapper);
+    public List<ScoreEntity> scoreList(EntityWrapper<ScoreEntity> entityEntityWrapper, String openId){
+        entityEntityWrapper.eq("open_id", openId);
+        return  scoreMapper.selectList(entityEntityWrapper);
 
 
     }

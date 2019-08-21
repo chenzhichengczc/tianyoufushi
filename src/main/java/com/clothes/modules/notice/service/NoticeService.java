@@ -14,5 +14,5 @@ import java.util.List;
  */
 public interface NoticeService {
 
-    public List<NoticeEntity> noticeList(EntityWrapper<NoticeEntity> entityEntityWrapper);
+    public List<NoticeEntity> noticeList(EntityWrapper<NoticeEntity> entityEntityWrapper,String type);
 }

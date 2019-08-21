@@ -25,9 +25,15 @@ public class ScoreEntity implements Serializable {
 	 */
 	@TableId(type = IdType.AUTO)
 	private Integer id;
+
 	/**
 	 *
 	 */
 	private Integer scoreSignContinuous;
+
+	/**
+	 *
+	 */
+	private String openId;
 
 }

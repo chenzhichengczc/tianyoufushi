@@ -1,5 +1,6 @@
 package com.clothes.modules.banner.service.impl;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.clothes.modules.banner.entity.BannerEntity;
 import com.clothes.modules.banner.mapper.BannerMapper;
@@ -24,8 +25,11 @@ public class BannerServiceImpl extends ServiceImpl<BannerMapper, BannerEntity> i
 
 
     @Override
-    public List<BannerEntity> getBannerEntityList(String type) {
-        List<BannerEntity> bannerEntities=bannerMapper.selectByType(type);
+    public List<BannerEntity> getBannerEntityList(String type,String key) {
+        EntityWrapper<BannerEntity> entityEntityWrapper = new EntityWrapper<BannerEntity>();
+        entityEntityWrapper.eq("type",type);
+        if(key != null) { entityEntityWrapper.eq("`key`",key); }
+        List<BannerEntity> bannerEntities = bannerMapper.selectList(entityEntityWrapper);
         return bannerEntities;
     }
 }

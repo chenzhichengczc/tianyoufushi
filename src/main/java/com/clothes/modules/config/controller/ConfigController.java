@@ -30,7 +30,7 @@ public class ConfigController {
      * 列表
      */
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public ResponseUtil list(String openId, String key){
+    public ResponseUtil list(String key){
         EntityWrapper<ConfigEntity> entityEntityWrapper = new EntityWrapper<>();
 
         List<ConfigEntity> configEntities = configService.configList(entityEntityWrapper, key);

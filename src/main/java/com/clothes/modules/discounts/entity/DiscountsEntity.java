@@ -27,20 +27,32 @@ public class DiscountsEntity implements Serializable {
     @TableId(type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty(value = "公告",name="money")
-    @TableField("money")
-    private Integer money;
+    @ApiModelProperty(value = "优惠券ID",name = "couponsId")
+    @TableField("coupons_id")
+    private Integer couponsId;
 
-    @ApiModelProperty(value = "公告",name="name")
+    @ApiModelProperty(value = "openId",name = "openId")
+    @TableField("open_id")
+    private String openId;
+
+    @ApiModelProperty(value = "金额",name="money")
+    @TableField("money")
+    private Float money;
+
+    @ApiModelProperty(value = "名字",name="name")
     @TableField("name")
     private String name;
 
-    @ApiModelProperty(value = "公告",name="moneyHrehold")
+    @ApiModelProperty(value = "使用上限额",name="moneyHrehold")
     @TableField("money_hrehold")
-    private Integer moneyHrehold;
+    private Float moneyHrehold;
 
 
-    @ApiModelProperty(value = "公告",name="dateEnd")
+    @ApiModelProperty(value = "期限",name="dateEnd")
     @TableField("date_end")
     private Date dateEnd;
+
+    @ApiModelProperty(value = "状态",name="status")
+    @TableField("status")
+    private Integer status;
 }

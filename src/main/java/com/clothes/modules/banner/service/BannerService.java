@@ -15,5 +15,5 @@ import java.util.List;
 public interface BannerService {
 
 
-    List<BannerEntity> getBannerEntityList(String type);
+    List<BannerEntity> getBannerEntityList(String type,String key);
 }

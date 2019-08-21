@@ -28,7 +28,8 @@ public class NoticeServiceImpl extends ServiceImpl<NoticeMapper, NoticeEntity> i
      * @return
      */
     @Override
-    public List<NoticeEntity> noticeList(EntityWrapper<NoticeEntity> entityEntityWrapper) {
+    public List<NoticeEntity> noticeList(EntityWrapper<NoticeEntity> entityEntityWrapper,String type) {
+        entityEntityWrapper.eq("type",type);
         List<NoticeEntity> noticeEntities = noticeMapper.selectList(entityEntityWrapper);
         return noticeEntities;
     }

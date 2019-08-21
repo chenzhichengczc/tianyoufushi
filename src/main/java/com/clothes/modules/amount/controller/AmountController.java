@@ -33,11 +33,11 @@ public class AmountController {
      * @return
      */
     @RequestMapping(value = "/user/amount", method = RequestMethod.GET)
-    public ResponseUtil getAmountList(){
+    public ResponseUtil getAmountList(String openId){
 
         EntityWrapper<AmountEntity> entityEntityWrapper = new EntityWrapper<>();
 
-        List<AmountEntity> noticeEntities = amountService.amountList(entityEntityWrapper);
+        List<AmountEntity> noticeEntities = amountService.amountList(entityEntityWrapper, openId);
         return ResponseUtil.success(noticeEntities);
     }
 }

@@ -31,7 +31,7 @@ public class AuthenFilter implements Filter {
     @Resource
     private JwtConfig jwtConfig;
 
-    private static final Logger logger = LoggerFactory.getLogger(JcExceptionHandler.class);
+    private static final Logger logger = LoggerFactory.getLogger(AuthenFilter.class);
 
     ResponseUtil responseUtil;
 
@@ -43,33 +43,23 @@ public class AuthenFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
         try {
-            System.out.println("hello = ");
             //过滤不是post的请求
-            System.out.println("request.getMethod().equalsIgnoreCase(\"post\") = " + request.getMethod().equalsIgnoreCase("post"));
-            System.out.println("request.getMethod() = " + request.getMethod());
             if(!request.getMethod().equalsIgnoreCase("post")){
                 filterChain.doFilter(servletRequest, servletResponse);
                 return;
             }
 
-
-
             String token = request.getHeader("token");
-            System.out.println("token = " + token);
             //请求头token为空返回
             if(StringUtils.isEmpty(token)){
-                System.out.println("token 1= " + token);
                 responseUtil = ResponseUtil.error(HttpStatus.BAD_REQUEST.value(), "无token");
                 logger.info("无token");
                 return;
             }
-            System.out.println("jwtConfig = " + jwtConfig);
             //token验证
 
             boolean result = jwtConfig.verifyToken(token);
-            System.out.println("result = " + result);
             if(!result){
-                System.out.println("fad = ");
                 responseUtil = ResponseUtil.error(HttpStatus.BAD_REQUEST.value(), "token已过期,请重新登陆");
                 logger.info("token已过期,请重新登陆");
                 return;
@@ -80,7 +70,6 @@ public class AuthenFilter implements Filter {
         }catch (Exception e){
 
         }finally {
-            System.out.println("responseUtil = " + responseUtil);
             if(responseUtil != null && !StringUtils.isEmpty((String)responseUtil.get("msg"))){
                 response.setCharacterEncoding("utf-8");
                 response.getWriter().write(JSON.toJSONString(responseUtil));

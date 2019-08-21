@@ -1,5 +1,6 @@
 package com.clothes.modules.address.entity;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
@@ -48,7 +49,8 @@ public class AddressEntity implements Serializable {
 	/**
 	 * 区域
 	 */
-	private String districtStr;
+	@TableField(value = "district_str")
+	private String areaStr;
 	/**
 	 * 地址
 	 */

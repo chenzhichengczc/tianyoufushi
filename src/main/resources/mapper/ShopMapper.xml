@@ -44,9 +44,19 @@
         <result property="weight" column="weight"/>
     </resultMap>
 
+    <resultMap id="OrderGoodsMap" type="com.clothes.modules.order.entity.OrderGoodsEntity" extends="shopMap">
+        <result property="id" column="id"/>
+        <result property="orderId" column="order_id"/>
+        <result property="number" column="number"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
     <select id="getUserStorage" resultMap="shopMap">
         SELECT b.goods_id,a.pic,a.name,b.date_add FROM shop a RIGHT JOIN shop_user b ON
         a.id = b.goods_id WHERE b.user_id = #{openId}
     </select>
+
+
 
 </mapper>

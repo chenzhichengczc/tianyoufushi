@@ -21,7 +21,7 @@ import java.util.List;
  */
 
 @RestController
-@Api(tags = "公告")
+@Api(tags = "优惠")
 @RequestMapping("/wx/api")
 public class DiscountsController {
 
@@ -33,26 +33,30 @@ public class DiscountsController {
      * @return
      */
     @RequestMapping(value = "/discounts/my", method = RequestMethod.GET)
-    public ResponseUtil getDiscountsList(String openId){
-
+    public ResponseUtil getDiscountsList(String openId,Integer status){
         EntityWrapper<DiscountsEntity> entityEntityWrapper = new EntityWrapper<>();
-
-        List<DiscountsEntity> discountsEntities = discountsService.discountsList(entityEntityWrapper);
+        List<DiscountsEntity> discountsEntities = discountsService.discountsList(entityEntityWrapper,openId,status);
         return ResponseUtil.success(discountsEntities);
     }
 
-    @RequestMapping(value = "discounts/fetchById", method = RequestMethod.GET)
-    public ResponseUtil fetchDiscounts(String openId, Integer pwd){
-
-
-        return ResponseUtil.success();
+    /**
+     * 根据id进行兑换至自己账户
+     * @param openId
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/discounts/fetchById", method = RequestMethod.POST)
+    public ResponseUtil fetchDiscounts(String openId, Integer id){
+        //返回状态code 20001/20002兑换完毕 20003领取过了 30001 积分不够  20004 礼券过期 0 成功
+        Integer code = discountsService.fetchDiscounts(openId,id);
+        return ResponseUtil.success(code,"");
     }
 
-    @RequestMapping(value = "discounts/fetch", method = RequestMethod.GET)
-    public ResponseUtil fetch(String openId, Integer id){
-
-
-        return ResponseUtil.success();
+    @RequestMapping(value = "/discounts/fetch", method = RequestMethod.POST)
+    public ResponseUtil fetch(String openId, String pwd){
+        //返回状态code 20001/20002兑换完毕 20003领取过了 20000 兑换码错误  0 成功
+        Integer code = discountsService.fetch(openId,pwd);
+        return ResponseUtil.success(code,"");
     }
 
 }

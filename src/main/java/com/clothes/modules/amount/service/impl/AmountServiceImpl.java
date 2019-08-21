@@ -28,7 +28,8 @@ public class AmountServiceImpl extends ServiceImpl<AmountMapper, AmountEntity> i
      * @return
      */
 
-    public List<AmountEntity> amountList(EntityWrapper<AmountEntity> entityEntityWrapper) {
+    public List<AmountEntity> amountList(EntityWrapper<AmountEntity> entityEntityWrapper, String openId) {
+        entityEntityWrapper.eq("open_id", openId);
         List<AmountEntity> noticeEntities = amountMapper.selectList(entityEntityWrapper);
         return noticeEntities;
     }

@@ -1,12 +1,17 @@
 package com.clothes.modules.banner.controller;
 
 import com.clothes.common.utils.ResponseUtil;
+import com.clothes.modules.banner.entity.BannerEntity;
 import com.clothes.modules.banner.service.BannerService;
 import io.swagger.annotations.Api;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @author ：lyj
@@ -26,33 +31,10 @@ public class BannerController {
 
 
     @RequestMapping(value = "/banner/list", method = RequestMethod.GET)
-    public ResponseUtil getListForType(String... type){
+    public ResponseUtil getListForType(String type,@RequestParam(required = false) String key){
 
-        String t = null;
+        List<BannerEntity> bannerEntityList = bannerService.getBannerEntityList(type,key);
 
-        for (int i =0; i<type.length;i++){
-            t = type[i];
-
-            switch (t){
-                case "topLogo":
-                    bannerService.getBannerEntityList(t);
-                    break;
-                case "home":
-                    bannerService.getBannerEntityList(t);
-                    break;
-                case "hot":
-                    bannerService.getBannerEntityList(t);
-                    break;
-                case "duihuan":
-                    bannerService.getBannerEntityList(t);
-                    break;
-                case "goods":
-                    bannerService.getBannerEntityList(t);
-                    break;
-                default:
-                    break;
-            }
-        }
-        return ResponseUtil.success( bannerService.getBannerEntityList(t));
+        return ResponseUtil.success(bannerEntityList);
     }
 }

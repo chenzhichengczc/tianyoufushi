@@ -14,5 +14,5 @@ import java.util.List;
  */
 public interface AmountService {
 
-    public List<AmountEntity> amountList(EntityWrapper<AmountEntity> entityEntityWrapper);
+    public List<AmountEntity> amountList(EntityWrapper<AmountEntity> entityEntityWrapper, String openId);
 }

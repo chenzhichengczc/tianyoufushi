@@ -6,6 +6,7 @@ import com.clothes.modules.notice.entity.NoticeEntity;
 import com.clothes.modules.notice.service.NoticeService;
 import com.mysql.jdbc.util.ResultSetUtil;
 import io.swagger.annotations.Api;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,11 +35,9 @@ public class NoticeController {
      * @return
      */
     @RequestMapping(value = "/notice/list", method = RequestMethod.GET)
-    public ResponseUtil getNoticeList(){
-
+    public ResponseUtil getNoticeList(@Param(value = "type") String type){
         EntityWrapper<NoticeEntity> entityEntityWrapper = new EntityWrapper<>();
-
-        List<NoticeEntity> noticeEntities = noticeService.noticeList(entityEntityWrapper);
+        List<NoticeEntity> noticeEntities = noticeService.noticeList(entityEntityWrapper,type);
         return ResponseUtil.success(noticeEntities);
     }
 }

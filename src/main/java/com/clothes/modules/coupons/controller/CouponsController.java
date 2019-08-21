@@ -21,10 +21,8 @@ public class CouponsController {
     /**
      * 列表
      */
-    @RequestMapping(value = "/discounts/coupons", method = RequestMethod.GET)
-    public ResponseUtil getListForType(String openId, String type){
-
-     return ResponseUtil.success(couponsService.getBannerEntityList(type));
-
+    @RequestMapping(value = "/coupons/couponsList", method = RequestMethod.GET)
+    public ResponseUtil getListForType(String type){
+        return ResponseUtil.success(couponsService.getBannerEntityList(type));
     }
 }

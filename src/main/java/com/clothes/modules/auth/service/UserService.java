@@ -17,7 +17,7 @@ import java.util.List;
  */
 public interface UserService {
 
-    public Integer checkOpenId(EntityWrapper wrapper, HttpServletRequest httpServletRequest);
+    public Integer checkOpenId(EntityWrapper wrapper, String openId);
 
     public void insertUser(UserEntity userEntity);
 

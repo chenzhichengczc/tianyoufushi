@@ -17,4 +17,5 @@ public interface AddressMapper extends BaseMapper<AddressEntity> {
     public void updateDefault(@Param(value = "id") Integer id,
                               @Param(value = "isDefault") Integer isDefault);
 
+    public void updateAllColumnDefault(String openId);
 }

@@ -26,7 +26,7 @@ public class ConfigServiceImpl extends ServiceImpl<ConfigMapper, ConfigEntity> i
 
     public List<ConfigEntity> configList(EntityWrapper<ConfigEntity> entityEntityWrapper, String key){
 
-        entityEntityWrapper.eq("key", key);
+        entityEntityWrapper.eq("`key`", key);
            return  configMapper.selectList(entityEntityWrapper);
 
 

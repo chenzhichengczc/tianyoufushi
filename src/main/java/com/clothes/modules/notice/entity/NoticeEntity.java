@@ -27,9 +27,12 @@ public class NoticeEntity implements Serializable {
     @TableId(type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty(value = "公告",name="title")
+    @ApiModelProperty(value = "公告题目",name="title")
     @TableField("title")
     private String title;
 
+    @ApiModelProperty(value = "类型",name="type")
+    @TableField("type")
+    private String type;
 
 }

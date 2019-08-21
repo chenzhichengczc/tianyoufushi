@@ -19,4 +19,5 @@ public interface ShopMapper extends BaseMapper<ShopEntity> {
     public List<ShopEntity> getUserStorage(@Param(value = "openId") String openId);
 
 
+
 }
