@@ -27,5 +27,7 @@ public interface AddressService extends IService<AddressEntity> {
     public void addAddress(AddressEntity addressEntity);
 
     public void updateAddress(AddressEntity addressEntity);
+
+    public AddressEntity getAddressDefault(String openId);
 }
 

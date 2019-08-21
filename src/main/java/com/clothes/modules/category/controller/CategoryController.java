@@ -31,6 +31,14 @@ public class CategoryController {
         List<CategoryEntity> categoryEntities = categoryService.amountList(entityEntityWrapper);
         return ResponseUtil.success(categoryEntities);
     }
-
+   
+     @RequestMapping(value = "/shop/goods/listByCategoryId",method = RequestMethod.GET)
+    public ResponseUtil getListById(Integer categoryId , Integer pageSize){
+        PageHelper.startPage(1,pageSize);
+        EntityWrapper<ShopEntity> wrapper = new EntityWrapper<ShopEntity>();
+        //获取分类id下面的商品
+        List<ShopEntity> list = categoryService.getListById(categoryId,wrapper);
+        return ResponseUtil.success(list);
+    }
 
 }

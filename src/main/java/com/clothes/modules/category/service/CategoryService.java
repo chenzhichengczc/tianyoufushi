@@ -16,5 +16,7 @@ import java.util.List;
 public interface CategoryService extends IService<CategoryEntity> {
 
     public List<CategoryEntity> amountList(EntityWrapper<CategoryEntity> entityEntityWrapper);
+
+     public List<ShopEntity> getListById(Integer categoryId, EntityWrapper<ShopEntity> entityEntityWrapper);
 }
 

@@ -1,4 +1,4 @@
-package com.clothes;
+﻿package com.clothes;
 
 
 import com.alibaba.fastjson.JSON;
@@ -39,6 +39,11 @@ public class ClothesWxApiApplication extends SpringBootServletInitializer {
         SpringApplication.run(ClothesWxApiApplication.class, args);
     }
 
-
+      @Bean
+    public ConfigurableServletWebServerFactory webServerFactory(){
+        TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
+        factory.addConnectorCustomizers((TomcatConnectorCustomizer) connector -> connector.setProperty("relaxedQueryChars", "|{}[]\\"));
+        return factory;
+    }
 }
 

@@ -70,4 +70,9 @@ public class AddressController {
         return ResponseUtil.success();
     }
 
+	   @RequestMapping(value = "/user/shipping-address/default" , method = RequestMethod.GET)
+    public ResponseUtil getAddressDefault(String openId){
+        AddressEntity addressDefault = addressService.getAddressDefault(openId);
+        return ResponseUtil.success(addressDefault);
+    }
 }

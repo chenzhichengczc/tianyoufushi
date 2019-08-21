@@ -70,5 +70,15 @@ public class AddressServiceImpl extends ServiceImpl<com.clothes.modules.address.
 
     }
 
+     @Override
+    public AddressEntity getAddressDefault(String openId) {
+        EntityWrapper<AddressEntity> entityEntityWrapper = new EntityWrapper<>();
+        List<AddressEntity> addressEntities = addressMapper.selectList(entityEntityWrapper.eq("open_id", openId).eq("is_default", 1));
+        if(addressEntities.size() != 1){
+            throw new RuntimeException("查询数量有误");
+        }
+        return addressEntities.get(0);
+    }
+
 
 }

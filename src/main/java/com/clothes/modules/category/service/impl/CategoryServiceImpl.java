@@ -23,4 +23,9 @@ public class CategoryServiceImpl extends ServiceImpl<com.clothes.modules.categor
         List<CategoryEntity> noticeEntities = categoryMapper.selectList(entityEntityWrapper);
         return noticeEntities;
     }
+   
+        @Override
+    public List<ShopEntity> getListById(Integer categoryId,EntityWrapper<ShopEntity> entityEntityWrapper) {
+        return shopMapper.selectList(entityEntityWrapper.eq("category_id",categoryId));
+    }
 }
