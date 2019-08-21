@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.clothes.modules.category.entity.CategoryEntity;
 import com.clothes.modules.category.mapper.CategoryMapper;
 import com.clothes.modules.category.service.CategoryService;
+import com.clothes.modules.shop.entity.ShopEntity;
+import com.clothes.modules.shop.mapper.ShopMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -17,6 +19,8 @@ public class CategoryServiceImpl extends ServiceImpl<com.clothes.modules.categor
     @Resource
     private CategoryMapper categoryMapper;
 
+    @Resource
+    private ShopMapper shopMapper;
 
     @Override
     public List<CategoryEntity> amountList(EntityWrapper<CategoryEntity> entityEntityWrapper) {
@@ -25,7 +29,7 @@ public class CategoryServiceImpl extends ServiceImpl<com.clothes.modules.categor
     }
    
         @Override
-    public List<ShopEntity> getListById(Integer categoryId,EntityWrapper<ShopEntity> entityEntityWrapper) {
+    public List<ShopEntity> getListById(Integer categoryId, EntityWrapper<ShopEntity> entityEntityWrapper) {
         return shopMapper.selectList(entityEntityWrapper.eq("category_id",categoryId));
     }
 }

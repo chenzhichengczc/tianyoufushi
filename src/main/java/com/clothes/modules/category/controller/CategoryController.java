@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.clothes.common.utils.ResponseUtil;
 import com.clothes.modules.category.entity.CategoryEntity;
 import com.clothes.modules.category.service.CategoryService;
+import com.clothes.modules.shop.entity.ShopEntity;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,7 +38,6 @@ public class CategoryController {
     public ResponseUtil getListById(Integer categoryId , Integer pageSize){
         PageHelper.startPage(1,pageSize);
         EntityWrapper<ShopEntity> wrapper = new EntityWrapper<ShopEntity>();
-        //获取分类id下面的商品
         List<ShopEntity> list = categoryService.getListById(categoryId,wrapper);
         return ResponseUtil.success(list);
     }

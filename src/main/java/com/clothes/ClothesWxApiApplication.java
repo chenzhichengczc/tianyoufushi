@@ -1,18 +1,17 @@
-﻿package com.clothes;
+package com.clothes;
 
-
-import com.alibaba.fastjson.JSON;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.embedded.tomcat.TomcatConnectorCustomizer;
+import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
+import org.springframework.boot.web.servlet.server.ConfigurableServletWebServerFactory;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import java.util.List;
 
 
 /**
@@ -39,7 +38,7 @@ public class ClothesWxApiApplication extends SpringBootServletInitializer {
         SpringApplication.run(ClothesWxApiApplication.class, args);
     }
 
-      @Bean
+    @Bean
     public ConfigurableServletWebServerFactory webServerFactory(){
         TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
         factory.addConnectorCustomizers((TomcatConnectorCustomizer) connector -> connector.setProperty("relaxedQueryChars", "|{}[]\\"));
