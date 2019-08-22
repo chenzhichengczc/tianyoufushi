@@ -110,6 +110,8 @@ public class ShopEntity {
     @ApiModelProperty(value = "姓名",name="pingtuanPrice")
     private Integer pingtuanPrice;
 
+    private Integer propertyIds;
+
     @ApiModelProperty(value = "姓名",name="recommendStatus")
     private Integer recommendStatus;
 

@@ -2,6 +2,7 @@ package com.clothes.modules.shop.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.clothes.common.utils.ResponseUtil;
+import com.clothes.modules.shop.entity.ShopDetailVO;
 import com.clothes.modules.shop.entity.ShopEntity;
 import com.clothes.modules.shop.service.ShopService;
 import com.github.pagehelper.PageHelper;
@@ -38,5 +39,12 @@ public class ShopController {
     public ResponseUtil shopUserStorageList(String openId){
         List<ShopEntity> userStorage = shopService.getUserStorage(openId);
         return ResponseUtil.success(userStorage);
+    }
+
+    @RequestMapping(value = "/shop/goods/detail", method = RequestMethod.GET)
+    public ResponseUtil getShopDetail(Integer id){
+        EntityWrapper<ShopEntity> wrapper = new EntityWrapper<ShopEntity>();
+        ShopDetailVO shopDetailVO = shopService.getShopDetail(wrapper,id);
+        return ResponseUtil.success(shopDetailVO);
     }
 }
