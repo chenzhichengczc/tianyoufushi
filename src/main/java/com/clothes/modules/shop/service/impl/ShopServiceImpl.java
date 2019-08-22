@@ -14,11 +14,13 @@ import com.clothes.modules.properties.entity.ShopPropertiesEntity;
 import com.clothes.modules.properties.mapper.ShopPropertiesMapper;
 import com.clothes.modules.shop.entity.ShopDetailVO;
 import com.clothes.modules.shop.entity.ShopEntity;
+import com.clothes.modules.shop.entity.ShopUser;
 import com.clothes.modules.shop.mapper.ShopMapper;
 import com.clothes.modules.shop.service.ShopService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -100,5 +102,19 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, ShopEntity> impleme
         }
 
     }
+    @Override
+    public void addFavShop(String openId, Integer goodsId) {
+        ShopUser shopUser = new ShopUser();
+        shopUser.setUserId(openId);
+        shopUser.setGoodsId(goodsId);
+        shopUser.setDateAdd(new Date());
+        shopMapper.addFavShop(shopUser);
+    }
+
+    @Override
+    public void deleteFavShop(String openId, Integer goodsId) {
+        shopMapper.deleteFavShop(openId,goodsId);
+    }
+
 
 }

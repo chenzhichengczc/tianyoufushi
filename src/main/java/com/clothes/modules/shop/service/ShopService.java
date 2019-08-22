@@ -21,4 +21,8 @@ public interface ShopService extends IService<ShopEntity>{
     public List<ShopEntity> getUserStorage(String openId);
 
     public ShopDetailVO getShopDetail(EntityWrapper<ShopEntity> wrapper, Integer id);
+
+    void addFavShop(String openId, Integer goodsId);
+
+    void deleteFavShop(String openId, Integer goodsId);
 }

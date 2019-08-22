@@ -40,7 +40,16 @@ public class ShopController {
         List<ShopEntity> userStorage = shopService.getUserStorage(openId);
         return ResponseUtil.success(userStorage);
     }
-
+    @RequestMapping(value="/shop/goods/fav/add",method = RequestMethod.POST)
+    public ResponseUtil shopFavAdd(String openId,Integer goodsId){
+        shopService.addFavShop(openId,goodsId);
+        return ResponseUtil.success();
+    }
+    @RequestMapping(value="/shop/goods/fav/delete",method = RequestMethod.POST)
+    public ResponseUtil shopFavDelete(String openId,Integer goodsId){
+        shopService.deleteFavShop(openId,goodsId);
+        return ResponseUtil.success();
+    }
     @RequestMapping(value = "/shop/goods/detail", method = RequestMethod.GET)
     public ResponseUtil getShopDetail(Integer id){
         EntityWrapper<ShopEntity> wrapper = new EntityWrapper<ShopEntity>();

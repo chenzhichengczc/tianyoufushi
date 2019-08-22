@@ -53,10 +53,16 @@
     </resultMap>
 
     <select id="getUserStorage" resultMap="shopMap">
-        SELECT b.goods_id,a.pic,a.name,b.date_add FROM shop a RIGHT JOIN shop_user b ON
+        SELECT a.id,a.pic,a.name,b.date_add FROM shop a RIGHT JOIN shop_user b ON
         a.id = b.goods_id WHERE b.user_id = #{openId}
     </select>
 
+    <insert  id="addFavShop">
+        INSERT INTO shop_user (goods_id,user_id,date_add)VALUES (#{goodsId},#{userId},#{dateAdd})
+    </insert >
 
+    <delete id="deleteFavShop">
+        DELETE FROM shop_user WHERE goods_id=#{goodsId} and user_id=#{openId}
+    </delete>
 
 </mapper>
