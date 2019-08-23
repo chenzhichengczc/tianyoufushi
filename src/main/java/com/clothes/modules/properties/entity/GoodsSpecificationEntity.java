@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.models.auth.In;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -18,41 +19,30 @@ import java.util.List;
  * @email 
  * @date 2019-08-16 11:19:33
  */
-@TableName("shop_properties")
+@TableName("goods_specification")
 @Data
-public class ShopPropertiesEntity implements Serializable {
+
+public class GoodsSpecificationEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
-	/**
-	 *
-	 */
-	@TableId(type = IdType.AUTO)
+
 	private Integer id;
-	/**
-	 *
-	 */
-	private Date dataAdd;
-	/**
-	 *
-	 */
-	private String name;
-	/**
-	 *
-	 */
-	private Integer paixu;
-	/**
-	 *
-	 */
-	private Integer propertyId;
-	/**
-	 *
-	 */
-	private String remark;
-	/**
-	 *
-	 */
-	private Integer userId;
+
+	private Integer goodsId;
+
+	private String specification;
+
+	private String value;
+
+	private String picUrl;
+
+	private Date createTime;
+
+	private Date updateTime;
+
+	private Integer deleted;
 
 	@TableField(exist = false)
-	@JsonProperty(value = "childsCurGoods")
-	private List<ShopPropertiesEntity> childsCurGoods;
+	@JsonProperty("childsCurGoods")
+	private List<GoodsSpecificationEntity> goodsSpecificationEntity;
+
 }

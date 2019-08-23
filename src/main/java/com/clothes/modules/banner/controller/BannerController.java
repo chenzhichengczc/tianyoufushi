@@ -32,7 +32,7 @@ public class BannerController {
 
     @RequestMapping(value = "/banner/list", method = RequestMethod.GET)
     public ResponseUtil getListForType(String type,@RequestParam(required = false) String key){
-
+        
         List<BannerEntity> bannerEntityList = bannerService.getBannerEntityList(type,key);
 
         return ResponseUtil.success(bannerEntityList);

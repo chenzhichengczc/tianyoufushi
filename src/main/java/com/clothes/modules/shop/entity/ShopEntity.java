@@ -141,4 +141,5 @@ public class ShopEntity {
 
     @ApiModelProperty(value = "姓名",name="weight")
     private Integer weight;
+
 }

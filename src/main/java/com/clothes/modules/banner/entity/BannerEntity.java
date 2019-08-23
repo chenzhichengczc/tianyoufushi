@@ -79,4 +79,5 @@ public class BannerEntity  implements Serializable {
     @TableField("key")
     private String key;
 
+
 }
