@@ -7,7 +7,6 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.clothes.common.exception.JcException;
-import com.clothes.common.utils.GetOpenIdUtils;
 import com.clothes.common.utils.OrderStatusUtils;
 import com.clothes.common.utils.WebGetTokenUtils;
 import com.clothes.conifig.JwtConfig;
@@ -120,12 +119,11 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
             JSONObject jsonObject = jsonArray.getJSONObject(i);
             Integer goodsId = (Integer) jsonObject.get("goodsId");
             Integer number = (Integer) jsonObject.get("number");
-            String[] specifications =  (String[])jsonObject.get("specifications");
+            String specifications =  (String)jsonObject.get("specifications");
             Integer logisticsType = (Integer) jsonObject.get("logisticsType");
             Integer inviter_id= (Integer) jsonObject.get("inviter_id");
             System.out.println("specifications = " + specifications);
-            String specification = specifications.toString();
-            Integer goodsProductId = orderMapper.getGoodsProductId(goodsId, specification);
+            Integer goodsProductId = orderMapper.getGoodsProductId(goodsId, specifications);
             if(goodsProductId == null){
                 throw new JcException("查不到对应的商品货品");
             }
@@ -133,7 +131,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
             orderGoodsEntity.setOrderId(orderId);
             orderGoodsEntity.setGoodsId(goodsId);
             orderGoodsEntity.setNumber(number);
-            orderGoodsEntity.setSpecification(specification);
+            orderGoodsEntity.setSpecification(specifications);
             Integer goodsOrder = orderMapper.createGoodsOrder(orderGoodsEntity);
             if(goodsOrder == null || goodsOrder != 1){
                 throw new JcException("数据插入失败");
