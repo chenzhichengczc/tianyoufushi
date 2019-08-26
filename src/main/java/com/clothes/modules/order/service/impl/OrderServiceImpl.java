@@ -90,10 +90,10 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
         if(jsonArray == null){
             throw new JcException("商品选择有误");
         }
-        //"[{\"goodsId\":115780,\"number\":1,
-        // \"propertyChildIds\":\"10529:3,\",\"logisticsType\":0, \"inviter_id\":0},
-        // {\"goodsId\":115780,\"number\":2,
-        // \"propertyChildIds\":\"10529:4,\",\"logisticsType\":0, \"inviter_id\":0}]"
+//        "[{\"goodsId\":115780,\"number\":1,
+//         \"propertyChildIds\":\"10529:3,\",\"logisticsType\":0, \"inviter_id\":0},
+//         {\"goodsId\":115780,\"number\":2,
+//         \"propertyChildIds\":\"10529:4,\",\"logisticsType\":0, \"inviter_id\":0}]"
 
         OrderEntity orderEntity = new OrderEntity();
         //判断是否有payId已支付，若有已付款，没有则未支付

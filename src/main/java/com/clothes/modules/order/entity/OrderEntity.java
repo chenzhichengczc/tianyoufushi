@@ -34,7 +34,7 @@ public class OrderEntity implements Serializable {
     private Integer status;
 
     @ApiModelProperty(value = "订单号",name="orderNumber")
-    @TableField("order_number")
+    @TableField("order_on")
     private String orderNumber;
 
     @ApiModelProperty(value = "商品費用",name="goodsPrice")

@@ -4,10 +4,10 @@
 <mapper namespace="com.clothes.modules.order.mapper.OrderMapper">
 
     <resultMap type="com.clothes.modules.order.entity.OrderEntity" id="orderMap">
-          <result property="id" column="id"/>
-         <result property="pic" column="pic"/>
+        <result property="id" column="id"/>
+        <result property="pic" column="pic"/>
         <result property="status" column="status"/>
-        <result property="orderNumber" column="order_number"/>
+        <result property="orderNumber" column="order_on"/>
         <result property="actualPrice" column="actual_price"/>
         <result property="remark" column="remark"/>
         <result property="orderStatisticsId" column="order_statistics_id"/>
@@ -103,12 +103,12 @@
             AND goods_id = #{goodsId}
         </if>
         <if test="specifications != null">
-            AND specifications = #{specifications}
+            AND specification = #{specifications}
         </if>
     </select>
 
     <insert id="createOrder" parameterType="com.clothes.modules.order.entity.OrderEntity" useGeneratedKeys="true" >
-        INSERT INTO order_user(status,order_number,remark,goods_price,open_id,address_id,actual_price,pay_id)
+        INSERT INTO order_user(status,order_on,remark,goods_price,open_id,address_id,actual_price,pay_id)
         VALUES (#{status},#{orderNumber},#{remark},#{goodsPrice},#{openId},#{addressId},#{actualPrice},#{payId})
     </insert>
 
