@@ -30,7 +30,7 @@ public interface OrderMapper extends BaseMapper<OrderEntity> {
                                                 @Param(value = "id") Integer id);
 
     public Integer getGoodsProductId(@Param(value = "goodsId") Integer goodsId,
-                                     @Param(value = "specifications") String specifications);
+                                     @Param(value = "specification") String specification);
 
     public Integer createOrder(OrderEntity orderEntity);
 

@@ -7,7 +7,7 @@
         <result property="id" column="id"/>
         <result property="pic" column="pic"/>
         <result property="status" column="status"/>
-        <result property="orderNumber" column="order_on"/>
+        <result property="orderOn" column="order_on"/>
         <result property="actualPrice" column="actual_price"/>
         <result property="remark" column="remark"/>
         <result property="orderStatisticsId" column="order_statistics_id"/>
@@ -58,7 +58,7 @@
 
     <resultMap id="orderDetailMap" type="com.clothes.modules.order.entity.OrderDetailEntity">
         <result property="id" column="id"/>
-        <result property="orderNumber" column="order_number"/>
+        <result property="orderOn" column="order_on"/>
         <result property="linkMan" column="link_man"/>
         <result property="mobile" column="mobile"/>
         <result property="address" column="address"/>
@@ -89,7 +89,7 @@
 
 
     <select id="getOrderDetail" resultMap="orderDetailMap">
-        SELECT a.id,a.order_number,d.link_man,d.mobile,d.address,
+        SELECT a.id,a.order_on,d.link_man,d.mobile,d.address,
         a.status,a.goods_price,a.actual_price
         FROM order_user a
         LEFT JOIN address d ON a.address_id = d.id
@@ -97,19 +97,19 @@
     </select>
 
     <select id="getGoodsProductId" resultType="Integer">
-        SELECT id FROM goods_specification
+        SELECT id FROM goods_product
         WHERE 1 = 1
         <if test="goodsId != null">
             AND goods_id = #{goodsId}
         </if>
-        <if test="specifications != null">
-            AND specification = #{specifications}
+        <if test="specification != null">
+            AND specification = #{specification}
         </if>
     </select>
 
-    <insert id="createOrder" parameterType="com.clothes.modules.order.entity.OrderEntity" useGeneratedKeys="true" >
-        INSERT INTO order_user(status,order_on,remark,goods_price,open_id,address_id,actual_price,pay_id)
-        VALUES (#{status},#{orderNumber},#{remark},#{goodsPrice},#{openId},#{addressId},#{actualPrice},#{payId})
+    <insert id="createOrder" parameterType="com.clothes.modules.order.entity.OrderEntity" keyProperty="id"  useGeneratedKeys="true" >
+        INSERT INTO order_user(order_on,remark,goods_price,open_id,address_id,actual_price,pay_id)
+        VALUES (#{orderOn},#{remark},#{goodsPrice},#{openId},#{addressId},#{actualPrice},#{payId})
     </insert>
 
     <insert id="createGoodsOrder" parameterType="com.clothes.modules.order.entity.OrderGoodsEntity">

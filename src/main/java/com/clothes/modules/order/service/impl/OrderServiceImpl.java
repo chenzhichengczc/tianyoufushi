@@ -101,15 +101,15 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
         //    orderEntity.setStatus(1);
         //}
         //获取订单号
-        //orderEntity.setOrderNumber();
+        orderEntity.setOrderOn(orderForm.getOrderOn());
         orderEntity.setRemark(orderForm.getRemark());
-        //orderEntity.setGoodsPrice();
+        orderEntity.setGoodsPrice(orderForm.getGoodsPrice());
         //获取用户openId
         String openId = jwtConfig.getWxOpenIdByToken(WebGetTokenUtils.getToken());
         orderEntity.setOpenId(openId);
         orderEntity.setAddressId(orderForm.getAddressId());
-        //orderEntity.setActualPrice();
-        //orderEntity.setPayId();
+        orderEntity.setActualPrice(orderForm.getActualPrice());
+        orderEntity.setPayId(orderForm.getPayId());
         //生成订单表,获取当前订单表id
         Integer orderId = orderMapper.createOrder(orderEntity);
         if(orderId == null || orderId == -1){
