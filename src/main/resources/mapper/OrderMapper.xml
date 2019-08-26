@@ -7,10 +7,11 @@
           <result property="id" column="id"/>
          <result property="pic" column="pic"/>
         <result property="status" column="status"/>
-        <result property="orderNumber" column="order_number"/>
+        <result property="orderOn" column="order_on"/>
         <result property="actualPrice" column="actual_price"/>
         <result property="remark" column="remark"/>
         <result property="orderStatisticsId" column="order_statistics_id"/>
+        <result property="payId" column="pay_id"></result>
         <result property="shopId" column="shop_id"/>
         <result property="createTime" column="create_time"/>
     </resultMap>
@@ -58,7 +59,7 @@
 
     <resultMap id="orderDetailMap" type="com.clothes.modules.order.entity.OrderDetailEntity">
         <result property="id" column="id"/>
-        <result property="orderNumber" column="order_number"/>
+        <result property="orderOn" column="order_on"/>
         <result property="linkMan" column="link_man"/>
         <result property="mobile" column="mobile"/>
         <result property="address" column="address"/>

@@ -1,11 +1,13 @@
 package com.clothes.modules.order.entity;
 
+
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.IdType;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import net.sf.json.JSONArray;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -29,13 +31,16 @@ public class OrderEntity implements Serializable {
     private Integer id;
 
 
+
     @ApiModelProperty(value = "状态",name="status")
     @TableField("status")
     private Integer status;
 
-    @ApiModelProperty(value = "订单号",name="orderNumber")
-    @TableField("order_number")
-    private String orderNumber;
+
+
+    @ApiModelProperty(value = "订单号",name="orderOn")
+    @TableField("order_on")
+    private String orderOn;
 
     @ApiModelProperty(value = "商品費用",name="goodsPrice")
     @TableField("goods_price")
@@ -78,5 +83,12 @@ public class OrderEntity implements Serializable {
     @ApiModelProperty(value = "更新时间",name="updateTime")
     @TableField("update_time")
     private Date updateTime;
+
+    public static void main(String[] args) {
+        String a = "[{\"goodsId\":115780,\"number\":3,\"specifications\":\"红色:XL\"}]";
+        a.replace("\\","");
+        JSONArray jsonArray = JSONArray.fromObject(a);
+        System.out.println("a1 = " + jsonArray);
+    }
 
 }

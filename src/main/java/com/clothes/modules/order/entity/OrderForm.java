@@ -1,6 +1,11 @@
 package com.clothes.modules.order.entity;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
+import org.springframework.boot.json.GsonJsonParser;
+
+import java.util.List;
 
 /**
  * @author ：fenghuang
@@ -11,6 +16,17 @@ import lombok.Data;
  */
 @Data
 public class OrderForm {
+
+    /**
+     * 订单号
+     */
+    private String orderOn;
+
+
+    /**
+     * payId
+     */
+    private String payId;
 
     /**
      * 商品信息字符串
@@ -36,4 +52,11 @@ public class OrderForm {
      * 是否累计
      */
     private Boolean calculate;
+
+    public static void main(String[] args) {
+        String a = "[{\"goodsId\":115780,\"number\":1,\"specifications\":\"黑色:XL\",\"logisticsType\":0, \"inviter_id\":0},{\"goodsId\":115780,\"number\":1,\"specifications\":\"黑色:XL\",\"logisticsType\":0, \"inviter_id\":0}]";
+        JSONArray jsonObject = JSONArray.parseArray(a);
+
+        System.out.println("objects = " + jsonObject);
+    }
 }

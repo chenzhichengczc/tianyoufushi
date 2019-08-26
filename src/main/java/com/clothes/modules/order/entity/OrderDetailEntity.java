@@ -26,8 +26,8 @@ public class OrderDetailEntity implements Serializable {
     private Integer id;
 
 
-    @ApiModelProperty(value = "订单号",name="orderNumber")
-    private String orderNumber;
+    @ApiModelProperty(value = "订单号",name="orderOn")
+    private String orderOn;
 
 
     /**
