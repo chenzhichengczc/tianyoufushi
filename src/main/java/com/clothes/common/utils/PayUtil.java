@@ -175,7 +175,6 @@ public class PayUtil {
      *
      * @param strxml
      * @return
-     * @throws org.jdom2.JDOMException
      * @throws IOException
      */
     public static Map doXMLParse(String strxml) throws Exception {
