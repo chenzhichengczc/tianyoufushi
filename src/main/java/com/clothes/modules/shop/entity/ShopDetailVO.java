@@ -4,11 +4,9 @@ import com.clothes.modules.category.entity.CategoryEntity;
 import com.clothes.modules.content.entity.ContentEntity;
 import com.clothes.modules.logistics.entity.LogisticsEntity;
 import com.clothes.modules.pics.entity.PicsEntity;
-import com.clothes.modules.properties.entity.ShopPropertiesEntity;
+import com.clothes.modules.properties.entity.GoodsSpecificationEntity;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Data;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -37,7 +35,7 @@ public class ShopDetailVO {
     private ContentEntity contentEntity;
 
     @JsonProperty(value = "properties")
-    private List<ShopPropertiesEntity> shopPropertiesEntity;
+    private List<GoodsSpecificationEntity> goodsSpecificationEntity;
 
     @JsonProperty(value = "logistics")
     private LogisticsEntity logisticsEntity;
@@ -46,12 +44,12 @@ public class ShopDetailVO {
 
     }
 
-    public ShopDetailVO(ShopEntity shopEntity, CategoryEntity categoryEntity, List<PicsEntity> picsEntity, ContentEntity contentEntity, List<ShopPropertiesEntity> shopPropertiesEntity, LogisticsEntity logisticsEntity) {
+    public ShopDetailVO(ShopEntity shopEntity, CategoryEntity categoryEntity, List<PicsEntity> picsEntity, ContentEntity contentEntity, List<GoodsSpecificationEntity> goodsSpecificationEntity, LogisticsEntity logisticsEntity) {
         this.shopEntity = shopEntity;
         this.categoryEntity = categoryEntity;
         this.picsEntity = picsEntity;
         this.contentEntity = contentEntity;
-        this.shopPropertiesEntity = shopPropertiesEntity;
+        this.goodsSpecificationEntity = goodsSpecificationEntity;
         this.logisticsEntity = logisticsEntity;
     }
 }

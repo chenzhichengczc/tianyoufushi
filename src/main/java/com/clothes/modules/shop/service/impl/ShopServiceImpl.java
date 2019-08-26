@@ -10,8 +10,8 @@ import com.clothes.modules.logistics.entity.LogisticsEntity;
 import com.clothes.modules.logistics.mapper.LogisticsMapper;
 import com.clothes.modules.pics.entity.PicsEntity;
 import com.clothes.modules.pics.mapper.PicsMapper;
-import com.clothes.modules.properties.entity.ShopPropertiesEntity;
-import com.clothes.modules.properties.mapper.ShopPropertiesMapper;
+import com.clothes.modules.properties.entity.GoodsSpecificationEntity;
+import com.clothes.modules.properties.mapper.GoodsSpecificationMapper;
 import com.clothes.modules.shop.entity.ShopDetailVO;
 import com.clothes.modules.shop.entity.ShopEntity;
 import com.clothes.modules.shop.entity.ShopUser;
@@ -20,8 +20,10 @@ import com.clothes.modules.shop.service.ShopService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ShopServiceImpl extends ServiceImpl<ShopMapper, ShopEntity> implements ShopService {
@@ -42,7 +44,7 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, ShopEntity> impleme
     private LogisticsMapper logisticsMapper;
 
     @Resource
-    private ShopPropertiesMapper shopPropertiesMapper;
+    private GoodsSpecificationMapper goodsSpecificationMapper;
 
     @Resource
     private ContentMapper contentMapper;
@@ -79,22 +81,26 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, ShopEntity> impleme
 
             //根据属性id 获取商品属性集合
             Integer propertyIds = shopEntity.getPropertyIds();
-            List<ShopPropertiesEntity> shopPropertiesEntityList = shopPropertiesMapper.selectList(new EntityWrapper<ShopPropertiesEntity>().eq("id", propertyIds));
-
-            for (ShopPropertiesEntity spe: shopPropertiesEntityList) {
-                //查询子属性
-                List<ShopPropertiesEntity> childsCurGoodsList = shopPropertiesMapper.selectList(new EntityWrapper<ShopPropertiesEntity>().eq("property_id", propertyIds));
-                //设置子属性
-                spe.setChildsCurGoods(childsCurGoodsList);
-            }
             //设置content属性
             ContentEntity contentEntity = contentMapper.selectById(id);
 
+            List<GoodsSpecificationEntity> list = new ArrayList<GoodsSpecificationEntity>();
+
+            //找该商品的原装属性
+            List<GoodsSpecificationEntity> goodsSpecificationList = goodsSpecificationMapper.selectList(new EntityWrapper<GoodsSpecificationEntity>().eq("goods_id", id).eq("sid",0));
+
+            for (int i=0; i<goodsSpecificationList.size();i++) {
+                GoodsSpecificationEntity goodsSpecificationEntity = goodsSpecificationList.get(i);
+                List<GoodsSpecificationEntity> child = goodsSpecificationMapper.selectList(new EntityWrapper<GoodsSpecificationEntity>().eq("sid", goodsSpecificationEntity.getId()));
+                goodsSpecificationEntity.setGoodsSpecificationEntity(child);
+                list.add(goodsSpecificationEntity);
+            }
+
             shopDetailVO.setShopEntity(shopEntity);
             shopDetailVO.setPicsEntity(picsList);
+            shopDetailVO.setGoodsSpecificationEntity(list);
             shopDetailVO.setCategoryEntity(categoryEntity);
             shopDetailVO.setLogisticsEntity(logisticsEntity);
-            shopDetailVO.setShopPropertiesEntity(shopPropertiesEntityList);
             shopDetailVO.setContentEntity(contentEntity);
             return shopDetailVO;
         }catch (Exception e){
