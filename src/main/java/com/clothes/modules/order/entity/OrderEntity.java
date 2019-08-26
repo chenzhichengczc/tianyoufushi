@@ -28,20 +28,21 @@ public class OrderEntity implements Serializable {
     @TableId(type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty(value = "图片",name="pic")
-    @TableField("pic")
-    private String pic;
 
     @ApiModelProperty(value = "状态",name="status")
     @TableField("status")
-    private String status;
+    private Integer status;
 
     @ApiModelProperty(value = "订单号",name="orderNumber")
     @TableField("order_number")
     private String orderNumber;
 
-    @ApiModelProperty(value = "合计",name="amountReal")
-    @TableField("amount_real")
+    @ApiModelProperty(value = "商品費用",name="goodsPrice")
+    @TableField("goods_price")
+    private BigDecimal goodsPrice;
+
+    @ApiModelProperty(value = "合计",name="actualPrice")
+    @TableField("actual_price")
     private BigDecimal actualPrice;
 
     @ApiModelProperty(value = "备注",name="remark")
@@ -56,9 +57,23 @@ public class OrderEntity implements Serializable {
     @TableField("shop_id")
     private Integer shopId;
 
+    @ApiModelProperty(value = "openId",name="openId")
+    @TableField("open_id")
+    private String openId;
+
+    @ApiModelProperty(value = "payId",name="payId")
+    @TableField("pay_id")
+    private String payId;
+
+    @ApiModelProperty(value = "addressId",name="addressId")
+    @TableField("address_id")
+    private Integer addressId;
+
     @ApiModelProperty(value = "创建时间",name="createTime")
     @TableField("create_time")
     private Date createTime;
+
+
 
     @ApiModelProperty(value = "更新时间",name="updateTime")
     @TableField("update_time")

@@ -29,4 +29,11 @@ public interface OrderMapper extends BaseMapper<OrderEntity> {
     public List<OrderGoodsEntity> getOrderGoods(@Param(value = "openId") String openId,
                                                 @Param(value = "id") Integer id);
 
+    public Integer getGoodsProductId(@Param(value = "goodsId") Integer goodsId,
+                                     @Param(value = "specifications") String specifications);
+
+    public Integer createOrder(OrderEntity orderEntity);
+
+    public Integer createGoodsOrder(OrderGoodsEntity orderGoodsEntity);
+
 }

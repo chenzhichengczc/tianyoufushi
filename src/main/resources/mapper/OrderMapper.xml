@@ -96,4 +96,25 @@
         WHERE a.id = #{id} AND a.open_id = #{openId}
     </select>
 
+    <select id="getGoodsProductId" resultType="Integer">
+        SELECT id FROM goods_specification
+        WHERE 1 = 1
+        <if test="goodsId != null">
+            AND goods_id = #{goodsId}
+        </if>
+        <if test="specifications != null">
+            AND specifications = #{specifications}
+        </if>
+    </select>
+
+    <insert id="createOrder" parameterType="com.clothes.modules.order.entity.OrderEntity" useGeneratedKeys="true" >
+        INSERT INTO order_user(status,order_number,remark,goods_price,open_id,address_id,actual_price,pay_id)
+        VALUES (#{status},#{orderNumber},#{remark},#{goodsPrice},#{openId},#{addressId},#{actualPrice},#{payId})
+    </insert>
+
+    <insert id="createGoodsOrder" parameterType="com.clothes.modules.order.entity.OrderGoodsEntity">
+        INSERT INTO order_goods(order_id,goods_id,number,specification)
+        VALUES (#{orderId},#{goodsId},#{number},#{specification})
+    </insert>
+
 </mapper>

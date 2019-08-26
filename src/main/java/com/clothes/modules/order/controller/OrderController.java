@@ -2,6 +2,7 @@ package com.clothes.modules.order.controller;
 
 import com.clothes.common.utils.ResponseUtil;
 import com.clothes.modules.order.entity.OrderEntity;
+import com.clothes.modules.order.entity.OrderForm;
 import com.clothes.modules.order.service.OrderService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,11 @@ public class OrderController {
     public ResponseUtil getOrderDetail(String openId, Integer id){
         Map<String, Object> orderDetail = orderService.getOrderDetail(openId, id);
         return ResponseUtil.success(orderDetail);
+    }
+
+    @RequestMapping(value = "/order/create", method = RequestMethod.POST)
+    public ResponseUtil createOrder(OrderForm orderForm){
+        orderService.insertForm(orderForm);
+        return  null;
     }
 }

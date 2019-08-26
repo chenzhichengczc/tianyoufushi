@@ -1,13 +1,23 @@
 package com.clothes.modules.order.service.impl;
 
+
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.clothes.common.exception.JcException;
+import com.clothes.common.utils.GetOpenIdUtils;
 import com.clothes.common.utils.OrderStatusUtils;
+import com.clothes.common.utils.WebGetTokenUtils;
+import com.clothes.conifig.JwtConfig;
 import com.clothes.modules.order.entity.OrderDetailEntity;
 import com.clothes.modules.order.entity.OrderEntity;
+import com.clothes.modules.order.entity.OrderForm;
 import com.clothes.modules.order.entity.OrderGoodsEntity;
 import com.clothes.modules.order.mapper.OrderMapper;
 import com.clothes.modules.order.service.OrderService;
+
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -27,6 +37,9 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
 
     @Resource
     private OrderMapper orderMapper;
+
+    @Resource
+    private JwtConfig jwtConfig;
 
     /**
      * 根据订单状态获取当前订单
@@ -61,5 +74,73 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
         map.put("orderInfo", orderDetail);
 
         return map;
+    }
+
+    /**
+     * 生成入订单
+     * @param orderForm
+     * @return
+     */
+    @Override
+    public Map<String, Object> insertForm(OrderForm orderForm) {
+
+        System.out.println("orderForm.getGoodsJsonStr() = " + orderForm.getGoodsJsonStr());
+        //解析JSON字符串
+        JSONArray jsonArray = JSON.parseArray(orderForm.getGoodsJsonStr());
+        System.out.println("jsonObject = " + jsonArray);
+        if(jsonArray == null){
+            throw new JcException("商品选择有误");
+        }
+        //"[{\"goodsId\":115780,\"number\":1,
+        // \"propertyChildIds\":\"10529:3,\",\"logisticsType\":0, \"inviter_id\":0},
+        // {\"goodsId\":115780,\"number\":2,
+        // \"propertyChildIds\":\"10529:4,\",\"logisticsType\":0, \"inviter_id\":0}]"
+
+        OrderEntity orderEntity = new OrderEntity();
+        //判断是否有payId已支付，若有已付款，没有则未支付
+        //if(payId != null && payId == ""){
+        //    orderEntity.setStatus(1);
+        //}
+        //获取订单号
+        //orderEntity.setOrderNumber();
+        orderEntity.setRemark(orderForm.getRemark());
+        //orderEntity.setGoodsPrice();
+        //获取用户openId
+        String openId = jwtConfig.getWxOpenIdByToken(WebGetTokenUtils.getToken());
+        orderEntity.setOpenId(openId);
+        orderEntity.setAddressId(orderForm.getAddressId());
+        //orderEntity.setActualPrice();
+        //orderEntity.setPayId();
+        //生成订单表,获取当前订单表id
+        Integer orderId = orderMapper.createOrder(orderEntity);
+        if(orderId == null || orderId == -1){
+            throw new JcException("数据插入失败");
+        }
+        for(int i=0; i< jsonArray.size();i++){
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            Integer goodsId = (Integer) jsonObject.get("goodsId");
+            Integer number = (Integer) jsonObject.get("number");
+            String[] specifications =  (String[])jsonObject.get("specifications");
+            Integer logisticsType = (Integer) jsonObject.get("logisticsType");
+            Integer inviter_id= (Integer) jsonObject.get("inviter_id");
+            System.out.println("specifications = " + specifications);
+            String specification = specifications.toString();
+            Integer goodsProductId = orderMapper.getGoodsProductId(goodsId, specification);
+            if(goodsProductId == null){
+                throw new JcException("查不到对应的商品货品");
+            }
+            OrderGoodsEntity orderGoodsEntity = new OrderGoodsEntity();
+            orderGoodsEntity.setOrderId(orderId);
+            orderGoodsEntity.setGoodsId(goodsId);
+            orderGoodsEntity.setNumber(number);
+            orderGoodsEntity.setSpecification(specification);
+            Integer goodsOrder = orderMapper.createGoodsOrder(orderGoodsEntity);
+            if(goodsOrder == null || goodsOrder != 1){
+                throw new JcException("数据插入失败");
+            }
+
+        }
+
+        return null;
     }
 }

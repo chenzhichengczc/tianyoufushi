@@ -21,7 +21,6 @@ public class WebGetTokenUtils {
     public static String getToken(){
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         String token = request.getHeader("token");
-
         return token;
     }
 }

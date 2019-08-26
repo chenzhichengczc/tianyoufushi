@@ -33,11 +33,15 @@ public class OrderGoodsEntity extends ShopEntity implements Serializable {
 
     @ApiModelProperty(value = "商品id",name="shopId")
     @TableField("shop_id")
-    private Integer shopId;
+    private Integer goodsId;
 
     @ApiModelProperty(value = "商品数量",name="number")
     @TableField("number")
     private Integer number;
+
+    @ApiModelProperty(value = "商品规格列表",name="specification")
+    @TableField("specification")
+    private String specification;
 
     @ApiModelProperty(value = "创建时间",name="createTime")
     @TableField("create_time")
