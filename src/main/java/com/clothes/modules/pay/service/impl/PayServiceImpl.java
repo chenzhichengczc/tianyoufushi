@@ -1,15 +1,18 @@
 package com.clothes.modules.pay.service.impl;
 
+import com.clothes.common.exception.JcException;
 import com.clothes.common.utils.HttpRequest;
 import com.clothes.common.utils.PayUtil;
 import com.clothes.common.utils.UUIDUtils;
 import com.clothes.conifig.WechatConfig;
 import com.clothes.modules.pay.entity.PayEntity;
+import com.clothes.modules.pay.entity.PayReultEntity;
 import com.clothes.modules.pay.mapper.PayMapper;
 import com.clothes.modules.pay.service.PayService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,6 +27,9 @@ import java.util.Map;
 @Service
 public class PayServiceImpl extends ServiceImpl<PayMapper, PayEntity> implements PayService {
 
+    @Resource
+    private PayMapper payMapper;
+
     /**
      *  微信统一下单
      * @param payEntity
@@ -31,6 +37,7 @@ public class PayServiceImpl extends ServiceImpl<PayMapper, PayEntity> implements
      */
     @Override
     public Map<String, Object> wxPay(HttpServletRequest request, PayEntity payEntity) {
+
         //返回给小程序端需要的参数
         Map<String, Object> response = null;
         try {
@@ -110,5 +117,22 @@ public class PayServiceImpl extends ServiceImpl<PayMapper, PayEntity> implements
             e.printStackTrace();
         }
         return response;
+    }
+
+    public void createPayMessage(PayReultEntity payReultEntity) {
+        //插入微信支付订单
+        Integer payMessage = payMapper.createPayMessage(payReultEntity);
+        if(payMessage != null && payMessage != 0){
+            //微信支付订单id关联订单id
+            Integer result = payMapper.updateOrderStatus(payReultEntity.getTransactionId(),
+                    payReultEntity.getOutTradeNo(), payReultEntity.getOpenid());
+            if(result == null || result != 1){
+                throw new JcException("更新订单信息失败");
+            }
+
+        }else {
+            throw new JcException("更新订单信息失败");
+        }
+
     }
 }

@@ -17,7 +17,6 @@ import java.io.Serializable;
  * @version:
  */
 @Data
-@TableName("pay")
 public class PayEntity implements Serializable {
     /**
      *
