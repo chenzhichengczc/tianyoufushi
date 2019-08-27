@@ -117,4 +117,8 @@
         VALUES (#{orderId},#{goodsId},#{number},#{specification})
     </insert>
 
+    <insert id="insertVip" parameterType="com.clothes.modules.order.entity.OrderEntity">
+        INSERT  INTO order_user(order_on,remark,goods_price,open_id,actual_price,pay_id)
+        VALUES (#{orderOn},#{remark},#{goodsPrice},#{openId},#{actualPrice},#{payId})
+    </insert>
 </mapper>

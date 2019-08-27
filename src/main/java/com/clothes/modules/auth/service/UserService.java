@@ -23,4 +23,7 @@ public interface UserService {
 
     public List<UserEntity> getUserDetail();
 
+    public UserEntity getUserFind(String Openid);
+
+    public void updateUser(String openId);
 }

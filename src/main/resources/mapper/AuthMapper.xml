@@ -7,4 +7,11 @@
         SELECT COUNT(*) FROM user WHERE open_id = #{openId}
     </select>
 
+    <select id="selectVip" resultType="com.clothes.modules.auth.entity.UserEntity">
+        SELECT vip FROM user WHERE open_id = #{Openid}
+    </select>
+
+    <update id="updateVip">
+        UPDATE user SET vip = 1 WHERE open_id =#{openId}
+    </update>
 </mapper>

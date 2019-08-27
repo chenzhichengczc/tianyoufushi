@@ -36,4 +36,5 @@ public interface OrderMapper extends BaseMapper<OrderEntity> {
 
     public Integer createGoodsOrder(OrderGoodsEntity orderGoodsEntity);
 
+    public void insertVip(OrderEntity orderEntity);
 }
