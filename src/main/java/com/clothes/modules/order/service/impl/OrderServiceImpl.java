@@ -151,4 +151,11 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
 
         return null;
     }
+
+    @Override
+    public void insertVipForm(OrderEntity orderEntity) {
+        orderMapper.insertVip(orderEntity);
+    }
+
+
 }

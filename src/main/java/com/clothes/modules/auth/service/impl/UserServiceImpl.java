@@ -9,6 +9,7 @@ import com.clothes.modules.address.entity.AddressEntity;
 import com.clothes.modules.auth.entity.UserEntity;
 import com.clothes.modules.auth.mapper.UserMapper;
 import com.clothes.modules.auth.service.UserService;
+import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,5 +78,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
         EntityWrapper<UserEntity> entityEntityWrapper = new EntityWrapper<>();
         List<UserEntity> userEntities = userMapper.selectList(entityEntityWrapper);
         return userEntities;
+    }
+
+    @Override
+    public UserEntity getUserFind(String Openid) {
+        UserEntity userEntity = userMapper.selectVip(Openid);
+        return userEntity;
+    }
+
+    @Override
+    public void updateUser(String openId) {
+        userMapper.updateVip(openId);
     }
 }

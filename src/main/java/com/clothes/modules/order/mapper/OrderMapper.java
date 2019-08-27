@@ -36,6 +36,10 @@ public interface OrderMapper extends BaseMapper<OrderEntity> {
 
     public Integer createGoodsOrder(OrderGoodsEntity orderGoodsEntity);
 
+<<<<<<< HEAD
     public Integer changeStatistics(@Param(value = "openId") String openId);
 
+=======
+    public void insertVip(OrderEntity orderEntity);
+>>>>>>> 23372585123bab0285796e6f378b904e4cb35bcb
 }

@@ -117,8 +117,15 @@
         VALUES (#{orderId},#{goodsId},#{number},#{specification})
     </insert>
 
+<<<<<<< HEAD
     <update id="changeStatistics" parameterType="String">
         UPDATE order_statistics SET noplay = noplay + 1 WHERE open_id = #{openId}
     </update>
 
+=======
+    <insert id="insertVip" parameterType="com.clothes.modules.order.entity.OrderEntity">
+        INSERT  INTO order_user(order_on,remark,goods_price,open_id,actual_price,pay_id)
+        VALUES (#{orderOn},#{remark},#{goodsPrice},#{openId},#{actualPrice},#{payId})
+    </insert>
+>>>>>>> 23372585123bab0285796e6f378b904e4cb35bcb
 </mapper>

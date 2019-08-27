@@ -52,5 +52,14 @@ public class OrderController {
     public ResponseUtil createOrder(OrderForm orderForm){
         orderService.insertForm(orderForm);
         return  ResponseUtil.success();
+
+    }
+
+    @RequestMapping(value = "/order/create/vip", method = RequestMethod.POST)
+    public ResponseUtil createOrderVip(OrderEntity orderEntity) {
+        System.out.println(orderEntity);
+        orderService.insertVipForm(orderEntity);
+        return  ResponseUtil.success();
+
     }
 }

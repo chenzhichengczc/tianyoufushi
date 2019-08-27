@@ -21,4 +21,6 @@ public interface OrderService {
     public Map<String, Object> getOrderDetail(String openId, Integer id);
 
     public Map<String, Object> insertForm(OrderForm orderForm);
+
+    public void insertVipForm(OrderEntity orderEntity);
 }

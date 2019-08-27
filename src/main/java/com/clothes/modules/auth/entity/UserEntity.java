@@ -52,5 +52,8 @@ public class UserEntity implements Serializable {
     @TableId("union_id")
     private String unionId;
 
+    @ApiModelProperty(value ="会员状态",name="vip")
+    @TableField("vip")
+    private Integer vip;
 
 }

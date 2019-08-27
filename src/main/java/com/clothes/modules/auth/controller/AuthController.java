@@ -140,4 +140,16 @@ public class AuthController {
         return ResponseUtil.success(userDetail);
     }
 
+    @RequestMapping(value ="/api/user/find",method = RequestMethod.GET)
+    public ResponseUtil getUserFind(String Openid){
+        UserEntity userEntity = userService.getUserFind(Openid);
+        return ResponseUtil.success(userEntity);
+    }
+
+    @RequestMapping(value="/api/user/vip",method = RequestMethod.POST)
+    public ResponseUtil updateUser(String openId){
+        userService.updateUser(openId);
+        return  ResponseUtil.success();
+    }
+
 }
