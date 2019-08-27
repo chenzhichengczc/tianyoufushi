@@ -51,6 +51,6 @@ public class OrderController {
     @RequestMapping(value = "/order/create", method = RequestMethod.POST)
     public ResponseUtil createOrder(OrderForm orderForm){
         orderService.insertForm(orderForm);
-        return  null;
+        return  ResponseUtil.success();
     }
 }
