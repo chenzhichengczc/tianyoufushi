@@ -75,8 +75,8 @@
         <result property="pic" column="pic"/>
     </resultMap>
     <select id="getOrderList" resultMap="orderMap">
-        SELECT b.* FROM order_statistics a LEFT JOIN order_user b
-        ON a.id = b.order_statistics_id WHERE a.open_id = #{openId} AND b.status = #{status}
+        SELECT b.* FROM  order_user b LEFT JOIN order_goods a ON b.id = a.order_id
+        WHERE b.open_id = #{openId} AND b.status = #{status}
     </select>
 
     <select id="getOrderGoods" resultMap="orderGoodsMap">
@@ -116,5 +116,9 @@
         INSERT INTO order_goods(order_id,goods_id,number,specification)
         VALUES (#{orderId},#{goodsId},#{number},#{specification})
     </insert>
+
+    <update id="changeStatistics" parameterType="String">
+        UPDATE order_statistics SET noplay = noplay + 1 WHERE open_id = #{openId}
+    </update>
 
 </mapper>

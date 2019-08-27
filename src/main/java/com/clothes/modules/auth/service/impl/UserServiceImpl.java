@@ -4,6 +4,7 @@ package com.clothes.modules.auth.service.impl;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.clothes.common.utils.GetOpenIdUtils;
+import com.clothes.common.utils.ResponseUtil;
 import com.clothes.modules.address.entity.AddressEntity;
 import com.clothes.modules.auth.entity.UserEntity;
 import com.clothes.modules.auth.mapper.UserMapper;
@@ -38,12 +39,19 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, UserEntity> impleme
     private GetOpenIdUtils getOpenIdUtils;
 
     @Override
-    public Integer checkOpenId(EntityWrapper wrapper, String openId) {
-
+    public Integer checkOpenId(EntityWrapper wrapper, UserEntity userEntity) {
+        String openId = userEntity.getOpenId();
         //根据openId判断数据库是否存在
         Integer openIdAccount = userMapper.getCount(openId);
         System.out.println("openIdAccount = " + openIdAccount);
-        return openIdAccount;
+        if(openIdAccount != null && openIdAccount != 0){
+            wrapper.eq("open_id", openId);
+            Integer update = userMapper.update(userEntity, wrapper);
+            return update;
+        }else {
+            return openIdAccount;
+        }
+
     }
 
     @Override

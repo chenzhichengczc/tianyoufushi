@@ -125,7 +125,7 @@ public class AuthController {
         String token = WebGetTokenUtils.getToken();
         String openId = jwtConfig.getWxOpenIdByToken(token);
         EntityWrapper<Integer> wrapper = new EntityWrapper<>();
-        Integer result = userService.checkOpenId(wrapper, openId);
+        Integer result = userService.checkOpenId(wrapper, userEntity);
         if(result != null && result != 0){
             return ResponseUtil.success();
         }

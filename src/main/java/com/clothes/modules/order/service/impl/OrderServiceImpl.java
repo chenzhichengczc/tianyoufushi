@@ -111,8 +111,9 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
         orderEntity.setActualPrice(orderForm.getActualPrice());
         orderEntity.setPayId(orderForm.getPayId());
         //生成订单表,获取当前订单表id
-        Integer orderId = orderMapper.createOrder(orderEntity);
-        if(orderId == null || orderId == -1){
+        orderMapper.createOrder(orderEntity);
+        Integer id = orderEntity.getId();
+        if(id == null || id == -1){
             throw new JcException("数据插入失败");
         }
         for(int i=0; i< jsonArray.size();i++){
@@ -128,7 +129,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
                 throw new JcException("查不到对应的商品货品");
             }
             OrderGoodsEntity orderGoodsEntity = new OrderGoodsEntity();
-            orderGoodsEntity.setOrderId(orderId);
+            orderGoodsEntity.setOrderId(id);
             orderGoodsEntity.setGoodsId(goodsId);
             orderGoodsEntity.setNumber(number);
             orderGoodsEntity.setSpecification(specifications);
@@ -138,6 +139,15 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
             }
 
         }
+
+        if(orderForm.getPayId() == null){
+            //订单为待付款
+            Integer integer = orderMapper.changeStatistics(openId);
+            if(integer == null || integer != 1){
+                throw new JcException("下单失败,请联系客服人员");
+            }
+        }
+
 
         return null;
     }
