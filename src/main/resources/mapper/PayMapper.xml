@@ -12,7 +12,7 @@
     </insert>
 
     <update id="updateOrderStatus" parameterType="String">
-        UPDATE order_user SET pay_id = #{transactionId} ,status = 1
+        UPDATE order_user SET pay_id = #{transactionId} ,status = 0
         WHERE open_id = #{openid} AND order_on = #{outTradeNo}
     </update>
 
