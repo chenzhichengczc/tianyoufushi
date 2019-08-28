@@ -74,9 +74,23 @@
         <result property="minPrice" column="min_price"/>
         <result property="pic" column="pic"/>
     </resultMap>
-    <select id="getOrderList" resultMap="orderMap">
-        SELECT b.* FROM  order_user b LEFT JOIN order_goods a ON b.id = a.order_id
-        WHERE b.open_id = #{openId} AND b.status = #{status}
+
+    <resultMap id="orderListMap" type="com.clothes.modules.order.entity.OrderListEntity">
+        <result property="id" column="id"/>
+        <result property="status" column="status"/>
+        <result property="orderOn" column="order_on"/>
+        <result property="pic" column="pic"/>
+        <result property="remark" column="remark"/>
+        <result property="createTime" column="create_time"/>
+        <result property="minPrice" column="min_price"/>
+        <result property="number" column="number"></result>
+    </resultMap>
+    <select id="getOrderList" resultMap="orderListMap">
+        SELECT b.id,a.status,a.order_on,c.pic,a.remark,b.create_time,c.min_price,b.number
+        FROM  order_user a
+        LEFT JOIN order_goods b ON a.id = b.order_id
+        LEFT JOIN shop c ON b.goods_id = c.id
+        WHERE a.open_id = #{openId} AND a.status = #{status}
     </select>
 
     <select id="getOrderGoods" resultMap="orderGoodsMap">
@@ -117,15 +131,13 @@
         VALUES (#{orderId},#{goodsId},#{number},#{specification})
     </insert>
 
-<<<<<<< HEAD
     <update id="changeStatistics" parameterType="String">
         UPDATE order_statistics SET noplay = noplay + 1 WHERE open_id = #{openId}
     </update>
 
-=======
     <insert id="insertVip" parameterType="com.clothes.modules.order.entity.OrderEntity">
         INSERT  INTO order_user(order_on,remark,goods_price,open_id,actual_price,pay_id)
         VALUES (#{orderOn},#{remark},#{goodsPrice},#{openId},#{actualPrice},#{payId})
     </insert>
->>>>>>> 23372585123bab0285796e6f378b904e4cb35bcb
+
 </mapper>

@@ -2,6 +2,7 @@ package com.clothes.modules.order.service;
 
 import com.clothes.modules.order.entity.OrderEntity;
 import com.clothes.modules.order.entity.OrderForm;
+import com.clothes.modules.order.entity.OrderListEntity;
 import com.clothes.modules.shop.entity.ShopEntity;
 
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.Map;
  */
 public interface OrderService {
 
-    public List<OrderEntity> orderList(String openId, Integer status);
+    public List<OrderListEntity> orderList(String openId, Integer status);
 
     public Map<String, Object> getOrderDetail(String openId, Integer id);
 

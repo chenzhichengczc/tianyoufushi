@@ -8,6 +8,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.sql.Date;
 
 /**
  * @author ：fenghuang
@@ -17,7 +18,7 @@ import java.math.BigDecimal;
  * @version:
  */
 @Data
-public class OrderDetailEntity implements Serializable {
+public class OrderDetailEntity  implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -25,11 +26,8 @@ public class OrderDetailEntity implements Serializable {
     @TableId(type = IdType.AUTO)
     private Integer id;
 
-
     @ApiModelProperty(value = "订单号",name="orderOn")
     private String orderOn;
-
-
     /**
      * 联系人
      */
@@ -47,6 +45,7 @@ public class OrderDetailEntity implements Serializable {
     @ApiModelProperty(value = "状态",name="status")
     @TableField("status")
     private Integer status;
+
 
     @ApiModelProperty(value = "商品金额",name="goodsPrice")
     @TableField("goods_price")

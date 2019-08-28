@@ -3,6 +3,7 @@ package com.clothes.modules.order.controller;
 import com.clothes.common.utils.ResponseUtil;
 import com.clothes.modules.order.entity.OrderEntity;
 import com.clothes.modules.order.entity.OrderForm;
+import com.clothes.modules.order.entity.OrderListEntity;
 import com.clothes.modules.order.service.OrderService;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,8 @@ public class OrderController {
      */
     @RequestMapping(value = "/order/list", method = RequestMethod.GET)
     public ResponseUtil getOrderList(String openId, Integer status){
-        Map<String, List<OrderEntity>> map = new HashMap<>();
-        List<OrderEntity> orderList = orderService.orderList(openId, status);
+        Map<String, List<OrderListEntity>> map = new HashMap<>();
+        List<OrderListEntity> orderList = orderService.orderList(openId, status);
         map.put("orderList", orderList);
         return ResponseUtil.success(map);
     }

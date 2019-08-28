@@ -26,10 +26,6 @@ public class StatisticsEntity implements Serializable {
     @TableId(type = IdType.AUTO)
     private Integer id;
 
-    @ApiModelProperty(value = "公告",name="noplay")
-    @TableField("noplay")
-    private String noplay;
-
     @ApiModelProperty(value = "公告",name="notransfer")
     @TableField("notransfer")
     private String notransfer;
@@ -38,9 +34,6 @@ public class StatisticsEntity implements Serializable {
     @TableField("noconfirm")
     private String noconfirm;
 
-    @ApiModelProperty(value = "公告",name="noreputation")
-    @TableField("noreputation")
-    private String noreputation;
 
     @ApiModelProperty(value = "openId",name="openId")
     @TableField("open_id")

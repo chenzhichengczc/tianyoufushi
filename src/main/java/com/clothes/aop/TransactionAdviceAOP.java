@@ -64,11 +64,13 @@ public class TransactionAdviceAOP {
         map.put("get*", ruleSelect);
         map.put("select*", ruleSelect);
         map.put("insert*", ruleChange);
+        map.put("create*", ruleChange);
         map.put("add*", ruleChange);
         map.put("batch*", ruleChange);
         map.put("update*", ruleChange);
         map.put("change*", ruleChange);
         map.put("delete*", ruleChange);
+        map.put("remove*", ruleChange);
 
         source.setNameMap(map);
         //配置事务拦截器

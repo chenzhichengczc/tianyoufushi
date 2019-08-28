@@ -10,6 +10,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @ApiModel("分页图片展览")
@@ -63,7 +64,7 @@ public class ShopEntity {
     private String kanjia;
 
     @ApiModelProperty(value = "姓名",name="kanjiaPrice")
-    private Integer kanjiaPrice;
+    private BigDecimal kanjiaPrice;
 
     @ApiModelProperty(value = "成交金额",name="limitation")
     private String limitation;
@@ -75,7 +76,7 @@ public class ShopEntity {
     private String miaosha;
 
     @ApiModelProperty(value = "姓名",name="minPrice")
-    private Integer minPrice;
+    private BigDecimal minPrice;
 
     @ApiModelProperty(value = "成交金额",name="minScore")
     private Integer minScore;
@@ -96,7 +97,7 @@ public class ShopEntity {
     private Integer numberSells;
 
     @ApiModelProperty(value = "成交金额",name="originalPrice")
-    private Integer originalPrice;
+    private BigDecimal originalPrice;
 
     @ApiModelProperty(value = "姓名",name="name")
     private Integer paixu;
@@ -108,7 +109,7 @@ public class ShopEntity {
     private String pingtuan;
 
     @ApiModelProperty(value = "姓名",name="pingtuanPrice")
-    private Integer pingtuanPrice;
+    private BigDecimal pingtuanPrice;
 
     private Integer propertyIds;
 

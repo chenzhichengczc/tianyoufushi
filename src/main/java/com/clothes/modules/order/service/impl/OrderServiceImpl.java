@@ -10,10 +10,7 @@ import com.clothes.common.exception.JcException;
 import com.clothes.common.utils.OrderStatusUtils;
 import com.clothes.common.utils.WebGetTokenUtils;
 import com.clothes.conifig.JwtConfig;
-import com.clothes.modules.order.entity.OrderDetailEntity;
-import com.clothes.modules.order.entity.OrderEntity;
-import com.clothes.modules.order.entity.OrderForm;
-import com.clothes.modules.order.entity.OrderGoodsEntity;
+import com.clothes.modules.order.entity.*;
 import com.clothes.modules.order.mapper.OrderMapper;
 import com.clothes.modules.order.service.OrderService;
 
@@ -46,8 +43,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderEntity> impl
      * @param status
      * @return
      */
-    public List<OrderEntity> orderList(String openId, Integer status) {
-        List<OrderEntity> orderList = orderMapper.getOrderList(openId, status);
+    public List<OrderListEntity> orderList(String openId, Integer status) {
+        List<OrderListEntity> orderList = orderMapper.getOrderList(openId, status);
         return orderList;
     }
 
