@@ -147,8 +147,8 @@ public class AuthController {
     }
 
     @RequestMapping(value="/api/user/vip",method = RequestMethod.POST)
-    public ResponseUtil updateUser(String openId){
-        userService.updateUser(openId);
+    public ResponseUtil updateUser(String openId,String sName, Integer sPhone){
+        userService.updateUser(openId,sName,sPhone);
         return  ResponseUtil.success();
     }
 

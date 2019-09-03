@@ -4,6 +4,7 @@ package com.clothes.modules.auth.mapper;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.clothes.modules.auth.entity.UserEntity;
+import io.swagger.models.auth.In;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -19,5 +20,5 @@ public interface UserMapper extends BaseMapper<UserEntity> {
 
     public UserEntity selectVip(@Param(value = "Openid") String Openid);
 
-    public void updateVip(@Param(value = "openId") String openId);
+    public void updateVip(@Param(value = "openId") String openId,@Param(value = "sName") String sName,@Param(value = "sPhone") Integer sPhone);
 }

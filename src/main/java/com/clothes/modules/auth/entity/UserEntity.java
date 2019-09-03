@@ -56,4 +56,13 @@ public class UserEntity implements Serializable {
     @TableField("vip")
     private Integer vip;
 
+    @ApiModelProperty(value ="会员名字",name="sName")
+    @TableField("sName")
+    private String sName;
+
+    @ApiModelProperty(value ="会员电话",name="sPhone")
+    @TableField("sPhone")
+    private Integer sPhone;
+
+
 }

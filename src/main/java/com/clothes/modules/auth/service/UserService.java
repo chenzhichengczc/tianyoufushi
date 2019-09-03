@@ -25,5 +25,5 @@ public interface UserService {
 
     public UserEntity getUserFind(String Openid);
 
-    public void updateUser(String openId);
+    public void updateUser(String openId,String sName, Integer sPhone);
 }

@@ -12,6 +12,6 @@
     </select>
 
     <update id="updateVip">
-        UPDATE user SET vip = 1 WHERE open_id =#{openId}
+        UPDATE user SET vip = 1,sName = #{sName} , sPhone = #{sPhone} WHERE open_id =#{openId}
     </update>
 </mapper>
