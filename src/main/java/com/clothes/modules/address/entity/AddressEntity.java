@@ -65,4 +65,10 @@ public class AddressEntity implements Serializable {
 	 * 微信openId
 	 */
 	private String openId;
+
+	private String cityId;
+
+	private String districtId;
+
+	private String provinceId;
 }

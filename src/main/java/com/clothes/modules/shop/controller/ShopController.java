@@ -30,7 +30,7 @@ public class ShopController {
     public ResponseUtil shopEntityList(int recommendStatus, int pageSize){
         PageHelper.startPage(recommendStatus, pageSize);
         EntityWrapper<ShopEntity> wrapper = new EntityWrapper<ShopEntity>();
-        List<ShopEntity> pageList =shopService.getList(wrapper);
+        List<ShopEntity> pageList =shopService.getList(wrapper,recommendStatus);
         PageInfo<ShopEntity> pageInfo=new PageInfo<>(pageList);
         return ResponseUtil.success(pageInfo);
     }

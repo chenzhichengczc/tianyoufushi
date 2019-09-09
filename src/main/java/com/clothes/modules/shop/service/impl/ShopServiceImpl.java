@@ -50,8 +50,8 @@ public class ShopServiceImpl extends ServiceImpl<ShopMapper, ShopEntity> impleme
     private ContentMapper contentMapper;
 
     @Override
-    public List<ShopEntity> getList(EntityWrapper<ShopEntity> wrapper) {
-        List<ShopEntity> entityList=shopMapper.selectList(wrapper);
+    public List<ShopEntity> getList(EntityWrapper<ShopEntity> wrapper,Integer recommendStatus) {
+        List<ShopEntity> entityList=shopMapper.selectList(wrapper.eq("recommend_status",recommendStatus));
         return entityList;
     }
 

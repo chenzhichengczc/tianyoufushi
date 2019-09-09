@@ -134,11 +134,11 @@ public class AuthController {
     }
 
 
-    @RequestMapping(value = "/user/detail", method = RequestMethod.GET)
-    public ResponseUtil getUserDetail(String token){
-        List<UserEntity> userDetail = userService.getUserDetail();
-        return ResponseUtil.success(userDetail);
-    }
+//    @RequestMapping(value = "/user/detail", method = RequestMethod.GET)
+//    public ResponseUtil getUserDetail(String token){
+//        List<UserEntity> userDetail = userService.getUserDetail();
+//        return ResponseUtil.success(userDetail);
+//    }
 
     @RequestMapping(value ="/api/user/find",method = RequestMethod.GET)
     public ResponseUtil getUserFind(String Openid){
